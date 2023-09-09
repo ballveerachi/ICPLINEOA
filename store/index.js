@@ -66,7 +66,7 @@ export const actions = {
   setDialog({ commit},data){
     commit('SET_DIALOG',data)
   },
-  setline({ commit},data){
+  setLine({ commit},data){
     commit('SET_LINE',data)
   },
 }
