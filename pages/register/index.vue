@@ -10,11 +10,12 @@
       step 1 of 2
     </div>
     </v-col>
-    <v-col cols="12"  class="text-center pb-0 " >
-      <img src="~/assets/user.png" alt="" width="155">
+    <v-col cols="12"  class="text-center pb-0 profile-img" >
+      <img v-if="getLine.pictureUrl =='' " src="~/assets/user.png" alt="" width="155">
+      <img v-else :src ="getLine.pictureUrl" alt="" width="155">
     </v-col>
     <v-col cols="12" class="text-center pt-2 pb-0">
-      display name
+      {{getLine.displayName}}
     </v-col>
     <v-col cols="12">
       <v-form>
@@ -42,8 +43,33 @@
 
 <script>
 export default {
+  mounted(){
+    liff.init({
+      liffId:'2000700725-PRVZgqqz'
+    }).than(() => {
+      if(liff.isLoggedIn()){
+        liff.getProfile().then(profile => {
+          console.log(profile)
+          // this.profile.pictureUrl= profile.pictureUrl
+          // this.profile.displayName= profile.displayName
+          // this.profile.userId= profile.userId
+          this.$store.dispatch('setLine',profile);
+        })
+      }else{
+          lif.login();
+      }
+    })
+  },
+  computed:{
+    getLine(){
+      return this.$store.getters.getLine;
+
+    }
+  },
+
 data(){
   return  {
+
     form: {
         firstname : this.$store.getters.getRegister.firstname,
         lastname : this.$store.getters.getRegister.lastname,
@@ -51,7 +77,9 @@ data(){
   }
 },
 methods:{
+  isDone(){
 
+  },
   validate(){
     let validated = true
     const errors =[]
@@ -92,5 +120,10 @@ methods:{
 <style lang="scss" scoped>
 .v-form{
   padding: 0 10px;
+}
+.profile-img{
+  img{
+    border-radius: 50%;
+  }
 }
 </style>

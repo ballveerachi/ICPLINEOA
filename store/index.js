@@ -4,6 +4,12 @@ export const state = () =>({
     title: '',
     message: ''
   },
+  line:{
+    pictureUrl: null,
+    displayName: null,
+    userId: null,
+  },
+
   register: {
     firstname:'',
     lastname:'',
@@ -26,6 +32,9 @@ export const getters = {
   },
   getDialog(state){
     return state.dialog
+  },
+  getLine(state){
+    return state.line
   }
 
 }
@@ -41,7 +50,13 @@ export const mutations = {
       ...state.dialog,
       ...data
       }
-    }
+    },
+    SET_LINE(state, data){
+      state.line ={
+        ...state.line,
+        ...data
+        }
+      }
   }
 
 export const actions = {
@@ -50,5 +65,8 @@ export const actions = {
   },
   setDialog({ commit},data){
     commit('SET_DIALOG',data)
+  },
+  setline({ commit},data){
+    commit('SET_LINE',data)
   },
 }
