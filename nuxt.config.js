@@ -17,15 +17,12 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {rel:'StyleSheet',href:'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap'},
-      {rel:'StyleSheet',href:'https://fonts.googleapis.com/icon?family=Material+Icons'},
-
-
-    ],
-    script:[
-      {src: "https://static.line-scdn.net/liff/edge/2.1/sdk.js"}
+      {rel:'StyleSheet',href:'https://fonts.googleapis.com/icon?family=Material+Icons'}
     ]
   },
-
+  script:[
+    {src:"https://static.line-scdn.net/liff/edge/2/sdk.js"}
+  ],
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
