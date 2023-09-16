@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     home() {
-      this.$router.push("/register/step2");
+      this.$router.push("/");
     },
     close() {
       liff.closeWindow();

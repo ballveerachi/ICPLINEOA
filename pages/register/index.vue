@@ -84,7 +84,10 @@ export default {
     };
   },
   methods: {
-    isDone() {},
+    isDone() {
+
+    },
+
     validate() {
       let validated = true;
       const errors = [];
