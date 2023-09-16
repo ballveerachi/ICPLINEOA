@@ -54,25 +54,20 @@
 </template>
 
 <script>
+import liff from "@line/liff";
 export default {
   mounted() {
-    liff
-      .init({
-        liffId:'2000700725-PRVZgqqz',
-      })
-      .than(() => {
-        if(liff.isLoggedIn()) {
-          liff.getProfile().then((profile) => {
-            console.log(profile);
-            // this.profile.pictureUrl= profile.pictureUrl
-            // this.profile.displayName= profile.displayName
-            // this.profile.userId= profile.userId
-            this.$store.dispatch("setLine", profile);
-          });
-        } else {
-          liff.login();
-        }
-      });
+    liff.init({ liffId: "2000700725-PRVZgqqz" });
+    liff.ready.then(() => {
+      if (liff.isLoggedIn()) {
+        liff.getProfile().then((profile) => {
+          this.$store.dispatch("setLine",profile);
+        });
+      } else {
+        liff.login();
+      }
+      console.log("Line");
+    });
   },
   computed: {
     getLine() {

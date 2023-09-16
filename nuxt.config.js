@@ -20,9 +20,12 @@ export default {
       {rel:'StyleSheet',href:'https://fonts.googleapis.com/icon?family=Material+Icons'}
     ]
   },
-  script:[
-    {src:"https://static.line-scdn.net/liff/edge/2/sdk.js"}
+  script: [
+    {
+      src: 'https://static.line-scdn.net/liff/edge/2.1/sdk.js'
+    }
   ],
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
