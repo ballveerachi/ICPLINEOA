@@ -103,7 +103,7 @@ export default {
         this.phoneValidated = true
         return true
       }
-      return 'Plase input phonenumber'
+      return 'Plase input phone number'
     },
 
     emilValidator(value){
@@ -137,9 +137,18 @@ export default {
 
     register() {
       if(this.validate()){
-        // this.$store.dispatch('setRegister',this.form)
-        // console.log("สมัครเรียบร้อย",this.form);
-        this.$router.push("/register/done");
+         this.$store.dispatch('setRegister',this.form)
+         console.log("สมัครเรียบร้อย",this.form);
+        //this.$router.push("/register/done");
+        //axios
+        // .post("http://localhost/ICPScoreCard/api-member.php", {
+        //     action: "insert",
+        //     lineid: this.form.lineid,
+        //     firstname: this.form.firstname,
+        //     lastname: this.form.lastname,
+        //     phone: this.form.phone,
+        //     birthday: this.form.birthday,
+        //   })
       }
 
     },
