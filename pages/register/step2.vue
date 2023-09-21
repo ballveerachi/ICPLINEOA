@@ -77,7 +77,7 @@ export default {
   data() {
     return {
       form: {
-        lineid: this.$store.getters.getLine.userId,
+        member_id: this.$store.getters.getLine.userId,
         firstname : this.$store.getters.getRegister.firstname,
         lastname : this.$store.getters.getRegister.lastname,
         email: this.$store.getters.getRegister.email,
