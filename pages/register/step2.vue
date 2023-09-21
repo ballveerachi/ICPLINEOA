@@ -140,15 +140,23 @@ export default {
          this.$store.dispatch('setRegister',this.form)
          console.log("สมัครเรียบร้อย",this.form);
         //this.$router.push("/register/done");
-        //axios
-        // .post("http://localhost/ICPScoreCard/api-member.php", {
-        //     action: "insert",
-        //     lineid: this.form.lineid,
-        //     firstname: this.form.firstname,
-        //     lastname: this.form.lastname,
-        //     phone: this.form.phone,
-        //     birthday: this.form.birthday,
-        //   })
+        axios
+          .post("http://localhost/ICPScoreCard/api-member.php", {
+            action: "insert",
+            member_id: this.member.member_id,
+            full_name: this.member.full_name,
+            email: this.member.email,
+            password: this.member.password,
+            status: this.member.status,
+          })
+          .then((res) => {
+            console.log(res);
+            this.resetForm();
+            this.getAllUser();
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
 
     },

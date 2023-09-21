@@ -16,7 +16,7 @@
                 class="w-100 text-center my-btn outlined text-primary mt-5"
                 @click="userid"
               >
-                ล็อกอินด้วยอีเมลล์
+                ล็อกอิน
               </div>
               <p class="text-center  mt-5 ">หรือ</p>
               <v-btn
@@ -25,10 +25,11 @@
                 dark
                 class="w-100 mt-1 my-btn1"
                 @click="line"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />ล็อกอินด้วยบัญชี Line</v-btn
-
               >
-
-
+              <div class="text-right mt-2 ">
+                ยังไม่มีบัญชีใช่ไหม
+                <router-link :to="{name:'register'}">สมัครใช้งาน</router-link>
+              </div>
             </div>
           </div>
         </v-col>

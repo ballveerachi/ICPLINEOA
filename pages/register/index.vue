@@ -11,12 +11,7 @@
           </div>
         </v-col>
         <v-col cols="12" class="text-center pb-0 profile-img">
-          <img
-            v-if="getLine.pictureUrl == ''"
-            src="~/assets/user.png"
-            alt=""
-            width="155"
-          />
+          <img v-if="getLine.pictureUrl ==''" src="~/assets/user.png" alt="" width="155"/>
           <img v-else :src="getLine.pictureUrl" alt="" width="155" />
         </v-col>
         <v-col cols="12" class="text-center pt-2 pb-0">
@@ -25,17 +20,17 @@
         <v-col cols="12">
           <v-form>
             <v-text-field
-              v-model="form.firstname"
-              label="Firstname"
+              v-model="form.full_name"
+              label="Fullname/ชื่อ-นามสกุล"
               dense
               required
             ></v-text-field>
-            <v-text-field
+            <!-- <v-text-field
               v-model="form.lastname"
               label="Lastname"
               dense
               required
-            ></v-text-field>
+            ></v-text-field> -->
           </v-form>
           <div>
             <v-btn
@@ -43,8 +38,8 @@
               color="primary"
               dark
               class="w-100 mt-9 my-btn"
-              @click="next"
-              >Next</v-btn
+              @click="register"
+              >Register</v-btn
             >
           </div>
         </v-col>
@@ -54,6 +49,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import liff from "@line/liff";
 export default {
   mounted() {
@@ -63,8 +59,8 @@ export default {
         liff.getProfile().then((profile) => {
           this.$store.dispatch("setLine",profile);
         });
-      } else {
-        liff.login();
+      // } else {
+      //   liff.login();
       }
       console.log("Line");
     });
@@ -78,8 +74,11 @@ export default {
   data() {
     return {
       form: {
-        firstname: this.$store.getters.getRegister.firstname,
-        lastname: this.$store.getters.getRegister.lastname,
+        member_id: this.$store.getters.getLine.userId,
+        // member_id: '54545454',
+        full_name: this.$store.getters.getRegister.firstname,
+          // firstname: this.$store.getters.getRegister.firstname,
+          // lastname: this.$store.getters.getRegister.lastname,
       },
     };
   },
@@ -91,22 +90,45 @@ export default {
     validate() {
       let validated = true;
       const errors = [];
-      const validatorField = ["firstname", "lastname"];
+      const validatorField = ["fullname",];
       validatorField.forEach((field) => {
         if (this.form[field] == "") {
           validated = false;
-          errors.push(`${field} can not be null`);
+          errors.push(` กรุณากรอก ชื่อ-นามสกุล`);
         }
       });
       if (!validated) {
         this.dialog = true;
         this.$store.dispatch("setDialog", {
           isShow: true,
-          title: "Form is error",
+          title: "ข้อมูลไม่ถูกต้อง !",
           message: errors.map((error) => error + "</br>").join(""),
         });
       }
       return validated;
+    },
+    register(){
+      if(this.validate()){
+         this.$store.dispatch('setRegister',this.form)
+         console.log("สมัครเรียบร้อย",this.form);
+        //this.$router.push("/register/done");
+        axios
+          .post("http://localhost/ICPScoreCard/api-member.php", {
+            action: "insert_register",
+            member_id: this.form.member_id,
+            full_name: this.form.full_name,
+            // email: this.member.email,
+            // password: this.member.password,
+            // status: this.member.status,
+          })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+        }
     },
 
     next() {
