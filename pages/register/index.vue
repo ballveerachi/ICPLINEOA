@@ -83,12 +83,13 @@ export default {
   data() {
     return {
       form: {
+        full_name:this.$store.getters.getRegister.full_name,
         member_id: this.$store.getters.getLine.userId,
         firstname : this.$store.getters.getRegister.firstname,
         lastname : this.$store.getters.getRegister.lastname,
         email: 'ewrewrewr',
         phone: '6666',
-        birthday: '44445757',
+        birthday: this.$store.getters.getRegister.birthday,
       },
     };
   },
