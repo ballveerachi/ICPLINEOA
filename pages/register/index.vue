@@ -86,9 +86,9 @@ export default {
         member_id: this.$store.getters.getLine.userId,
         firstname : this.$store.getters.getRegister.firstname,
         lastname : this.$store.getters.getRegister.lastname,
-        email: this.$store.getters.getRegister.email,
-        phone: this.$store.getters.getRegister.phone,
-        birthday: this.$store.getters.getRegister.birthday,
+        email: 'ewrewrewr',
+        phone: '6666',
+        birthday: '44445757',
       },
     };
   },

@@ -11,11 +11,10 @@ export const state = () =>({
   },
 
   register: {
-    userId: '',
     fullname:'',
     firstname:'',
     lastname:'',
-    emil: 'qweqwrqwr',
+    emil: '',
     phone: '',
     birthday:new Date().toISOString().substr(0, 10),
         // member_id: '',
