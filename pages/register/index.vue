@@ -41,6 +41,14 @@
               @click="register"
               >Register</v-btn
             >
+            <v-btn
+              rounded
+              color="primary"
+              dark
+              class="w-100 mt-9 my-btn"
+              @click="next"
+              >next</v-btn
+            >
           </div>
         </v-col>
       </v-row>
@@ -58,6 +66,7 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.$store.dispatch("setLine",profile);
+          console.log('lineid',(userId))
         });
       // } else {
       //   liff.login();
@@ -75,10 +84,11 @@ export default {
     return {
       form: {
         member_id: this.$store.getters.getLine.userId,
-        // member_id: '54545454',
         full_name: this.$store.getters.getRegister.firstname,
           // firstname: this.$store.getters.getRegister.firstname,
           // lastname: this.$store.getters.getRegister.lastname,
+          // member_id: '54545454',
+
       },
     };
   },
