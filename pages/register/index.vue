@@ -65,6 +65,7 @@ export default {
     liff.ready.then(() => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
+          this.$store.dispatch('setRegister',this.form)
           this.$store.dispatch("setLine",profile);
           console.log('lineid',(this.form.userId))
         });
@@ -84,11 +85,11 @@ export default {
     return {
       form: {
         member_id: this.$store.getters.getLine.userId,
-        full_name: this.$store.getters.getRegister.firstname,
-          // firstname: this.$store.getters.getRegister.firstname,
-          // lastname: this.$store.getters.getRegister.lastname,
-          // member_id: '54545454',
-
+        firstname : this.$store.getters.getRegister.firstname,
+        lastname : this.$store.getters.getRegister.lastname,
+        email: this.$store.getters.getRegister.email,
+        phone: this.$store.getters.getRegister.phone,
+        birthday: this.$store.getters.getRegister.birthday,
       },
     };
   },
