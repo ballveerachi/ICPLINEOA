@@ -65,7 +65,6 @@ export default {
     liff.ready.then(() => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
-          this.$store.dispatch('setRegister',this.form)
           this.$store.dispatch("setLine",profile);
           console.log('lineid',(this.form.userId))
         });
