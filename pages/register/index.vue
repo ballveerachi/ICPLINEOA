@@ -66,7 +66,7 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.$store.dispatch("setLine",profile);
-          this.isDone();
+          // this.isDone();
           console.log('lineid',profile.userId)
         });
       } else {
@@ -91,26 +91,26 @@ export default {
     };
   },
   methods: {
-    isDone() {axios
-          .get("http://localhost/ICPScoreCard/api-member.php", {
-            action: "insert_register",
-            member_id: this.$store.getters.getLine.userId,
-            full_name: this.form.full_name,
-            // email: this.member.email,
-            // password: this.member.password,
-            // status: this.member.status,
-          })
-          .then((res) => {
-            if(res.data != null){
-              this.$router.push('register/done');
-            }
-            console.log(res);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+    // isDone() {axios
+    //       .get("http://localhost/ICPScoreCard/api-member.php", {
+    //         action: "insert_register",
+    //         member_id: this.$store.getters.getLine.userId,
+    //         full_name: this.form.full_name,
+    //         // email: this.member.email,
+    //         // password: this.member.password,
+    //         // status: this.member.status,
+    //       })
+    //       .then((res) => {
+    //         if(res.data != null){
+    //           this.$router.push('register/done');
+    //         }
+    //         console.log(res);
+    //       })
+    //       .catch(function (error) {
+    //         console.log(error);
+    //       });
 
-        }
+    //     }
 
     },
 
