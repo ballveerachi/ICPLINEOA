@@ -26,11 +26,7 @@
         <ul>
           <li>
             <div class="container">
-              <img
-                alt="diability"
-                style="width: 100%; max-width: 300px"
-                src="../assets/diability.png"
-              />
+              <img class="img_respon" src="~/assets/plan.png" alt=""  />
             </div>
           </li>
         </ul>
