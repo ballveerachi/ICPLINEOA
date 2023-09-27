@@ -7,10 +7,11 @@ export const state = () =>({
   line:{
     pictureUrl: null,
     displayName: null,
-    userId: null,
+    // userId: null,
   },
 
   register: {
+    member_id:'',
     fullname:'',
     firstname:'',
     lastname:'',
