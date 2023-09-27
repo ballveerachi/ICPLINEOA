@@ -68,7 +68,7 @@ export default {
           this.$store.dispatch("setLine",profile);
           this.$store.dispatch("setRegister",profile.userId);
           console.log('profile.userId',profile)
-          console.log('lineid',this.form.member_id)
+          console.log('lineid',profile.userId)
         });
        } else {
         liff.login();
@@ -85,7 +85,7 @@ export default {
   data() {
     return {
       form: {
-        member_id:this.$store.getters.getLine.userId,
+        member_id:this.$store.getters.setLine.profile.userId,
         full_name:this.$store.getters.getRegister.full_name,
         firstname : this.$store.getters.getRegister.firstname,
         lastname : this.$store.getters.getRegister.lastname,
