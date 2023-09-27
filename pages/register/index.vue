@@ -19,7 +19,7 @@
             กรอกชื่อที่ต้องการ
           </div>
           <v-form>
-            <v-text-field
+            <v-text-field class="mt-7"
               v-model="form.full_name"
               label="Fullname/ชื่อ-นามสกุล"
               dense
@@ -65,11 +65,13 @@ export default {
     liff.ready.then(() => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
+          this.$store.dispatch("setRegister", this.form);
           this.$store.dispatch("setLine",profile);
+          this.$store.dispatch("setRegister", this.form);
           console.log('lineid',this.form.member_id)
         });
-       } else {
-         liff.login();
+       //} else {
+       //  liff.login();
       }
       console.log("ล็อกอินเสร็จแล้ว",this.form.member_id);
     });
