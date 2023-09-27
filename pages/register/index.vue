@@ -71,7 +71,7 @@ export default {
       } else {
         liff.login();
       }
-      console.log("ล็อกอินเสร็จแล้ว",this.$store.getters.getLine.userId);
+      console.log("ล็อกอินเสร็จแล้ว",this.$store.getters.getLine.profile);
     });
   },
   computed: {
@@ -86,11 +86,6 @@ export default {
         userId:this.$store.getters.getLine.userId,
         member_id:this.$store.getters.getLine.userId,
         full_name:this.$store.getters.getRegister.full_name,
-        firstname : this.$store.getters.getRegister.firstname,
-        lastname : this.$store.getters.getRegister.lastname,
-        email: 'ewrewrewr',
-        phone: '6666',
-        birthday: this.$store.getters.getRegister.birthday,
       },
     };
   },
