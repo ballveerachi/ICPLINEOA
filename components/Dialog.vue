@@ -6,7 +6,7 @@ persistent
 >
 <v-card>
   <v-card-title>{{ getDialog.title }} </v-card-title>
-  <v-card-text v-html="getDialog.message"> </v-card-text>
+  <v-card-text v-html="getDialog.message"/> 
   <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="teal lighten-3

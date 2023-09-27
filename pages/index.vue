@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-app-bar color="primary" dense flat dark> </v-app-bar>
+    <v-toolbar-title class="mt-4">Individual Career Plan</v-toolbar-title>
     <v-row>
       <v-col cols="12" sm="8" md="6">
-        <img alt="ICP logo" src="../assets/icp.png" width="100" />
+        <img class="img_respon" src="~/assets/disabled.png" alt=""  />
         <p>
           เพื่อส่งเสริมโอกาสให้คนพิการที่มีการศึกษา
           มีศักยภาพสูงให้ได้ทํางานในสถานประกอบการ

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-app-bar color="primary" dense flat dark>
-      <v-toolbar-title>Login</v-toolbar-title>
-    </v-app-bar>
+    <v-app-bar  dense flat dark>
+      <v-toolbar-title>Login</v-toolbar-title> </v-app-bar
+    >
     <v-container class="pt-0 pb-0">
       <v-row>
         <v-col cols="12">
@@ -16,14 +16,14 @@
                 class="w-100 text-center my-btn outlined text-primary mt-5"
                 @click="userid"
               >
-                ล็อกอิน
+                ล็อกอินด้วยบัญชีอีเมลล์
               </div>
-              <p class="text-center  mt-5 ">หรือ</p>
+              <p class="text-center  mt-4 ">หรือ</p>
               <v-btn
                 rounded
                 color="green"
                 dark
-                class="w-100 mt-1 my-btn1"
+                class="w-100 mt-0 my-btn1"
                 @click="line"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />ล็อกอินด้วยบัญชี Line</v-btn
               >
               <div class="text-right mt-2 ">

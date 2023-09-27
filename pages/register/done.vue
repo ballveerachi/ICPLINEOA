@@ -1,16 +1,16 @@
 <template>
   <div>
-    <v-app-bar color="primary" dense flat dark>
-      <v-toolbar-title>Register</v-toolbar-title>
-    </v-app-bar>
+    <v-app-bar  dense flat dark>
+      <v-toolbar-title>Register</v-toolbar-title> </v-app-bar
+    >
     <v-container class="pt-0 pb-0">
       <v-row>
         <v-col cols="12">
           <div class="set-padding">
             <div class="text-center mt-10">
               <img src="~/assets/welcome.png" alt="" width="230px" />
-              <h1 class="text-title">Welcome,{{name}}</h1>
-              <p class="mt-5">welcome to ICP</p>
+              <h1 class="text-title">Register Success</h1>
+              <p class="text_p mt-5">welcome ,{{name}} to ICP</p>
             </div>
             <div>
               <v-btn
@@ -53,5 +53,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.text_p{
+  font-size: 20px!important;
+}
+.text-title{
+  font-size: 25px!important;
+}
 </style>

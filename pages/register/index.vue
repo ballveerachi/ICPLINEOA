@@ -1,13 +1,13 @@
 <template>
   <div>
-    <v-app-bar color="primary" dense flat dark>
-      <v-toolbar-title>Register</v-toolbar-title>
-    </v-app-bar>
+    <v-app-bar  dense flat dark>
+      <v-toolbar-title>แผนปฏิบัติ/เรียนรู้</v-toolbar-title> </v-app-bar
+    >
     <v-container class="pt-0 pb-0">
       <v-row>
         <v-col cols="12">
           <div class="mt-7 text-primary text-title text-center">
-            step 1 of 2
+            กรอกชื่อที่ต้องการ
           </div>
         </v-col>
         <v-col cols="12" class="text-center pb-0 profile-img">
@@ -66,12 +66,12 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.$store.dispatch("setLine",profile);
-          console.log('lineid',(this.form.member_id))
+          console.log('lineid',this.form.member_id)
         });
-      } else {
-        liff.login();
+      // } else {
+      //   liff.login();
       }
-      console.log("Line");
+      console.log("ล็อกอินเสร็จแล้ว",this.form.member_id);
     });
   },
   computed: {
@@ -83,8 +83,8 @@ export default {
   data() {
     return {
       form: {
+        member_id:this.$store.getters.getLine.userId,
         full_name:this.$store.getters.getRegister.full_name,
-        member_id: this.$store.getters.getLine.userId,
         firstname : this.$store.getters.getRegister.firstname,
         lastname : this.$store.getters.getRegister.lastname,
         email: 'ewrewrewr',
@@ -101,7 +101,7 @@ export default {
     validate() {
       let validated = true;
       const errors = [];
-      const validatorField = ["fullname",];
+      const validatorField = ["full_name",];
       validatorField.forEach((field) => {
         if (this.form[field] == "") {
           validated = false;
