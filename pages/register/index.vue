@@ -85,7 +85,7 @@ export default {
     return {
       form: {
         userId:this.$store.getters.getLine.userId,
-        member_id:getLine.userId,
+        member_id:$store.getters.getLine.userId,
         full_name:this.$store.getters.getRegister.full_name,
       },
     };
