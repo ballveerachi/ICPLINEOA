@@ -72,7 +72,7 @@ export default {
       } else {
         liff.login();
       }
-      console.log("ล็อกอินเสร็จแล้ว",profile);
+      console.log("ล็อกอินเสร็จแล้ว",$store.getters.getLine);
     });
   },
   computed: {
