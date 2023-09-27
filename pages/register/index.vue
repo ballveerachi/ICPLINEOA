@@ -1,11 +1,14 @@
 <template>
   <div>
     <v-app-bar  dense flat dark>
-      <v-toolbar-title>Register</v-toolbar-title> </v-app-bar
+      <v-toolbar-title>แผนปฏิบัติ/เรียนรู้</v-toolbar-title> </v-app-bar
     >
     <v-container class="pt-0 pb-0">
       <v-row>
         <v-col cols="12">
+          <div class="mt-7 text-primary text-title text-center">
+            กรอกชื่อที่ต้องการ
+          </div>
         </v-col>
         <v-col cols="12" class="text-center pb-0 profile-img">
           <img v-if="getLine.pictureUrl ==''" src="~/assets/user.png" alt="" width="155"/>
@@ -15,11 +18,8 @@
           {{ getLine.displayName }}
         </v-col>
         <v-col cols="12">
-          <div class="mt-7 text-primary text-title text-center">
-            กรอกชื่อที่ต้องการ
-          </div>
           <v-form>
-            <v-text-field class="mt-7"
+            <v-text-field
               v-model="form.full_name"
               label="Fullname/ชื่อ-นามสกุล"
               dense
@@ -66,14 +66,12 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.$store.dispatch("setLine",profile);
-          this.$store.dispatch("setRegister",profile.userId);
-          console.log('profile.userId',profile)
           console.log('lineid',profile.userId)
         });
-       } else {
+      } else {
         liff.login();
       }
-      console.log("ล็อกอินเสร็จแล้ว",profile.userId);
+      console.log("ล็อกอินเสร็จแล้ว",this.form.member_id);
     });
   },
   computed: {
@@ -85,7 +83,7 @@ export default {
   data() {
     return {
       form: {
-        member_id:this.$store.getters.getRegister.profile.userId,
+        member_id:this.$store.getters.getLine.userId,
         full_name:this.$store.getters.getRegister.full_name,
         firstname : this.$store.getters.getRegister.firstname,
         lastname : this.$store.getters.getRegister.lastname,
