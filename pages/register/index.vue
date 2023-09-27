@@ -70,8 +70,8 @@ export default {
           this.$store.dispatch("setRegister", this.form);
           console.log('lineid',this.form.member_id)
         });
-       //} else {
-       //  liff.login();
+       } else {
+        liff.login();
       }
       console.log("ล็อกอินเสร็จแล้ว",this.form.member_id);
     });
