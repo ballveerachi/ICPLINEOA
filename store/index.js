@@ -8,6 +8,7 @@ export const state = () =>({
     pictureUrl: null,
     displayName: null,
     userId: null,
+    member_id: null,
   },
 
   register: {
