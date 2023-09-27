@@ -66,13 +66,13 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.$store.dispatch("setLine",profile);
-          // this.isDone();
-          console.log('lineid',profile.userId)
+          console.log('ข้อมูลจากLine',profile)
+          console.log('lineid',profile,userId)
         });
       } else {
         liff.login();
       }
-      console.log("ล็อกอินเสร็จแล้ว",this.$store.getters.getLine.profile);
+      console.log("ล็อกอินเสร็จแล้ว",profile);
     });
   },
   computed: {
@@ -84,33 +84,18 @@ export default {
   data() {
     return {
       form: {
-        userId:this.$store.getters.getLine.userId,
-        member_id:$store.getters.getLine.userId,
+        member_id:this.$store.getters.getLine.userId,
         full_name:this.$store.getters.getRegister.full_name,
+        firstname : this.$store.getters.getRegister.firstname,
+        lastname : this.$store.getters.getRegister.lastname,
+        email: 'ewrewrewr',
+        phone: '6666',
+        birthday: this.$store.getters.getRegister.birthday,
       },
     };
   },
   methods: {
-    // isDone() {axios
-    //       .get("http://localhost/ICPScoreCard/api-member.php", {
-    //         action: "insert_register",
-    //         member_id: this.$store.getters.getLine.userId,
-    //         full_name: this.form.full_name,
-    //         // email: this.member.email,
-    //         // password: this.member.password,
-    //         // status: this.member.status,
-    //       })
-    //       .then((res) => {
-    //         if(res.data != null){
-    //           this.$router.push('register/done');
-    //         }
-    //         console.log(res);
-    //       })
-    //       .catch(function (error) {
-    //         console.log(error);
-    //       });
-
-    //     }
+    isDone() {
 
     },
 
@@ -137,12 +122,12 @@ export default {
     register(){
       if(this.validate()){
          this.$store.dispatch('setRegister',this.form)
-         console.log("สมัครเรียบร้อย");
+         console.log("สมัครเรียบร้อย",this.form);
         //this.$router.push("/register/done");
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
-            member_id: this.$store.getters.getLine.userId,
+            member_id: this.form.member_id,
             full_name: this.form.full_name,
             // email: this.member.email,
             // password: this.member.password,
@@ -164,8 +149,8 @@ export default {
         this.$router.push("/register/step2");
       }
     },
-  }
-
+  },
+};
 </script>
 
 <style lang="scss" scoped>
