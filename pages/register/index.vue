@@ -71,7 +71,7 @@ export default {
       } else {
         liff.login();
       }
-      console.log("ล็อกอินเสร็จแล้ว",this.form.member_id);
+      console.log("ล็อกอินเสร็จแล้ว",this.$store.getters.getLine.userId);
     });
   },
   computed: {
