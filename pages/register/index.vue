@@ -66,6 +66,7 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.$store.dispatch("setLine",profile);
+          this.isDone();
           console.log('lineid',profile.userId)
         });
       } else {
@@ -84,13 +85,32 @@ export default {
     return {
       form: {
         userId:this.$store.getters.getLine.userId,
-        member_id:this.$store.getters.getLine.userId,
+        member_id:getLine.userId,
         full_name:this.$store.getters.getRegister.full_name,
       },
     };
   },
   methods: {
-    isDone() {
+    isDone() {axios
+          .get("http://localhost/ICPScoreCard/api-member.php", {
+            action: "insert_register",
+            member_id: this.$store.getters.getLine.userId,
+            full_name: this.form.full_name,
+            // email: this.member.email,
+            // password: this.member.password,
+            // status: this.member.status,
+          })
+          .then((res) => {
+            if(res.data != null){
+              this.$router.push('register/done');
+            }
+            console.log(res);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+        }
 
     },
 
@@ -117,7 +137,7 @@ export default {
     register(){
       if(this.validate()){
          this.$store.dispatch('setRegister',this.form)
-         console.log("สมัครเรียบร้อย",this.form);
+         console.log("สมัครเรียบร้อย");
         //this.$router.push("/register/done");
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
@@ -144,8 +164,8 @@ export default {
         this.$router.push("/register/step2");
       }
     },
-  },
-};
+  }
+
 </script>
 
 <style lang="scss" scoped>
