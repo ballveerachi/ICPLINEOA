@@ -83,7 +83,7 @@ export default {
   data() {
     return {
       form: {
-        member_id:this.profile.userId,
+        member_id:this.$store.getters.getLine.userId,
         full_name:this.$store.getters.getRegister.full_name,
         firstname : this.$store.getters.getRegister.firstname,
         lastname : this.$store.getters.getRegister.lastname,
