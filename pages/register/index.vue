@@ -67,12 +67,13 @@ export default {
         liff.getProfile().then((profile) => {
           this.$store.dispatch("setLine",profile);
           console.log('ข้อมูลจากLine',profile)
-          console.log('lineid',this.$store.getters.setLine.profile.userId)
+          console.log('LineID',profile.userId)
+
         });
       } else {
         liff.login();
       }
-      console.log("ล็อกอินเสร็จแล้ว",this.$store.getters.getLine);
+
     });
   },
   computed: {
