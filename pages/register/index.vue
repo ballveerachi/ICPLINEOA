@@ -6,9 +6,6 @@
     <v-container class="pt-0 pb-0">
       <v-row>
         <v-col cols="12">
-          <div class="mt-7 text-primary text-title text-center">
-            กรอกชื่อที่ต้องการ
-          </div>
         </v-col>
         <v-col cols="12" class="text-center pb-0 profile-img">
           <img v-if="getLine.pictureUrl ==''" src="~/assets/user.png" alt="" width="155"/>
@@ -18,6 +15,9 @@
           {{ getLine.displayName }}
         </v-col>
         <v-col cols="12">
+          <div class="mt-7 text-primary text-title text-center">
+            กรอกชื่อที่ต้องการ
+          </div>
           <v-form>
             <v-text-field
               v-model="form.full_name"
