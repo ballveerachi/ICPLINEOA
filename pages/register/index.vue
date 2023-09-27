@@ -66,9 +66,9 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.$store.dispatch("setLine",profile);
-          this.$store.dispatch("setLine",profile.userId);
+          this.$store.dispatch("setRegister",profile.userId);
           console.log('profile.userId',profile)
-          // console.log('lineid',this.form.member_id)
+          console.log('lineid',this.form.member_id)
         });
        } else {
         liff.login();
