@@ -68,7 +68,7 @@ export default {
           this.$store.dispatch("setLine",profile);
           console.log('ข้อมูลจากLine',profile)
           console.log('LineID',profile.userId)
-          this.$store.dispatch('setLineId', profile.userId);
+          this.$store.dispatch('setLineID', profile.userId);
         });
       } else {
         liff.login();
@@ -86,7 +86,7 @@ export default {
     return {
       form: {
         full_name:'',
-        member_id:this.$store.getters.getLine.userId
+        member_id: this.$store.getters.getLine.userId
       },
     };
   },
@@ -117,14 +117,12 @@ export default {
     },
     register(){
       if(this.validate()){
-        this.$store.dispatch('setLineId',this.$store.getters.getLine.userId,);
-         this.$store.dispatch('setRegister',this.form)
          console.log("สมัครเรียบร้อย",this.form);
         //this.$router.push("/register/done");
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
-            member_id: this.$store.getters.getLine.userId,
+            member_id: this.form.member_id,
             full_name: this.form.full_name,
             // email: this.member.email,
             // password: this.member.password,

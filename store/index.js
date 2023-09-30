@@ -8,7 +8,6 @@ export const state = () =>({
     pictureUrl: null,
     displayName: null,
     userId: null,
-    member_id: null,
   },
 
   register: {
@@ -38,7 +37,7 @@ export const getters = {
   getLine(state){
     return state.line
   },
-  setLineId(state){
+  getLineId(state){
     return state.line
   }
 
