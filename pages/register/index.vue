@@ -123,7 +123,7 @@ export default {
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
-            member_id: this.$store.getters.getLine.userIdd,
+            member_id: this.$store.getters.getLine.userId,
             full_name: this.form.full_name,
             // email: this.member.email,
             // password: this.member.password,
