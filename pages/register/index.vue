@@ -25,12 +25,12 @@
               dense
               required
             ></v-text-field>
-            <!-- <v-text-field
-              v-model="form.lastname"
+            <v-text-field
+              v-model="profile.userId"
               label="Lastname"
               dense
               required
-            ></v-text-field> -->
+            ></v-text-field>
           </v-form>
           <div>
             <v-btn
@@ -86,7 +86,7 @@ export default {
     return {
       form: {
         full_name:'',
-        member_id: this.$store.getters.getLine.userId
+        member_id: this.$store.getters.getLine.profile.userId
       },
     };
   },
