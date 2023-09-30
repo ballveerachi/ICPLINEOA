@@ -117,6 +117,7 @@ export default {
     },
     register(){
       if(this.validate()){
+        this.$store.dispatch('setLineId', this.$store.getters.getLine.userId);
          this.$store.dispatch('setRegister',this.form)
          console.log("สมัครเรียบร้อย",this.form);
         //this.$router.push("/register/done");

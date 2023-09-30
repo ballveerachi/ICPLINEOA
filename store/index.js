@@ -37,6 +37,9 @@ export const getters = {
   },
   getLine(state){
     return state.line
+  },
+  setLineId(state){
+    return state.line
   }
 
 }
@@ -58,7 +61,13 @@ export const mutations = {
         ...state.line,
         ...data
         }
-      }
+      },
+      SET_LINEID(state, data){
+        state.line ={
+          ...state.line,
+          ...data
+          }
+        }
   }
 
 export const actions = {
@@ -70,5 +79,8 @@ export const actions = {
   },
   setLine({ commit},data){
     commit('SET_LINE',data)
+  },
+  setLineId({ commit},data){
+    commit('SET_LINEID',data)
   },
 }
