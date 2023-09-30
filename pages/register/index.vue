@@ -68,7 +68,7 @@ export default {
           this.$store.dispatch("setLine",profile);
           console.log('ข้อมูลจากLine',profile)
           console.log('LineID',profile.userId)
-
+          this.$store.dispatch('setLineId', profile.userId);
         });
       } else {
         liff.login();
@@ -85,7 +85,7 @@ export default {
   data() {
     return {
       form: {
-        full_name:this.$store.getters.getRegister.full_name,
+        full_name:'',
       },
     };
   },
@@ -116,7 +116,7 @@ export default {
     },
     register(){
       if(this.validate()){
-        this.$store.dispatch('setLineId');
+        this.$store.dispatch('setLineId',this.$store.getters.getLine.userId,);
          this.$store.dispatch('setRegister',this.form)
          console.log("สมัครเรียบร้อย",this.form);
         //this.$router.push("/register/done");
