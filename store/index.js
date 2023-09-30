@@ -12,7 +12,6 @@ export const state = () =>({
   },
 
   register: {
-    member_id:'',
     fullname:'',
     firstname:'',
     lastname:'',
