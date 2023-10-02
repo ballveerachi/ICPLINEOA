@@ -132,7 +132,7 @@ export default {
             action: "insert_register",
             member_id: this.form.member_id,
             full_name: this.form.full_name,
-            id:this.form.user_id,
+            user_id:this.form.user_id,
             // email: this.member.email,
             // password: this.member.password,
             // status: this.member.status,
