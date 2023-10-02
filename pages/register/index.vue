@@ -94,10 +94,8 @@ export default {
   },
   methods: {
     isDone() {
-      console.log("ข้อมูล",data);
       axios
-      .get("http://localhost/ICPScoreCard/api-member.php", {
-          action:"insert_register"
+      .get("http://localhost/ICPScoreCard/api-member.php/action:insert_register", {
           })
           .then((res) => {
             if(res.data != null){
