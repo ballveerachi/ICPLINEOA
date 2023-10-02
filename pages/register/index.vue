@@ -70,9 +70,9 @@ export default {
     liff.ready.then(() => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
-          this.isDone();
           this.form.member_id = profile.userId;
           this.$store.dispatch("setLine", profile);
+          // this.isDone();
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", profile.userId);
         });
