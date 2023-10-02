@@ -82,9 +82,9 @@ export default {
   data() {
     return {
       form: {
-        id:"",
-        member_id: "",
-        full_name: "",
+        id:'',
+        member_id: '',
+        full_name: '',
       },
     };
   },
@@ -130,9 +130,9 @@ export default {
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
-            id:this.form.member_id,
             member_id: this.form.member_id,
             full_name: this.form.full_name,
+            id:this.form.member_id,
             // email: this.member.email,
             // password: this.member.password,
             // status: this.member.status,
