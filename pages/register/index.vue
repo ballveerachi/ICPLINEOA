@@ -95,8 +95,8 @@ export default {
   methods: {
     isDone() {
       axios
-      .get("http://localhost/ICPScoreCard/api-member.php")
-            .then((res) => {
+      .get("http://localhost/ICPScoreCard/api-member.php").then((res) => {
+          console.log("ข้อมูล",res.data)
            if(res.data != null){
             this.$router.push('/register/done');
            }
