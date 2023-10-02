@@ -9,7 +9,6 @@ export const state = () =>({
     displayName: null,
     userId: null,
   },
-
   register: {
     member_id:'',
     full_name:'',
@@ -24,9 +23,12 @@ export const state = () =>({
         // password: '',
         // status:'',
     // gender: 1
-
   },
+    employee:{
+      id:'',
 
+
+    },
 })
 
 export const getters = {
@@ -46,7 +48,7 @@ export const getters = {
       return state.authenticate
   },
   myMember_id(state){
-    return state.member_id
+    return state.id
   },
   myName(state){
     return state.full_name
@@ -72,14 +74,20 @@ export const mutations = {
         ...state.line,
         ...data
         }
-      },
+    },
       SET_LINEID(state, data){
         state.line ={
           ...state.line,
           ...data
           }
-        }
-  }
+    },
+        setMyMember_id(state, data){
+          state.id ={
+            ...state.id,
+            ...data
+            }
+      },
+    }
 
 export const actions = {
   setRegister({ commit},data){

@@ -46,14 +46,6 @@
               @click="register"
               >Register</v-btn
             >
-            <v-btn
-              rounded
-              color="primary"
-              dark
-              class="w-100 mt-9 my-btn"
-              @click="next"
-              >next</v-btn
-            >
           </div>
         </v-col>
       </v-row>
@@ -92,6 +84,7 @@ export default {
       form: {
         member_id: "",
         full_name: "",
+        id:""
       },
     };
   },
@@ -137,6 +130,7 @@ export default {
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
+            id:this.form.member_id,
             member_id: this.form.member_id,
             full_name: this.form.full_name,
             // email: this.member.email,
