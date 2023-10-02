@@ -95,7 +95,7 @@ export default {
   methods: {
     isDone() {
       axios
-      .post("http://localhost/ICPScoreCard/api-member.php", {
+      .get("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
           })
           .then((res) => {
