@@ -85,8 +85,8 @@ export default {
   data() {
     return {
       form: {
-        full_name:'',
-        member_id: this.$store.getters.getLine.userId
+        full_name:'454545',
+        member_id:this.$store.getters.getLine.userId
       },
     };
   },
