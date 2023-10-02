@@ -62,7 +62,7 @@ export default {
     liff.ready.then(() => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
-          this.form.id = profile.userId;
+          this.form.user_id = profile.userId;
           this.$store.dispatch("setLine", profile);
           // this.isDone();
           console.log("ข้อมูลจากLine", profile);
@@ -82,7 +82,7 @@ export default {
   data() {
     return {
       form: {
-        id:'',
+        user_id:'',
         member_id: '',
         full_name: '',
       },
@@ -132,7 +132,7 @@ export default {
             action: "insert_register",
             member_id: this.form.member_id,
             full_name: this.form.full_name,
-            id:this.form.member_id,
+            id:this.form.user_id,
             // email: this.member.email,
             // password: this.member.password,
             // status: this.member.status,
