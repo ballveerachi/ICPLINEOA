@@ -11,6 +11,7 @@ export const state = () =>({
   },
 
   register: {
+    member_id:'',
     full_name:'',
     firstname:'',
     lastname:'',
@@ -24,7 +25,8 @@ export const state = () =>({
         // status:'',
     // gender: 1
 
-  }
+  },
+
 })
 
 export const getters = {
@@ -39,9 +41,19 @@ export const getters = {
   },
   getLineId(state){
     return state.line
-  }
+  },
+  myAuthenticate(state){
+      return state.authenticate
+  },
+  myMember_id(state){
+    return state.member_id
+  },
+  myName(state){
+    return state.full_name
+  },
 
 }
+
 export const mutations = {
   SET_REGISTER(state, data){
     state.register = {
