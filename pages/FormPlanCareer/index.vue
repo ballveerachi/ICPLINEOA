@@ -56,15 +56,14 @@
                   label="อาชีพที่ต้องการ:"
                   v-model="planCareer.career_id"
                 >
-                  <option disabled selected>กำหนดอาชีพ:</option>
-                  <v-list-item
+                  <option disabled value="">กำหนดอาชีพ:</option>
+                  <option
                     v-for="career in careers"
                     :value="career.career_id"
                     :key="career.career_id"
                   >
-                    {{ career.career_id }}
-                    {{ career.career }}
-                  </v-list-item>
+                    {{ career.career_id }} {{ career.career }}
+                  </option>
                 </v-select>
               </v-col>
             </v-row>
