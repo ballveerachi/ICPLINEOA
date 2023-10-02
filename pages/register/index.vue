@@ -86,7 +86,7 @@ export default {
     return {
       form: {
         member_id:'',
-        full_name:''
+        full_name:profile.userId
 
       },
     };
