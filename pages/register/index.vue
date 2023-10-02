@@ -118,7 +118,6 @@ export default {
     },
     register(){
       if(this.validate()){
-        this.$store.dispatch('setRegister',form)
          console.log("สมัครเรียบร้อย",this.form);
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
@@ -135,8 +134,9 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
-          this.$router.push("/register/done");
 
+          this.$router.push("/register/done");
+          this.$store.dispatch("setRegister", this.form);
         }
     },
 
