@@ -57,14 +57,14 @@
                   v-model="planCareer.career_id"
                 >
                   <option disabled selected>กำหนดอาชีพ:</option>
-                  <option
+                  <v-list-item
                     v-for="career in careers"
                     :value="career.career_id"
                     :key="career.career_id"
                   >
                     {{ career.career_id }}
                     {{ career.career }}
-                  </option>
+                  </v-list-item>
                 </v-select>
               </v-col>
             </v-row>
