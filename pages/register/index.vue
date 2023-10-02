@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-app-bar  dense flat dark>
-      <v-toolbar-title>login</v-toolbar-title> </v-app-bar
-    >
+    <v-app-bar dense flat dark>
+      <v-toolbar-title>login</v-toolbar-title>
+    </v-app-bar>
     <v-container class="pt-0 pb-0">
       <v-row>
         <v-col cols="12">
@@ -11,7 +11,12 @@
           </div>
         </v-col>
         <v-col cols="12" class="text-center pb-0 profile-img">
-          <img v-if="getLine.pictureUrl ==''" src="~/assets/user.png" alt="" width="155"/>
+          <img
+            v-if="getLine.pictureUrl == ''"
+            src="~/assets/user.png"
+            alt=""
+            width="155"
+          />
           <img v-else :src="getLine.pictureUrl" alt="" width="155" />
         </v-col>
         <v-col cols="12" class="text-center pt-2 pb-0">
@@ -67,14 +72,13 @@ export default {
         liff.getProfile().then((profile) => {
           this.isDone();
           this.form.member_id = profile.userId;
-          this.$store.dispatch("setLine",profile);
-          console.log('ข้อมูลจากLine',profile)
-          console.log('LineID',profile.userId)
+          this.$store.dispatch("setLine", profile);
+          console.log("ข้อมูลจากLine", profile);
+          console.log("LineID", profile.userId);
         });
       } else {
         liff.login();
       }
-
     });
   },
   computed: {
@@ -86,35 +90,31 @@ export default {
   data() {
     return {
       form: {
-        member_id:'',
-        full_name: ''
-
+        member_id: "",
+        full_name: "",
       },
     };
   },
   methods: {
     isDone() {
-    axios.get("http://localhost/ICPScoreCard/api-member.php/", {
-            params: {
-          action: "insert_register"
-      }
-      })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data != '') {
-          this.$router.push('/register/done');
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  },
-
+      axios
+        .get("http://localhost/ICPScoreCard/api-member.php/", {
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data != "") {
+            this.$router.push("/register/done");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
 
     validate() {
       let validated = true;
       const errors = [];
-      const validatorField = ["full_name",];
+      const validatorField = ["full_name"];
       validatorField.forEach((field) => {
         if (this.form[field] == "") {
           validated = false;
@@ -131,9 +131,9 @@ export default {
       }
       return validated;
     },
-    register(){
-      if(this.validate()){
-         console.log("สมัครเรียบร้อย",this.form);
+    register() {
+      if (this.validate()) {
+        console.log("สมัครเรียบร้อย", this.form);
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
@@ -150,9 +150,9 @@ export default {
             console.log(error);
           });
 
-          this.$router.push("/register/done");
-          this.$store.dispatch("setRegister", this.form);
-        }
+        this.$router.push("/register/done");
+        this.$store.dispatch("setRegister", this.form);
+      }
     },
 
     next() {
