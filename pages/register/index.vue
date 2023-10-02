@@ -26,8 +26,8 @@
               required
             ></v-text-field>
             <v-text-field
-              v-model="profile.userId"
-              label="Lastname"
+              v-model="form.member_id"
+              label="member_id"
               dense
               required
             ></v-text-field>
