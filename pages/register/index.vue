@@ -94,15 +94,21 @@ export default {
   },
   methods: {
     isDone() {
-      axios
-      .get("http://localhost/ICPScoreCard/api-member.php/action:insert_register", {
-          })
-          .then((res) => {
-            if(res.data != null){
-              this.$router.push('/register/done');
-            }
-          });
-        },
+    axios.get("http://localhost/ICPScoreCard/api-member.php/", {
+        params: {
+          action: "insert_register"
+        }
+      })
+      .then((res) => {
+        if (res.data != null) {
+          this.$router.push('/register/done');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
+
 
     validate() {
       let validated = true;
