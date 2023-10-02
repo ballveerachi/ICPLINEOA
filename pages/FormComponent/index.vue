@@ -93,7 +93,7 @@
                   <v-col cols="12" md="6"
                     ><div>สำเร็จการศึกษาสถาบัน:</div>
                     <v-select
-                      size="4"
+
                       v-model="employee.university"
                       label="เลือก"
                       :items="[

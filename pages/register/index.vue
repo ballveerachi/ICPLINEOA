@@ -102,7 +102,7 @@ export default {
         })
         .then((res) => {
           console.log(res.data);
-          if (res.data != "") {
+          if (res.data != null) {
             this.$router.push("/register/done");
           }
         })
