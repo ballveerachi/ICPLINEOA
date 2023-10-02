@@ -86,7 +86,6 @@ export default {
     return {
       form: {
         full_name:'454545',
-        member_id:this.$store.getters.getLine.userId
       },
     };
   },
@@ -123,7 +122,7 @@ export default {
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
             member_id: this.form.member_id,
-            full_name: this.form.full_name,
+            full_name: this.$store.getters.getLine.userId,
             // email: this.member.email,
             // password: this.member.password,
             // status: this.member.status,
