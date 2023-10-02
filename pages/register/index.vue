@@ -134,7 +134,7 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
-          // this.$router.push("/register/done");
+          this.$router.push("/register/done");
 
         }
     },
