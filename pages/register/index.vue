@@ -30,7 +30,7 @@
               label="member_id"
               dense
               required
-            >{{ getLine.userId }}</v-text-field>
+            ></v-text-field>
           </v-form>
           <div>
             <v-btn
@@ -118,7 +118,8 @@ export default {
     },
     register(){
       if(this.validate()){
-         console.log("สมัครเรียบร้อย",this.form);
+         console.log("สมัครเรียบร้อย",this.form.member_id);
+         console.log("สมัครเรียบร้อย",this.form.full_name);
         //this.$router.push("/register/done");
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
