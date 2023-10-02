@@ -25,12 +25,12 @@
               dense
               required
             ></v-text-field>
-            <v-text-field
+            <!-- <v-text-field
               v-model="form.member_id"
               label="member_id"
               dense
               required
-            ></v-text-field>
+            ></v-text-field> -->
           </v-form>
           <div>
             <v-btn
