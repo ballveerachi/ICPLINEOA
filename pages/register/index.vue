@@ -86,7 +86,7 @@ export default {
     return {
       form: {
         full_name:'454545',
-        member_id : this.$store.getters.getLine.profile
+        member_id : this.$store.getters.getLine.profile.userId
       },
     };
   },
