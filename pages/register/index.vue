@@ -99,6 +99,7 @@ export default {
           action:"insert_register"
           })
           .then((res) => {
+            console.log("ข้อมูล".res)
             if(res.data != null){
               this.$router.push('/register/done');
             }
