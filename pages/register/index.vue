@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar  dense flat dark>
-      <v-toolbar-title>แผนปฏิบัติ/เรียนรู้</v-toolbar-title> </v-app-bar
+      <v-toolbar-title>login</v-toolbar-title> </v-app-bar
     >
     <v-container class="pt-0 pb-0">
       <v-row>
@@ -85,8 +85,8 @@ export default {
   data() {
     return {
       form: {
-        member_id:'',
-        full_name: this.$store.getters.getLine.displayName
+        member_id:this.$store.getters.getLine.userId,
+        full_name: ''
 
       },
     };
