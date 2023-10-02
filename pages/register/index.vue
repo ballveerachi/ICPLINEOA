@@ -94,12 +94,12 @@ export default {
   },
   methods: {
     isDone() {
+      console.log("ข้อมูล",data);
       axios
       .get("http://localhost/ICPScoreCard/api-member.php", {
           action:"insert_register"
           })
           .then((res) => {
-            console.log("ข้อมูล",data);
             if(res.data != null){
               this.$router.push('/register/done');
             }
