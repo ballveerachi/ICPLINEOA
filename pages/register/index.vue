@@ -65,9 +65,9 @@ export default {
     liff.ready.then(() => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
+          this.isDone();
           this.form.member_id = profile.userId;
           this.$store.dispatch("setLine",profile);
-          this.isDone();
           console.log('ข้อมูลจากLine',profile)
           console.log('LineID',profile.userId)
         });
@@ -100,7 +100,7 @@ export default {
           })
           .then((res) => {
             if(res.data != null){
-              this.$router.push('/register/done')
+              this.$router.push('/register/done');
             }
           });
         },
