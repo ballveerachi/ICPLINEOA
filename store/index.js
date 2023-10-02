@@ -49,7 +49,7 @@ export const getters = {
       return state.authenticate
   },
   myMember_id(state){
-    return state.id
+    return state.member_id
   },
   myName(state){
     return state.full_name
@@ -83,8 +83,8 @@ export const mutations = {
           }
     },
         setMyMember_id(state, data){
-          state.id ={
-            ...state.id,
+          state.member_id ={
+            ...state.member_id,
             ...data
             }
       },
