@@ -30,8 +30,7 @@
                   disabled
                   class="form-control form-control-lg"
                 ></v-text-field>
-                ></v-col
-              >
+              </v-col>
               <v-col cols="12" md="6">
                 <div>รหัสสมาชิก:</div>
                 <v-text-field
@@ -51,20 +50,24 @@
               <v-col class="input-field col s4">
                 <div>แผนอาชีพ:</div>
 
-                <select
-                  density="compact"
-                  label="อาชีพที่ต้องการ:"
+                <v-select
                   v-model="planCareer.career_id"
+                  :items="careers"
+                  label="อาชีพที่ต้องการ:"
+                  item-value="career_id"
+                  item-text="career"
+                  dense
                 >
-                  <option disabled value="">กำหนดอาชีพ:</option>
-                  <option
-                    v-for="career in careers"
-                    :value="career.career_id"
-                    :key="career.career_id"
-                  >
-                    {{ career.career_id }} {{ career.career }}
-                  </option>
-                </select>
+                  <template v-slot:prepend-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <span class="grey--text">กำหนดอาชีพ:</span>
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template>
+                </v-select>
               </v-col>
             </v-row>
             <div class="d-flex flex-column">
