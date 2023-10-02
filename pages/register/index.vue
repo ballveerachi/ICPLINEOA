@@ -30,7 +30,7 @@
               label="member_id"
               dense
               required
-            ></v-text-field>
+            >{{ getLine.userId }}</v-text-field>
           </v-form>
           <div>
             <v-btn
