@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar  dense flat dark>
-      <v-toolbar-title>Login</v-toolbar-title> </v-app-bar
+      <v-toolbar-title>แผนปฏิบัติ/เรียนรู้</v-toolbar-title> </v-app-bar
     >
     <v-container class="pt-0 pb-0">
       <v-row>
@@ -85,8 +85,9 @@ export default {
   data() {
     return {
       form: {
-        full_name:'454545',
-        member_id : this.$store.getters.getLine.userId
+        member_id:'',
+        full_name:''
+
       },
     };
   },
@@ -122,8 +123,8 @@ export default {
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
-            member_id: this.form.member_id,
-            full_name: this.$store.getters.getLine.userId,
+            member_id: this.$store.getters.getLine.userId,
+            full_name: this.form.full_name,
             // email: this.member.email,
             // password: this.member.password,
             // status: this.member.status,
