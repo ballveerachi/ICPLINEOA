@@ -96,20 +96,20 @@ export default {
     };
   },
   methods: {
-    isDone() {
-      axios
-        .get("http://localhost/ICPScoreCard/api-member.php/", {
-        })
-        .then((res) => {
-          console.log(res.data);
-          if (res.data != null) {
-            this.$router.push("/register/done");
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
+    // isDone() {
+    //   axios
+    //     .get("http://localhost/ICPScoreCard/api-member.php/", {
+    //     })
+    //     .then((res) => {
+    //       console.log(res.data);
+    //       if (res.data != null) {
+    //         this.$router.push("/register/done");
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.error(error);
+    //     });
+    // },
 
     validate() {
       let validated = true;
