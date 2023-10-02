@@ -10,7 +10,7 @@
             <div class="text-center mt-10">
               <img src="~/assets/welcome.png" alt="" width="230px" />
               <h1 class="text-title">Register Success</h1>
-              <p class="text_p mt-5">welcome ,{{name}} to ICP</p>
+              <p class="text_p mt-5">welcome ,{{full_name}} to ICP</p>
             </div>
             <div>
               <v-btn
@@ -39,7 +39,7 @@
 export default {
   data(){
     return{
-      name: this.$store.getters.getRegister.firstname
+      name: this.$store.getters.getRegister.full_name
     }
   },
   methods: {
