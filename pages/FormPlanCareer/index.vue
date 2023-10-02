@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar  dense flat dark>
+    <v-app-bar dense flat dark>
       <v-toolbar-title>อาชีพเป้าหมาย</v-toolbar-title>
     </v-app-bar>
     <v-card
@@ -29,8 +29,9 @@
                   required
                   disabled
                   class="form-control form-control-lg"
-                ></v-text-field
-              ></v-col>
+                ></v-text-field>
+                ></v-col
+              >
               <v-col cols="12" md="6">
                 <div>รหัสสมาชิก:</div>
                 <v-text-field
@@ -123,154 +124,154 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  name: 'FormPlanCareer',
+  name: "FormPlanCareer",
   data() {
     return {
-      message: 'Form Plan Career',
+      message: "Form Plan Career",
       planCareers: Array,
       planCareers_: Array,
       careers: Array,
       //Plan_Career_id	Employee_id	Name_Plan_Career Description
       planCareer: {
-        Plan_Career_id: '',
+        Plan_Career_id: "",
         Employee_id: this.$store.getters.getRegister.member_id,
-        career_id: '',
-        career: '',
+        career_id: "",
+        career: "",
       },
       isEdit: false,
-      status: 'Save/บันทึก',
-    }
+      status: "Save/บันทึก",
+    };
   },
   methods: {
     //แก้ไขให้มันเป็นช่องว้่าง
     resetForm() {
-      this.status = 'Save/บันทึก'
-      this.isEdit = false
-      console.log('ยกเลิก')
-      this.planCareer.Plan_Career_id = ''
-      this.planCareer.career_id = ''
+      this.status = "Save/บันทึก";
+      this.isEdit = false;
+      console.log("ยกเลิก");
+      this.planCareer.Plan_Career_id = "";
+      this.planCareer.career_id = "";
     },
     getAllUser() {
-      console.log(' แสดงข้อมูลทั้งหมด ')
-      var self = this
+      console.log(" แสดงข้อมูลทั้งหมด ");
+      var self = this;
       axios
-        .post('http://localhost/ICPScoreCard/api-plan-career.php', {
-          action: 'getall',
+        .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+          action: "getall",
         })
         .then(function (res) {
-          console.log('ข้อมูลแผนอาชีพ:', res.data)
-          self.planCareers = res.data
+          console.log("ข้อมูลแผนอาชีพ:", res.data);
+          self.planCareers = res.data;
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     getCareer() {
-      console.log(' แสดงข้อมูลทั้งหมด ')
-      var self = this
+      console.log(" แสดงข้อมูลทั้งหมด ");
+      var self = this;
       axios
-        .post('http://localhost/ICPScoreCard/api-career.php', {
-          action: 'getall',
+        .post("http://localhost/ICPScoreCard/api-career.php", {
+          action: "getall",
         })
         .then(function (res) {
-          self.careers = res.data
-          console.log('careers :', self.careers)
+          self.careers = res.data;
+          console.log("careers :", self.careers);
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     submitForm() {
       if (!this.isEdit) {
-        console.log('Employee_id', this.planCareer.Employee_id)
-        console.log('career_id', this.planCareer.career_id)
+        console.log("Employee_id", this.planCareer.Employee_id);
+        console.log("career_id", this.planCareer.career_id);
         const newPlanCareer = {
           Employee_id: this.planCareer.Employee_id,
           career_id: this.planCareer.career_id,
-        }
-        this.$emit('saveData', newPlanCareer)
+        };
+        this.$emit("saveData", newPlanCareer);
 
         axios
-          .post('http://localhost/ICPScoreCard/api-plan-career.php', {
-            action: 'insert',
+          .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+            action: "insert",
             Employee_id: this.planCareer.Employee_id,
             career_id: this.planCareer.career_id,
           })
           .then((res) => {
-            console.log(res)
-            this.resetForm()
-            this.getAllUser()
+            console.log(res);
+            this.resetForm();
+            this.getAllUser();
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       } else {
         axios
-          .post('http://localhost/ICPScoreCard/api-plan-career.php', {
-            action: 'update',
+          .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+            action: "update",
             Plan_Career_id: this.planCareer.Plan_Career_id,
             Employee_id: this.planCareer.Employee_id,
             career_id: this.planCareer.career_id,
           })
           .then((response) => {
-            console.log(response)
-            this.resetForm()
-            this.getAllUser()
+            console.log(response);
+            this.resetForm();
+            this.getAllUser();
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       }
     },
     editUser(Plan_Career_id) {
-      this.status = 'Update(อัพเดท)'
-      this.isEdit = true
-      var self = this
-      console.log('Plan_Career_id:', Plan_Career_id)
+      this.status = "Update(อัพเดท)";
+      this.isEdit = true;
+      var self = this;
+      console.log("Plan_Career_id:", Plan_Career_id);
       axios
-        .post('http://localhost/ICPScoreCard/api-plan-career.php', {
-          action: 'edit',
+        .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+          action: "edit",
           Plan_Career_id: Plan_Career_id,
         })
         .then(function (response) {
-          self.planCareer.Plan_Career_id = response.data.Plan_Career_id
-          self.planCareer.Employee_id = response.data.Employee_id
-          self.planCareer.career_id = response.data.career_id
-          self.planCareer.career = response.data.career
-          self.planCareers_ = response.data
-          console.log('แก้ไขแผนอาชีพ:', response.data)
+          self.planCareer.Plan_Career_id = response.data.Plan_Career_id;
+          self.planCareer.Employee_id = response.data.Employee_id;
+          self.planCareer.career_id = response.data.career_id;
+          self.planCareer.career = response.data.career;
+          self.planCareers_ = response.data;
+          console.log("แก้ไขแผนอาชีพ:", response.data);
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     deleteUser(Plan_Career_id) {
-      if (confirm('คุณต้องการลบรหัส ' + Plan_Career_id + ' หรือไม่ ?')) {
-        var self = this
+      if (confirm("คุณต้องการลบรหัส " + Plan_Career_id + " หรือไม่ ?")) {
+        var self = this;
         axios
-          .post('http://localhost/ICPScoreCard/api-plan-career.php', {
-            action: 'delete',
+          .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+            action: "delete",
             Plan_Career_id: Plan_Career_id,
           })
           .then(function (response) {
-            console.log(response)
-            self.resetForm()
-            self.getAllUser()
+            console.log(response);
+            self.resetForm();
+            self.getAllUser();
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       }
     },
   },
   created() {
-    this.getAllUser()
-    this.getCareer()
+    this.getAllUser();
+    this.getCareer();
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 .v-application .pa-12 {
