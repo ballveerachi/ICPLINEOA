@@ -103,6 +103,7 @@ export default {
               this.$router.push('/register/done')
             }
           })
+        },
 
     validate() {
       let validated = true;
