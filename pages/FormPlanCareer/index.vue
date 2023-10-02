@@ -51,7 +51,7 @@
               <v-col class="input-field col s4">
                 <div>แผนอาชีพ:</div>
 
-                <v-select
+                <select
                   density="compact"
                   label="อาชีพที่ต้องการ:"
                   v-model="planCareer.career_id"
@@ -64,7 +64,7 @@
                   >
                     {{ career.career_id }} {{ career.career }}
                   </option>
-                </v-select>
+                </select>
               </v-col>
             </v-row>
             <div class="d-flex flex-column">

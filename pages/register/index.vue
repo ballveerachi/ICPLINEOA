@@ -95,12 +95,10 @@ export default {
   methods: {
     isDone() {
     axios.get("http://localhost/ICPScoreCard/api-member.php/", {
-        params: {
           action: "insert_register"
-        }
       })
       .then((res) => {
-        if (res.data != null) {
+        if (res.data != '') {
           this.$router.push('/register/done');
         }
       })
