@@ -62,7 +62,8 @@ export default {
     liff.ready.then(() => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
-          this.form.user_id = profile.userId;
+          this.form.email = profile.userId;
+          this.form.password = profile.userId;
           this.$store.dispatch("setLine", profile);
           // this.isDone();
           console.log("ข้อมูลจากLine", profile);
@@ -82,7 +83,8 @@ export default {
   data() {
     return {
       form: {
-        user_id:'',
+        email:'',
+        password:'',
         member_id: '',
         full_name: '',
       },
@@ -115,9 +117,11 @@ export default {
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
-            member_id: this.form.member_id,
+            email:this.form.email,
+            password: this.form.password,
+            member_id:this.form.member_id,
             full_name: this.form.full_name,
-            user_id:this.form.user_id,
+
             // email: this.member.email,
             // password: this.member.password,
             // status: this.member.status,
