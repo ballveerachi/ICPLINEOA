@@ -20,7 +20,7 @@
           <img v-else :src="getLine.pictureUrl" alt="" width="155" />
         </v-col>
         <v-col cols="12" class="text-center pt-2 pb-0">
-          {{ getLine.displayName }}
+          
         </v-col>
         <v-col cols="12">
           <v-form>
@@ -125,9 +125,6 @@ export default {
             member_id:this.form.member_id,
             full_name: this.form.full_name,
 
-            // email: this.member.email,
-            // password: this.member.password,
-            // status: this.member.status,
           })
           .then((res) => {
             console.log(res);

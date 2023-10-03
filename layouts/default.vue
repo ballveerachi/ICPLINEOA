@@ -21,8 +21,8 @@
       <v-list>
         <!-- Bar profil -->
         <v-list-item
-          prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
-          title="John Leider"
+          prepend-avatar= {{getLine.pictureUrl}}
+          title={{ getLine.displayName }}
           nav
           ><template v-slot:append>
             <v-btn
