@@ -21,8 +21,8 @@
       <v-list>
         <!-- Bar profil -->
         <v-list-item
-          prepend-avatar= {{getLine.pictureUrl}}
-          title={{ getLine.displayName }}
+          prepend-avatar :src="getLine.pictureUrl"
+          title="John Leider"
           nav
           ><template v-slot:append>
             <v-btn
@@ -111,11 +111,6 @@ export default {
   },
   components: {
     Dialog,
-  },
-  computed: {
-    getLine() {
-      return this.$store.getters.getLine;
-    },
   },
 };
 </script>
