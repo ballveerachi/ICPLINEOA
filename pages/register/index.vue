@@ -63,6 +63,7 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.form.email = profile.userId;
+          this.form.user_id = profile.userId;
           this.form.password = profile.userId;
           this.$store.dispatch("setLine", profile);
           // this.isDone();
@@ -83,6 +84,7 @@ export default {
   data() {
     return {
       form: {
+        user_id:'',
         email:'',
         password:'',
         member_id: '',
@@ -117,6 +119,7 @@ export default {
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
+            user_id:this.form.user_id,
             email:this.form.email,
             password: this.form.password,
             member_id:this.form.member_id,
@@ -144,18 +147,55 @@ export default {
         this.$router.push("/register/step2");
       }
     },
-    isDone() {
+    // isDone() {
+    //   axios
+    //     .get("http://localhost/ICPScoreCard/api-member.php/", {
+    //     })
+    //     .then((res) => {
+    //       console.log(res.data);
+    //       if (res.data != null) {
+    //         this.$router.push("/register/done");
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.error(error);
+    //     });
+    // },
+    checkMember() {
+      console.log(" ตรวจสอบข้อมูลสมาชิก ");
+      var self = this;
       axios
-        .get("http://localhost/ICPScoreCard/api-member.php/", {
+        .post("http://localhost/ICPScoreCard/api-member.php", {
+          action: "checkMember",
+          user: this.input.username,
+          pass: this.input.password,
         })
-        .then((res) => {
-          console.log(res.data);
-          if (res.data != null) {
-            this.$router.push("/register/done");
+        .then(function (res) {
+          console.log("data:",res.data);
+          if(res.data.length > 0){
+            var member_id = res.data.map((item) => item.member_id)[0];
+            var full_name = res.data.map((item) => item.full_name)[0];
+            self.storeCommit(member_id,full_name,);
+          }else{
+            console.log("The username and / or password is incorrect");
+            self.$q
+              .dialog({
+                title: "คำเตือน",
+                message:
+                  "ชื่อผู้ใช้/รหัสผ่านไม่ถูกต้อง หรืออีเมลย์ยังไม่ได้รับการยืนยัน",
+                persistent: true,
+              })
+              .onOk(() => {
+                self.input.username = "";
+                self.input.password = "";
+              });
+
+
           }
+
         })
-        .catch((error) => {
-          console.error(error);
+        .catch(function (error) {
+          console.log(error);
         });
     },
   },
