@@ -83,7 +83,7 @@ export default {
     return {
       form: {
         user_id:'',
-        member_id: this.$store.getters.getRegister.member_id,
+        member_id: '',
         full_name: '',
       },
     };
@@ -128,7 +128,7 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
-        this.$store.dispatch("setRegister", this.form);
+        // this.$store.dispatch("setRegister", this.form);
         this.$router.push("/register/done");
 
       }
