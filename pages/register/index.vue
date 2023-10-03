@@ -83,7 +83,7 @@ export default {
     return {
       form: {
         user_id:'',
-        member_id: '',
+        member_id: '12',
         full_name: '',
       },
     };

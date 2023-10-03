@@ -211,8 +211,10 @@ export default {
         isVisible: false,
 
       },
+
       isEdit: false,
       status: 'Save/บันทึก',
+
     }
 
   },
