@@ -112,6 +112,11 @@ export default {
   components: {
     Dialog,
   },
+  computed: {
+    getLine() {
+      return this.$store.getters.getLine;
+    },
+  },
 };
 </script>
 <style lang="scss">
