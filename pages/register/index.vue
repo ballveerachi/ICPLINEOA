@@ -127,6 +127,7 @@ export default {
             full_name: this.form.full_name,
           })
           .then((res) => {
+            this.form.member_id = res.data.member_id;
             console.log(res);
           })
           .catch(function (error) {
