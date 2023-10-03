@@ -89,21 +89,6 @@ export default {
     };
   },
   methods: {
-    // isDone() {
-    //   axios
-    //     .get("http://localhost/ICPScoreCard/api-member.php/", {
-    //     })
-    //     .then((res) => {
-    //       console.log(res.data);
-    //       if (res.data != null) {
-    //         this.$router.push("/register/done");
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //     });
-    // },
-
     validate() {
       let validated = true;
       const errors = [];
@@ -154,6 +139,20 @@ export default {
         this.$store.dispatch("setRegister", this.form);
         this.$router.push("/register/step2");
       }
+    },
+    isDone() {
+      axios
+        .get("http://localhost/ICPScoreCard/api-member.php/", {
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data != null) {
+            this.$router.push("/register/done");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
   },
 };
