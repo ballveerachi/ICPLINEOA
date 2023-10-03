@@ -203,7 +203,7 @@ export default {
       employees: Array,
       employees_: Array,
       employee: {
-        id: this.$store.getters.getRegister.member_id,
+        id: this.$store.getters.getMember.member,
         name: this.$store.getters.getRegister.full_name,
         study_faculty: '',
         university: '',

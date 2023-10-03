@@ -11,7 +11,6 @@ export const state = () =>({
   },
   register: {
     user_id:'',
-    member_id:'',
     full_name:'',
     firstname:'',
     lastname:'',
@@ -29,6 +28,9 @@ export const state = () =>({
       id:'',
 
 
+    },
+    member:{
+      member_id:'',
     },
 })
 
@@ -48,8 +50,8 @@ export const getters = {
   myAuthenticate(state){
       return state.authenticate
   },
-  myMember_id(state){
-    return state.member_id
+  getMember(state){
+    return state.member
   },
   myName(state){
     return state.full_name
@@ -82,9 +84,9 @@ export const mutations = {
           ...data
           }
     },
-        setMyMember_id(state, data){
+        setMember(state, data){
           state.member_id ={
-            ...state.member_id,
+            ...state.member,
             ...data
             }
       },

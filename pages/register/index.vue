@@ -83,6 +83,7 @@ export default {
 
   data() {
     return {
+      forms: Array,
       form: {
         user_id:'',
         email:'',
@@ -124,7 +125,6 @@ export default {
             password: this.form.password,
             member_id:this.form.member_id,
             full_name: this.form.full_name,
-
           })
           .then((res) => {
             console.log(res);
@@ -138,11 +138,6 @@ export default {
       }
     },
 
-    next() {
-      if (this.validate()) {
-        this.$store.dispatch("setRegister", this.form);
-        this.$router.push("/register/step2");
-      }
     },
     // isDone() {
     //   axios
@@ -195,7 +190,6 @@ export default {
           console.log(error);
         });
     },
-  },
 };
 </script>
 
