@@ -128,7 +128,7 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
-        // this.$store.dispatch("setRegister", this.form);
+        this.$store.dispatch("setRegister",this.form);
         this.$router.push("/register/done");
 
       }
