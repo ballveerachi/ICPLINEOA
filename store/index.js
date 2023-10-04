@@ -1,4 +1,9 @@
 export const state = () =>({
+  authenticate: false,
+  member_id:"",
+  full_name:"",
+  status:"",
+
   dialog:{
     isShow: false,
     title: '',
@@ -11,8 +16,6 @@ export const state = () =>({
   },
   register: {
     user_id:'',
-    member_id:'',
-    full_name:'',
     firstname:'',
     lastname:'',
     emil: '',
@@ -48,15 +51,10 @@ export const getters = {
   getLineId(state){
     return state.line
   },
-  myAuthenticate(state){
-      return state.authenticate
-  },
-  getMember(state){
-    return state.member
-  },
-  myName(state){
-    return state.full_name
-  },
+  myAuthenticate:state=>state.authenticate,
+    myMember_id:state=>state.member_id,
+    myName:state=>state.full_name,
+
 
 }
 
@@ -90,6 +88,18 @@ export const mutations = {
             ...state.member,
             ...data
             }
+      },
+      setMyAuthenticate(state, authenticate){
+        state.authenticate = authenticate
+      },
+      setMyMember_id(state, member_id){
+        state.member_id = member_id
+      },
+      setMyName(state, full_name){
+        state.name = full_name
+      },
+      setMyStatus(state, status){
+        state.status = status
       },
     }
 
