@@ -122,6 +122,8 @@ export default {
     register() {
       if (this.validate()) {
         this.$store.dispatch("setRegister",this.form);
+        this.$store.dispatch("setMyName",this.form.full_name);
+        this.$store.dispatch("setMyMember_id",this.form.member_id);
         const newMember = {
           member_id: this.form.member_id,
         };
