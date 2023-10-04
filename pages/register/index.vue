@@ -65,7 +65,7 @@ export default {
           this.form.email = profile.userId;
           this.form.user_id = profile.userId;
           this.form.password = profile.userId;
-          this.form.member_id = '1'
+          this.form.member_id = ''
           this.$store.dispatch("setLine", profile);
           // this.isDone();
           console.log("ข้อมูลจากLine", profile);
@@ -88,7 +88,7 @@ export default {
         user_id:'',
         email:'',
         password:'',
-        member_id:0,
+        member_id:'',
         full_name: '',
       },
     };
