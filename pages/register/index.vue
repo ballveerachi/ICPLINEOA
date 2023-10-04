@@ -135,7 +135,6 @@ export default {
             full_name: this.form.full_name,
           })
           .then((res) => {
-            this.getAllUser();
             console.log(res);
           })
           .catch(function (error) {
@@ -200,24 +199,7 @@ export default {
           console.log(error);
         });
     },
-    getAllUser() {
-      console.log(" แสดงข้อมูลทั้งหมด ");
-      var self = this;
-      axios
-        .post("http://localhost/ICPScoreCard/api.php", {
-          action: "getall",
-        })
-        .then(function (res) {
-          console.log("data-Y-Y", res.data);
-          self.employees = res.data;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
-    created(){
-    this.getAllUser();
-  }
+
 };
 </script>
 
