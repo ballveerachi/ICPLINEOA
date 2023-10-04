@@ -121,6 +121,7 @@ export default {
     },
     register() {
       if (this.validate()) {
+        this.$store.dispatch("setRegister",this.form);
         const newMember = {
           member_id: this.form.member_id,
         };
@@ -142,7 +143,6 @@ export default {
             console.log(error);
           });
         console.log("สมัครเรียบร้อย", this.form);
-        this.$store.dispatch("setRegister",this.form);
         this.$router.push("/register/done");
 
       }
