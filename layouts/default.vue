@@ -21,7 +21,8 @@
       <v-list>
         <!-- Bar profil -->
         <v-list-item
-          prepend-avatar :src="getLine.pictureUrl"
+        prepend-avatar
+          :src="getLine.pictureUrl "
           title="John Leider"
           nav
           ><template v-slot:append>
@@ -59,6 +60,7 @@
 </template>
 
 <script>
+import liff from "@line/liff";
 import Dialog from "~/components/Dialog.vue";
 export default {
   name: "DefaultLayout",

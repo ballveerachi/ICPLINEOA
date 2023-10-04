@@ -122,6 +122,7 @@ export default {
             user_id:this.form.user_id,
             email:this.form.email,
             password: this.form.password,
+            member_id:this.form.member_id,
             full_name: this.form.full_name,
           })
           .then((res) => {
