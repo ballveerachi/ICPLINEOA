@@ -136,14 +136,13 @@ export default {
             full_name: this.form.full_name,
           })
           .then((res) => {
-            this.getAllUser();
-            console.log(res);
+            console.log("สมัครเรียบร้อย", this.form);
+          this.$router.push("/register/done");
           })
           .catch(function (error) {
             console.log(error);
           });
-        console.log("สมัครเรียบร้อย", this.form);
-        this.$router.push("/register/done");
+
 
       }
     },
