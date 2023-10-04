@@ -88,7 +88,7 @@ export default {
         user_id:'',
         email:'',
         password:'',
-        member_id:'',
+        member_id:0,
         full_name: '',
       },
     };
