@@ -30,6 +30,12 @@
               dense
               required
             ></v-text-field>
+            <v-text-field
+              v-model="form.member_id"
+              label="Fullname/ชื่อ-นามสกุล"
+              dense
+              required
+            ></v-text-field>
             <!-- <v-text-field
               v-model="form.member_id"
               label="member_id"
@@ -87,7 +93,7 @@ export default {
         user_id:'',
         email:'',
         password:'',
-        member_id:0,
+        member_id:'',
         full_name: '',
       },
     };
@@ -126,7 +132,6 @@ export default {
             full_name: this.form.full_name,
           })
           .then((res) => {
-            this.form.member_id = res.data.member_id;
             console.log(res);
           })
           .catch(function (error) {
