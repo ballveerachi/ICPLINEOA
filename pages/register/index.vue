@@ -36,15 +36,20 @@
               dense
               required
             ></v-text-field>
+            <!-- <v-text-field
+              v-model="form.member_id"
+              label="member_id"
+              dense
+              required
+            ></v-text-field> -->
           </v-form>
           <div>
             <v-btn
               rounded
               color="primary"
-              type="submit"
               dark
               class="w-100 mt-9 my-btn"
-              value="Save/บันทึก"
+              @click="register"
               >Register</v-btn
             >
           </div>
@@ -84,7 +89,6 @@ export default {
 
   data() {
     return {
-      members: Array,
       form: {
         user_id:"",
         email:"",
@@ -115,7 +119,7 @@ export default {
       }
       return validated;
     },
-    submitForm() {
+    register() {
       if (this.validate()) {
         const newMember = {
           member_id: this.form.member_id,
@@ -138,6 +142,7 @@ export default {
             console.log(error);
           });
         console.log("สมัครเรียบร้อย", this.form);
+        this.$store.dispatch("setRegister",this.form);
         this.$router.push("/register/done");
 
       }
