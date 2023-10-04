@@ -142,7 +142,6 @@ export default {
             console.log(error);
           });
         console.log("สมัครเรียบร้อย", this.form);
-        this.$store.dispatch("setRegister",this.form);
         this.$router.push("/register/done");
 
       }
