@@ -65,7 +65,6 @@ export default {
           this.form.email = profile.userId;
           this.form.user_id = profile.userId;
           this.form.password = profile.userId;
-          this.form.member_id = '';
           this.$store.dispatch("setLine", profile);
           // this.isDone();
           console.log("ข้อมูลจากLine", profile);
@@ -120,10 +119,10 @@ export default {
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
-            user_id:this.form.user_id,
-            email:this.form.email,
-            password: this.form.password,
-            member_id:this.form.member_id,
+            user_id: this.form.user_id,
+            email: this.form.email,
+            password:  this.form.password,
+            member_id: this.form.member_id,
             full_name: this.form.full_name,
           })
           .then((res) => {
