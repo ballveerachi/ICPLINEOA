@@ -46,10 +46,15 @@ export const getters = {
   getLineId(state){
     return state.line
   },
-  myAuthenticate:state=>state.authenticate,
-  myMember_id:state=>state.member_id,
-  myName:state=>state.full_name,
-
+  myAuthenticate(state){
+    return state.authenticate
+  },
+  myMember_id(state){
+    return state.member_id
+  },
+  myName(state){
+    return state.full_name
+  },
 
 }
 
