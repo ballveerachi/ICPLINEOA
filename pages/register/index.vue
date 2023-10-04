@@ -138,6 +138,7 @@ export default {
           .then((res) => {
             console.log("สมัครเรียบร้อย", this.form);
           this.$router.push("/register/done");
+            console.log(res);
           })
           .catch(function (error) {
             console.log(error);
