@@ -1,7 +1,7 @@
 export const state = () =>({
   authenticate: false,
-  member_id:"",
-  full_name:"",
+  member_id:"65454",
+  full_name:"ดีครับ",
   status:"",
 
   dialog:{
@@ -30,11 +30,6 @@ export const state = () =>({
   },
     employee:{
       id:'',
-
-
-    },
-    member:{
-      member_id:'',
     },
 })
 
@@ -52,8 +47,8 @@ export const getters = {
     return state.line
   },
   myAuthenticate:state=>state.authenticate,
-    myMember_id:state=>state.member_id,
-    myName:state=>state.full_name,
+  myMember_id:state=>state.member_id,
+  myName:state=>state.full_name,
 
 
 }
