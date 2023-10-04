@@ -1,7 +1,7 @@
 export const state = () =>({
   authenticate: false,
-  member_id:"65454",
-  full_name:"ดีครับ",
+  member_id:"",
+  full_name:"",
   status:"",
 
   dialog:{
