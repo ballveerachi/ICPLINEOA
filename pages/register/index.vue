@@ -121,7 +121,10 @@ export default {
     },
     register() {
       if (this.validate()) {
-
+        const newMember = {
+          member_id: this.form.member_id,
+        };
+        this.$emit("saveData", newMember);
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
