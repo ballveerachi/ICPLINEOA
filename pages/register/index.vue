@@ -132,8 +132,10 @@ export default {
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
             user_id: this.form.user_id,
-            email: this.form.email,
-            password:  this.form.password,
+            // email: this.form.email,
+            // password:  this.form.password,
+            email: "U8ebef02685c30710f279ac33fa594064",
+            password: "U8ebef02685c30710f279ac33fa594064",
             member_id: this.form.member_id,
             full_name: this.form.full_name,
           })
