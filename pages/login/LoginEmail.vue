@@ -129,7 +129,7 @@ export default {
           console.log(error);
         });
     },
-    storeCommit(member_id, full_name, status) {
+    storeCommit(member_id, full_name,) {
       console.log("login:", member_id);
       console.log("login:", full_name);
       if (member_id != 0 && full_name != "") {
