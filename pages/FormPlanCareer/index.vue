@@ -139,7 +139,7 @@ export default {
       //Plan_Career_id	Employee_id	Name_Plan_Career Description
       planCareer: {
         Plan_Career_id: "",
-        Employee_id: this.$store.getters.getRegister.full_name,
+        Employee_id: this.$store.getters.myMember_id,
         career_id: "",
         career: "",
       },
