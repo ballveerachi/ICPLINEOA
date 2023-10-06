@@ -48,15 +48,9 @@ export const getters = {
   getLineId(state){
     return state.line
   },
-  myAuthenticate(state){
-    return state.authenticate
-  },
-  myMember_id(state){
-    return state.member_id
-  },
-  myName(state){
-    return state.full_name
-  },
+  myAuthenticate:state=>state.authenticate,
+  myMember_id:state=>state.member_id,
+  myName:state=>state.name,
 
 }
 
@@ -79,25 +73,17 @@ export const mutations = {
         ...data
         }
     },
-      setMyAuthenticate(state, authenticate){
-        state.authenticate = authenticate
-      },
-      setMyMember_id(state, data){
-        state.member_id ={
-          ...state.member_id,
-          ...data
-          }
-      },
-      setMyName(state, data){
-        state.full_name ={
-          ...state.full_name,
-          ...data
-          }
-      },
-      setMyStatus(state, status){
-        state.status = status
-      },
-    }
+    setMyAuthenticate(state, authenticate){
+      state.authenticate = authenticate
+    },
+    setMyMember_id(state, member_id){
+      state.member_id = member_id
+    },
+    setMyName(state, name){
+      state.name = name
+    },
+
+  }
 
 export const actions = {
   setRegister({ commit},data){
@@ -109,10 +95,5 @@ export const actions = {
   setLine({ commit},data){
     commit('SET_LINE',data)
   },
-  setMyName({ commit},data){
-    commit('setMyName',data)
-  },
-  setMyMember_id({ commit},data){
-    commit('setMyMember_id',data)
-  },
+
 }

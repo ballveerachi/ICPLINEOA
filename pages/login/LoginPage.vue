@@ -57,7 +57,7 @@ export default {
         password: "",
       },
       member: {
-        member_id: 0,
+        member_id: "",
         full_name: "",
         status: "",
       },
@@ -88,11 +88,9 @@ export default {
           console.log("data:",res)
           self.member.member_id = res.data.map((item) => item.member_id)[0];
           self.member.full_name = res.data.map((item) => item.full_name)[0];
-          self.member.status = res.data.map((item) => item.status)[0];
           self.storeCommit(
             self.member.member_id,
             self.member.full_name,
-            self.member.status
           );
         })
         .catch(function (error) {
@@ -102,12 +100,10 @@ export default {
     storeCommit(member_id, full_name, status) {
       console.log("login:", member_id);
       console.log("login:", full_name);
-      console.log("login:", status);
-      if (member_id != 0 && full_name != "" && status != "") {
+      if (member_id != 0 && full_name != "") {
         this.$store.commit("setMyAuthenticate", true);
         this.$store.commit("setMyMember_id", member_id);
         this.$store.commit("setMyName", full_name);
-        this.$store.commit("setMyStatus", status);
         this.$router.replace({ name: "index" });
       } else {
         console.log("The username and / or password is incorrect");
