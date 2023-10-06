@@ -143,7 +143,7 @@ export default {
     },
   },
   created() {
-    this.getAllUser();
+    // this.getAllUser();
   },
 };
 </script>
