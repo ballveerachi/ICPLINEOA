@@ -34,6 +34,7 @@
                       prepend-inner-icon="mdi-key"
                       variant="outlined"
                       required
+                      disabled
 
                       class="form-control form-control-lg"
                     >
@@ -48,6 +49,7 @@
                       prepend-inner-icon=" mdi-account-circle"
                       variant="outlined"
                       required
+                      disabled
                       class="form-control form-control-lg"
                     ></v-text-field
                   ></v-col>
