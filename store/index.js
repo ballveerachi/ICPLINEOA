@@ -1,8 +1,8 @@
 export const state = () =>({
   authenticate: false,
-  member_id:"",
-  full_name:"",
-  status:"",
+  member_id:'',
+  full_name:'',
+  status:'',
 
   dialog:{
     isShow: false,
@@ -92,11 +92,17 @@ export const mutations = {
       setMyAuthenticate(state, authenticate){
         state.authenticate = authenticate
       },
-      setMyMember_id(state, member_id){
-        state.member_id = member_id
+      setMyMember_id(state, data){
+        state.member_id ={
+          ...state.member_id,
+          ...data
+          }
       },
-      setMyName(state, full_name){
-        state.full_name = full_name
+      setMyName(state, data){
+        state.full_name ={
+          ...state.full_name,
+          ...data
+          }
       },
       setMyStatus(state, status){
         state.status = status
@@ -115,5 +121,11 @@ export const actions = {
   },
   setLineId({ commit},data){
     commit('SET_LINEID',data)
+  },
+  setMyName({ commit},data){
+    commit('setMyName',data)
+  },
+  setMyMember_id({ commit},data){
+    commit('setMyMember_id',data)
   },
 }
