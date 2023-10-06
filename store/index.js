@@ -1,7 +1,6 @@
 export const state = () =>({
   authenticate: false,
-  member_id:'',
-  full_name:'',
+
   status:'',
 
   dialog:{
@@ -15,6 +14,8 @@ export const state = () =>({
     userId: null,
   },
   register: {
+    member_id:'',
+    full_name:'',
     user_id:'',
     firstname:'',
     lastname:'',
