@@ -120,6 +120,8 @@ export default {
       return validated;
     },
     register() {
+      console.log("ข้อมูลfull_name",this.form.full_name)
+      console.log("ข้อมูลmember_id",this.form.member_id)
       if (this.validate()) {
         this.$store.dispatch("setRegister",this.form);
         this.$store.dispatch("setMyName",this.form.full_name);
