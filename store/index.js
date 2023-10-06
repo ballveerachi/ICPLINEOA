@@ -77,18 +77,6 @@ export const mutations = {
         ...data
         }
     },
-      SET_LINEID(state, data){
-        state.line ={
-          ...state.line,
-          ...data
-          }
-    },
-        setMember(state, data){
-          state.member_id ={
-            ...state.member,
-            ...data
-            }
-      },
       setMyAuthenticate(state, authenticate){
         state.authenticate = authenticate
       },
@@ -118,9 +106,6 @@ export const actions = {
   },
   setLine({ commit},data){
     commit('SET_LINE',data)
-  },
-  setLineId({ commit},data){
-    commit('SET_LINEID',data)
   },
   setMyName({ commit},data){
     commit('setMyName',data)
