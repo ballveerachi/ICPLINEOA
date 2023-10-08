@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     userid() {
-      this.$router.push("/login/LoginPage");
+      this.$router.push("/login/LoginEmail");
     },
     line() {
       this.$router.push("/register");
