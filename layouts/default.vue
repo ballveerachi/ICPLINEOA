@@ -7,8 +7,8 @@
       ></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon @click="logout">mdi-export</v-icon>
+      <v-btn @click="logout" icon>
+        <v-icon >mdi-export</v-icon>
       </v-btn>
     </v-app-bar>
     <v-navigation-drawer
