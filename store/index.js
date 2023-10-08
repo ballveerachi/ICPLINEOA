@@ -21,6 +21,7 @@ export const state = () =>({
     firstname:'',
     lastname:'',
     emil: '',
+    password: "",
     phone: '',
     birthday:new Date().toISOString().substr(0, 10),
         // member_id: '',

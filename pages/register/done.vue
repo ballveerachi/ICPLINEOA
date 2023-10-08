@@ -43,8 +43,8 @@ export default {
       this.$store.getters.getRegister.full_name,
 
       input: {
-        username: "",
-        password: "",
+        username: this.$store.getters.getRegister.emil,
+        password: this.$store.getters.getRegister.password,
       },
     }
   },
