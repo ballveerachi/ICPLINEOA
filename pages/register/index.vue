@@ -66,7 +66,7 @@ export default {
           this.form.user_id = profile.userId;
           this.form.password = profile.userId;
           this.$store.dispatch("setLine", profile);
-          // this.isDone();
+          this.isDone();
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", profile.userId);
         });
