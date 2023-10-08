@@ -30,15 +30,9 @@
               dense
               required
             ></v-text-field>
-            <v-text-field
-              v-model="form.member_id"
-              label="Fullname/ชื่อ-นามสกุล"
-              dense
-              required
-            ></v-text-field>
             <!-- <v-text-field
               v-model="form.member_id"
-              label="member_id"
+              label="Fullname/ชื่อ-นามสกุล"
               dense
               required
             ></v-text-field> -->
@@ -90,10 +84,10 @@ export default {
   data() {
     return {
       form: {
-        user_id:"",
-        email:"",
-        password:"",
-        member_id:"",
+        user_id: "",
+        email: "",
+        password: "",
+        member_id: "",
         full_name: "",
       },
     };
@@ -120,102 +114,60 @@ export default {
       return validated;
     },
     register() {
-      console.log("ข้อมูลfull_name",this.form.full_name)
-      console.log("ข้อมูลmember_id",this.form.member_id)
+      console.log("ข้อมูลfull_name", this.form.full_name);
+      console.log("ข้อมูลmember_id", this.form.member_id);
       if (this.validate()) {
-        this.$store.dispatch("setRegister",this.form);
-        // this.$store.dispatch("setMyName",this.form.full_name);
-        // this.$store.dispatch("setMyMember_id",this.form.member_id);
+        this.$store.dispatch("setRegister", this.form);
         axios
           .post("http://localhost/ICPScoreCard/api-member.php", {
             action: "insert_register",
             user_id: this.form.user_id,
             email: this.form.email,
-            password:  this.form.password,
+            password: this.form.password,
             member_id: this.form.member_id,
             full_name: this.form.full_name,
           })
           .then((res) => {
             console.log("สมัครเรียบร้อย", this.form);
-          this.$router.push("/register/done");
+            this.$router.push("/register/done");
             console.log(res);
           })
           .catch(function (error) {
             console.log(error);
           });
-
-
       }
     },
-
-    },
-    // isDone() {
-    //   axios
-    //     .get("http://localhost/ICPScoreCard/api-member.php/", {
-    //     })
-    //     .then((res) => {
-    //       console.log(res.data);
-    //       if (res.data != null) {
-    //         this.$router.push("/register/done");
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //     });
-    // },
-    checkMember() {
-      console.log(" ตรวจสอบข้อมูลสมาชิก ");
-      var self = this;
-      axios
-        .post("http://localhost/ICPScoreCard/api-member.php", {
-          action: "checkMember",
-          user: this.input.username,
-          pass: this.input.password,
-        })
-        .then(function (res) {
-          console.log("data:",res.data);
-          if(res.data.length > 0){
-            var member_id = res.data.map((item) => item.member_id)[0];
-            var full_name = res.data.map((item) => item.full_name)[0];
-            self.storeCommit(member_id,full_name,);
-          }else{
-            console.log("The username and / or password is incorrect");
-            self.$q
-              .dialog({
-                title: "คำเตือน",
-                message:
-                  "ชื่อผู้ใช้/รหัสผ่านไม่ถูกต้อง หรืออีเมลย์ยังไม่ได้รับการยืนยัน",
-                persistent: true,
-              })
-              .onOk(() => {
-                self.input.username = "";
-                self.input.password = "";
-              });
-
-
-          }
-
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
-    getAllUser() {
-      console.log(" แสดงข้อมูลทั้งหมด ");
-      var self = this;
-      axios
-        .post("http://localhost/ICPScoreCard/api-member.php", {
-          action: "getall",
-        })
-        .then(function (res) {
-          console.log(res);
-          self.members = res.data;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
-
+  },
+  isDone() {
+    axios
+      .get("http://localhost/ICPScoreCard/api-member.php/", {
+        action: "checkMember",
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data != null) {
+          this.$router.push("/register/done");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
+  getAllUser() {
+    console.log(" แสดงข้อมูลทั้งหมด ");
+    var self = this;
+    axios
+      .post("http://localhost/ICPScoreCard/api-member.php", {
+        action: "getall",
+      })
+      .then(function (res) {
+        console.log(res);
+        self.members = res.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  },
 };
 </script>
 
