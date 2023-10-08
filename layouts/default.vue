@@ -8,7 +8,7 @@
       <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-icon>mdi-export</v-icon>
+        <v-icon @click="logout">mdi-export</v-icon>
       </v-btn>
     </v-app-bar>
     <v-navigation-drawer
@@ -118,6 +118,9 @@ export default {
     getLine() {
       return this.$store.getters.getLine;
     },
+    logout(){
+      this.$router.push("/LogoutPage");
+    }
   },
 };
 </script>
