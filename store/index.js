@@ -79,8 +79,8 @@ export const mutations = {
     setMyMember_id(state, member_id){
       state.member_id = member_id
     },
-    setMyName(state, name){
-      state.name = name
+    setMyName(state, full_name){
+      state.full_name = full_name
     },
 
   }
