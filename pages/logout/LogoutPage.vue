@@ -37,7 +37,7 @@ export default {
       this.$store.commit("setMyAuthenticate", false);
       this.$store.commit("setMyMember_id", 0);
       this.$store.commit("setMyName", "");
-      this.$router.replace({ name: "index" });
+      this.$router.replace({ name: "login/index" });
     },
     cancel() {
       this.$router.replace({ name: "index" });
