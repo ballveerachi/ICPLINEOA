@@ -122,7 +122,7 @@ export default {
   },
   methods: {
     logout(){
-      this.$router.push("/LogoutPage");
+      this.$router.push("/logout/LogoutPage");
     }
   }
 };
