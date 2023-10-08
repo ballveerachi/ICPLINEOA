@@ -118,10 +118,13 @@ export default {
     getLine() {
       return this.$store.getters.getLine;
     },
+
+  },
+  methods: {
     logout(){
       this.$router.push("/LogoutPage");
     }
-  },
+  }
 };
 </script>
 <style lang="scss">
