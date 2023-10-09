@@ -107,7 +107,7 @@ export default {
         this.dialog = true;
         this.$store.dispatch("setDialog", {
           isShow: true,
-          title: "warning !",
+          title: "Warning !",
           message: errors.map((error) => error + "</br>").join(""),
         });
       }
