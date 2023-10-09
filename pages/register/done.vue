@@ -47,6 +47,11 @@ export default {
         username: this.$store.getters.getRegister.emil,
         password: this.$store.getters.getRegister.password,
       },
+      member: {
+        member_id: "",
+        full_name: "",
+        status: "",
+      },
     }
   },
 

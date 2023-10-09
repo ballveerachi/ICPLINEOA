@@ -90,11 +90,6 @@ export default {
         member_id: "",
         full_name: "",
       },
-      member: {
-        member_id: "",
-        full_name: "",
-        status: "",
-      },
     };
   },
   methods: {
