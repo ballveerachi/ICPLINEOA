@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar dense flat dark>
-      <v-toolbar-title>login</v-toolbar-title>
+      <v-toolbar-title>Register</v-toolbar-title>
     </v-app-bar>
     <v-container class="pt-0 pb-0">
       <v-row>
