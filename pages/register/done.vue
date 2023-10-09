@@ -50,7 +50,6 @@ export default {
       member: {
         member_id: "",
         full_name: "",
-        status: "",
       },
     }
   },

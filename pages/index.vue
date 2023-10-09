@@ -24,11 +24,9 @@
           </li>
         </ul>
         <ul>
-          <li>
-            <div class="container">
+          <div class="container">
               <img class="img_respon" src="~/assets/plan.png" alt=""  />
-            </div>
-          </li>
+          </div>
         </ul>
       </v-col>
     </v-row>
