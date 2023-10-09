@@ -5,7 +5,7 @@
     </v-app-bar>
     <v-container class="pt-0 pb-0">
       <v-row>
-        <v-col cols="12" class="text-center pb-0 mt-3 profile-img">
+        <v-col cols="12" class="text-center pb-0 mt-6 profile-img">
           <img
             v-if="getLine.pictureUrl == ''"
             src="~/assets/user.png"
