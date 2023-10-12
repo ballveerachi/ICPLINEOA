@@ -96,7 +96,7 @@ export default {
     checkMember() {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
       var username = this.userId;
-      if (username != "") {
+
         var password = username;
         console.log("username", username);
         var self = this;
@@ -110,15 +110,14 @@ export default {
             console.log("data:", res);
             var member_id = res.data.map((item) => item.member_id)[0];
             var full_name = res.data.map((item) => item.full_name)[0];
+
+            if (member_id != "" && full_name != ""  ) {
             self.storeCommit(member_id, full_name);
-          })
+          }
+        })
           .catch(function (error) {
             console.log(error);
           });
-      }
-      else{
-
-      }
     },
     storeCommit(member_id, full_name) {
       console.log("login:", member_id);
