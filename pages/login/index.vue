@@ -110,8 +110,7 @@ export default {
             console.log("data:", res);
             var member_id = res.data.map((item) => item.member_id)[0];
             var full_name = res.data.map((item) => item.full_name)[0];
-
-            if (member_id != "" && full_name != ""  ) {
+            if (member_id != null && full_name != null ) {
             self.storeCommit(member_id, full_name);
           }
         })
