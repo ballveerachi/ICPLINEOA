@@ -31,7 +31,7 @@
                 color="green"
                 dark
                 class="w-100 mt-0 my-btn1"
-                @click="login"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />เข้าสู่ระบบ Line</v-btn
+                @click="checkMember"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />เข้าสู่ระบบ Line</v-btn
               >
               <div class="text-right mt-2 ">
                 ยังไม่มีบัญชีใช่ไหม
@@ -61,6 +61,43 @@ export default {
     },
     login() {
       this.$router.push("/");
+    },
+    checkMember() {
+      console.log(" ตรวจสอบข้อมูลสมาชิก ");
+      username = this.$store.getters.getLine.userId;
+      password = username;
+      console.log("username",username);
+      var self = this;
+      axios
+        .post("http://localhost/ICPScoreCard/api-member.php", {
+          action: "checkMember",
+          user: username,
+          pass: password,
+        })
+        .then(function (res) {
+          console.log("data:",res)
+          self.member.member_id = res.data.map((item) => item.member_id)[0];
+          self.member.full_name = res.data.map((item) => item.full_name)[0];
+          self.storeCommit(
+            self.member.member_id,
+            self.member.full_name,
+          );
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    storeCommit(member_id, full_name,) {
+      console.log("login:", member_id);
+      console.log("login:", full_name);
+      if (member_id != 0 && full_name != "") {
+        this.$store.commit("setMyAuthenticate", true);
+        this.$store.commit("setMyMember_id", member_id);
+        this.$store.commit("setMyName", full_name);
+        this.$router.replace({ name: "index" });
+      } else {
+        console.log("The username and / or password is incorrect");
+      }
     },
   },
 };
