@@ -64,8 +64,8 @@ export default {
     },
     checkMember() {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
-      username = this.$store.getters.getLine.userId;
-      password = username;
+      var username = this.$store.getters.getLine.userId;
+      var password = username;
       console.log("username",username);
       var self = this;
       axios
