@@ -66,6 +66,7 @@ export default {
     checkMember() {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
       var username = this.$store.getters.getLine.userId;
+      
       var password = username;
       console.log("username",username);
       var self = this;

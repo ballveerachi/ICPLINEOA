@@ -10,9 +10,9 @@ export const state = () =>({
     message: ''
   },
   line:{
-    pictureUrl: null,
-    displayName: null,
-    userId: null,
+    pictureUrl: '',
+    displayName: '',
+    userId: '',
   },
   register: {
     member_id:'',
