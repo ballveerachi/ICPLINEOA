@@ -51,7 +51,7 @@ export const getters = {
   },
   myAuthenticate:state=>state.authenticate,
   myMember_id:state=>state.member_id,
-  myName:state=>state.name,
+  myName:state=>state.full_name,
 
 }
 
