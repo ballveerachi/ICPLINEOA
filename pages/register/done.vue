@@ -44,8 +44,8 @@ export default {
       this.$store.getters.getRegister.full_name,
 
       input: {
-        username: this.$store.getters.getRegister.email,
-        password: this.$store.getters.getRegister.pas,
+        username: this.$store.getters.getLine.userId,
+        password:this.$store.getters.getLine.userId ,
       },
       member: {
         member_id: "",
