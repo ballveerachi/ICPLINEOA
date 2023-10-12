@@ -77,11 +77,11 @@ export default {
         })
         .then(function (res) {
           console.log("data:",res)
-          self.member.member_id = res.data.map((item) => item.member_id)[0];
-          self.member.full_name = res.data.map((item) => item.full_name)[0];
+          var member_id = res.data.map((item) => item.member_id)[0];
+          var full_name = res.data.map((item) => item.full_name)[0];
           self.storeCommit(
-            self.member.member_id,
-            self.member.full_name,
+            member_id,
+            full_name,
           );
         })
         .catch(function (error) {
