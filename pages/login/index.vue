@@ -36,7 +36,7 @@
                 rounded
                 color="green"
                 dark
-                class="w-100 mt-2 my-btn1"
+                class="w-100 mt-4 my-btn1"
                 @click="checkMember"
                 ><img
                   class="imgline"
