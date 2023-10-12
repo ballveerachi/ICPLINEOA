@@ -45,7 +45,7 @@ export default {
 
       input: {
         username: this.$store.getters.getRegister.email,
-        password: this.$store.getters.getRegister.password,
+        password: this.$store.getters.getRegister.pas,
       },
       member: {
         member_id: "",
@@ -53,7 +53,6 @@ export default {
       },
     }
   },
-
   methods: {
     home() {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");

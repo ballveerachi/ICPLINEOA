@@ -30,13 +30,13 @@
                   src="~/assets/line.png"
                   alt=""
                   width="40px"
-                />ล็อกอินด้วยบัญชี Line</v-btn
+                />ลงทะเบียนด้วยบัญชี Line</v-btn
               >
               <v-btn
                 rounded
                 color="green"
                 dark
-                class="w-100 mt-0 my-btn1"
+                class="w-100 mt-2 my-btn1"
                 @click="checkMember"
                 ><img
                   class="imgline"
@@ -99,6 +99,9 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
+      }
+      else{
+
       }
     },
     storeCommit(member_id, full_name) {
