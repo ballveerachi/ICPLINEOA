@@ -26,6 +26,13 @@
                 class="w-100 mt-0 my-btn1"
                 @click="line"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />ล็อกอินด้วยบัญชี Line</v-btn
               >
+              <v-btn
+                rounded
+                color="green"
+                dark
+                class="w-100 mt-0 my-btn1"
+                @click="line"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />เข้าสู่ระบบ Line</v-btn
+              >
               <div class="text-right mt-2 ">
                 ยังไม่มีบัญชีใช่ไหม
                 <router-link :to="{name:'register'}">สมัครใช้งาน</router-link>
