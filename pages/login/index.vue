@@ -1,15 +1,15 @@
 <template>
   <div>
-    <v-app-bar  dense flat dark>
-      <v-toolbar-title>Login</v-toolbar-title> </v-app-bar
-    >
+    <v-app-bar dense flat dark>
+      <v-toolbar-title>Login</v-toolbar-title>
+    </v-app-bar>
     <v-container class="pt-0 pb-0">
       <v-row>
         <v-col cols="12">
           <div class="set-padding">
             <div class="text-center mt-10">
               <img src="~/assets/login.png" alt="" width="180px" />
-              <h1 class="text-title mt-4 " >ตัวเลือกการเข้าสู่ระบบ</h1>
+              <h1 class="text-title mt-4">ตัวเลือกการเข้าสู่ระบบ</h1>
             </div>
             <div>
               <div
@@ -18,24 +18,38 @@
               >
                 ล็อกอินด้วยบัญชีอีเมลล์
               </div>
-              <p class="text-center  mt-4 ">หรือ</p>
+              <p class="text-center mt-4">หรือ</p>
               <v-btn
                 rounded
                 color="green"
                 dark
                 class="w-100 mt-0 my-btn1"
-                @click="line"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />ล็อกอินด้วยบัญชี Line</v-btn
+                @click="line"
+                ><img
+                  class="imgline"
+                  src="~/assets/line.png"
+                  alt=""
+                  width="40px"
+                />ล็อกอินด้วยบัญชี Line</v-btn
               >
               <v-btn
                 rounded
                 color="green"
                 dark
                 class="w-100 mt-0 my-btn1"
-                @click="checkMember"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />เข้าสู่ระบบ Line</v-btn
+                @click="checkMember"
+                ><img
+                  class="imgline"
+                  src="~/assets/line.png"
+                  alt=""
+                  width="40px"
+                />เข้าสู่ระบบ Line</v-btn
               >
-              <div class="text-right mt-2 ">
+              <div class="text-right mt-2">
                 ยังไม่มีบัญชีใช่ไหม
-                <router-link :to="{name:'register'}">สมัครใช้งาน</router-link>
+                <router-link :to="{ name: 'register' }"
+                  >สมัครใช้งาน</router-link
+                >
               </div>
             </div>
           </div>
@@ -48,10 +62,10 @@
 <script>
 import axios from "axios";
 export default {
-  data(){
-    return{
-      name: this.$store.getters.getRegister.firstname
-    }
+  data() {
+    return {
+      name: this.$store.getters.getRegister.firstname,
+    };
   },
   methods: {
     userid() {
@@ -66,30 +80,28 @@ export default {
     checkMember() {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
       var username = this.$store.getters.getLine.userId;
-      
-      var password = username;
-      console.log("username",username);
-      var self = this;
-      axios
-        .post("http://localhost/ICPScoreCard/api-member.php", {
-          action: "checkMember",
-          user: username,
-          pass: password,
-        })
-        .then(function (res) {
-          console.log("data:",res)
-          var member_id = res.data.map((item) => item.member_id)[0];
-          var full_name = res.data.map((item) => item.full_name)[0];
-          self.storeCommit(
-            member_id,
-            full_name,
-          );
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      if (username != "") {
+        var password = username;
+        console.log("username", username);
+        var self = this;
+        axios
+          .post("http://localhost/ICPScoreCard/api-member.php", {
+            action: "checkMember",
+            user: username,
+            pass: password,
+          })
+          .then(function (res) {
+            console.log("data:", res);
+            var member_id = res.data.map((item) => item.member_id)[0];
+            var full_name = res.data.map((item) => item.full_name)[0];
+            self.storeCommit(member_id, full_name);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
     },
-    storeCommit(member_id, full_name,) {
+    storeCommit(member_id, full_name) {
       console.log("login:", member_id);
       console.log("login:", full_name);
       if (member_id != 0 && full_name != "") {
@@ -106,39 +118,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-application .primary{
-  background-color: #26A69A !important;
-  border-color: #26A69A !important;
+.v-application .primary {
+  background-color: #26a69a !important;
+  border-color: #26a69a !important;
 }
-.my-btn{
-  font-size: 20px!important;
+.my-btn {
+  font-size: 20px !important;
   text-transform: none !important;
   height: auto;
   padding: 10px 0 !important;
   // font-weight: bold;
-  min-height: 50px ;
-  &.outlined{
-    border: 1px solid #26A69A ;
+  min-height: 50px;
+  &.outlined {
+    border: 1px solid #26a69a;
     border-radius: 28px;
     line-height: normal;
+  }
 }
-}
-.my-btn{
-
-font-size: 15px!important;
-text-transform: none !important;
-height: auto;
-padding: 10px 0 !important;
-// font-weight: bold;
-min-height: 50px ;
-}
-.my-btn1{
-
-  font-size: 15px!important;
+.my-btn {
+  font-size: 15px !important;
   text-transform: none !important;
   height: auto;
   padding: 10px 0 !important;
   // font-weight: bold;
-  min-height: 50px ;
+  min-height: 50px;
+}
+.my-btn1 {
+  font-size: 15px !important;
+  text-transform: none !important;
+  height: auto;
+  padding: 10px 0 !important;
+  // font-weight: bold;
+  min-height: 50px;
 }
 </style>
