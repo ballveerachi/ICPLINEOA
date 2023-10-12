@@ -66,7 +66,6 @@ export default {
           this.form.user_id = profile.userId;
           this.form.password = profile.userId;
           this.$store.dispatch("setLine", profile);
-          this.isDone();
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", profile.userId);
         });
@@ -137,17 +136,6 @@ export default {
           });
       }
     },
-  },
-  isDone() {
-    axios
-    .get("http://localhost/ICPScoreCard/api-member.php").then((res) => {
-        if (res.data != null) {
-          this.$router.push("/register/done");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   },
   getAllUser() {
     console.log(" แสดงข้อมูลทั้งหมด ");
