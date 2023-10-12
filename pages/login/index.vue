@@ -62,9 +62,24 @@
 <script>
 import axios from "axios";
 export default {
+  mounted() {
+    liff.init({ liffId: "2000700725-PRVZgqqz" });
+    liff.ready.then(() => {
+      if (liff.isLoggedIn()) {
+        liff.getProfile().then((profile) => {
+          this.userId=profile.userId
+          console.log("ข้อมูลจากLine", profile);
+          console.log("LineID", this.userId);
+        });
+      } else {
+        liff.login();
+      }
+    });
+  },
   data() {
     return {
       name: this.$store.getters.getRegister.firstname,
+      userId:''
     };
   },
   methods: {
@@ -79,7 +94,7 @@ export default {
     },
     checkMember() {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
-      var username = this.$store.getters.getLine.userId;
+      var username = this.userId;
       if (username != "") {
         var password = username;
         console.log("username", username);
