@@ -140,11 +140,7 @@ export default {
   },
   isDone() {
     axios
-      .get("http://localhost/ICPScoreCard/api-member.php/", {
-        action: "checkMember",
-      })
-      .then((res) => {
-        console.log(res.data);
+      .get("http://localhost/ICPScoreCard/api-member.php/").then((res) => {
         if (res.data != null) {
           this.$router.push("/register/done");
         }
