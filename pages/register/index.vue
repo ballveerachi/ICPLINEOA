@@ -128,6 +128,7 @@ export default {
           })
           .then((res) => {
             console.log("สมัครเรียบร้อย", this.form);
+            this.$store.dispatch("setLine",this.form.email);
             this.$router.push("/register/done");
             console.log(res);
           })
