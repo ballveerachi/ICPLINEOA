@@ -31,7 +31,7 @@
                 color="green"
                 dark
                 class="w-100 mt-0 my-btn1"
-                @click="line"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />เข้าสู่ระบบ Line</v-btn
+                @click="login"><img class="imgline" src="~/assets/line.png"  alt="" width="40px" />เข้าสู่ระบบ Line</v-btn
               >
               <div class="text-right mt-2 ">
                 ยังไม่มีบัญชีใช่ไหม
@@ -58,6 +58,9 @@ export default {
     },
     line() {
       this.$router.push("/register");
+    },
+    login() {
+      this.$router.push("/");
     },
   },
 };
