@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar  dense flat dark>
-      <v-toolbar-title>รายงานการประเมินตนเอง</v-toolbar-title>
+      <v-toolbar-title>{{pageTitle}}</v-toolbar-title>
     </v-app-bar>
 
     <v-card
@@ -72,53 +72,6 @@
         </v-container>
       </v-main>
     </v-card>
-    <v-row class="td" >
-        <v-col scope="col" cols="2" md="2">Skill</v-col>
-        <v-col scope="col" cols="2" md="2">Doing</v-col>
-        <v-col scope="col" cols="2" md="2">Leaning</v-col>
-
-
-      </v-row>
-      <!-- <v-row  v-for="row in employees"
-                :key="row.id"
-                @click="getEmployeeId(row.id)" cols="12" md="6">
-        <v-col scope="col" cols="2" md="2">{{ row.id }}</v-col>
-        <v-col scope="col" cols="2" md="2">{{ row.name }}</v-col>
-        <v-col scope="col" cols="2" md="2">{{ row.study_faculty }}</v-col>
-
-      </v-row> -->
-
-
-
-
-    <!-- data-table -->
-    <!-- <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
-
-
-
-      <v-row class="td" >
-        <v-col scope="col" cols="2" md="2">Id</v-col>
-        <v-col scope="col" cols="2" md="2">Name</v-col>
-        <v-col scope="col" cols="2" md="2">Study Faculty</v-col>
-        <v-col scope="col" cols="2" md="2">University</v-col>
-        <v-col scope="col" cols="2" md="2">Month</v-col>
-        <v-col scope="col" cols="2" md="2">Disibility type</v-col>
-
-      </v-row>
-      <v-row  v-for="row in employees"
-                :key="row.id"
-                @click="getEmployeeId(row.id)" cols="12" md="6">
-        <v-col scope="col" cols="2" md="2">{{ row.id }}</v-col>
-        <v-col scope="col" cols="2" md="2">{{ row.name }}</v-col>
-        <v-col scope="col" cols="2" md="2">{{ row.study_faculty }}</v-col>
-        <v-col scope="col" cols="2" md="2">{{ row.university }}</v-col>
-        <v-col scope="col" cols="2" md="2">{{ row.month }}</v-col>
-        <v-col scope="col" cols="2" md="2">{{ row.disability_type }}</v-col>
-      </v-row>
-    </v-card> -->
-
-
-      <!-- /data-table -->
   </div>
 </template>
 
@@ -129,7 +82,7 @@ export default {
   components: {},
   data() {
     return {
-      pageTitle: 'ข้อมูลส่วนตัว',
+      pageTitle: 'รายงานประเมินตัวเอง',
       dataChart: [],
       message: 'Form Pivot Table',
       query: '',
@@ -500,9 +453,8 @@ export default {
 // }
 .table {
   text-align: center;
-  padding-top: 45px;
-  margin-top: 45px;
+  padding-top: 15px;
+  margin-top: 50px;
 }
-
 </style>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar  dense flat dark>
-      <v-toolbar-title>แผนปฏิบัติ/เรียนรู้</v-toolbar-title> </v-app-bar
+      <v-toolbar-title>{{pageTitle}}</v-toolbar-title> </v-app-bar
     >
     <v-card
       class="mx-auto pa-12 pb-8"
@@ -10,18 +10,19 @@
       rounded="lg"
     >
       <v-main>
-        <v-container class="pt-0 pb-0">
-          <v-row>
-            <v-form
+        <v-form
               @submit.prevent="submitForm"
               @reset.prevent="resetForm"
               method="post"
             >
-              <v-container>
-                <v-row>
+        <v-container class="pt-0 pb-0">
+          <v-row>
+
+
+
                   <!-- Plan_Career_id -->
                   <v-col cols="12" md="6">
-                    <div for="career_plan-id">รหัสแผนอาชีพ:</div>
+                    <div for="career_plan-id">รหัสแผนเรียน/ทำ:</div>
                     <v-text-field
                       type="text"
                       v-model="plan.Plan_Career_id"
@@ -38,58 +39,69 @@
                   <!-- Plan_Career_id -->
                   <v-col cols="12" md="6">
                     <div>รหัสแผนอาชีพ:</div>
-                    <v-text-field
-                      type="text"
-                      name="Career"
-                      v-model="plan.Plan_Career_id"
-                      placeholder="Career/อาชีพ"
-                      prepend-inner-icon="mdi-key"
-                      variant="outlined"
-                      required
-                      disabled
-                      class="form-control form-control-lg"
-                      ><v-select
-                        :size="4"
-                        v-model="plan.Plan_Career_id"
-                        :required="true"
-                        @change="getQualification()"
-                        ><option value="" disabled selected>อาชีพ:</option>
-                        <option
-                          v-for="career in careers"
-                          :value="career.Plan_Career_id"
-                          :key="career.index"
-                        >
-                          {{ career.Plan_Career_id }} {{ career.career }}
-                        </option>
-                      </v-select>
-                    </v-text-field>
+                    <v-select
+                    :size="4"
+                    v-model="plan.Plan_Career_id"
+                    :required="true"
+                    @change="getQualification()"
+                    :items="careers"
+                    label="เลือก"
+                    item-value="Plan_Career_id"
+                    item-text="career"
+                  >
+                  <template v-slot:prepend-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <span class="grey--text">กำหนดรหัสแผนอาชีพ:</span>
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template>
+                    <template v-slot:selection="{ item }">
+                      <span>{{ item.Plan_Career_id }} - {{ item.career }}</span>
+                    </template>
+                    <template v-slot:item="{ item }">
+                      <span>{{ item.Plan_Career_id }} - {{ item.career }}</span>
+                    </template>
+                  </v-select>
+
                   </v-col>
                   <!--  -->
                   <!-- qa_plan_career_id -->
                   <v-col>
                     <div>รหัสคุณสมบัติ:</div>
-                    <v-text-field
-                      type="text"
-                      name="qualification"
-                      v-model="plan.qa_plan_career_id"
-                      placeholder="Qualification/คุณสมบัติ"
-                      prepend-inner-icon="mdi-clipboard-outline"
-                      variant="outlined"
-                      required
-                      disabled
-                      class="form-control form-control-lg"
-                      ><v-select :size="4" v-model="plan.qa_plan_career_id"
-                        ><option disabled selected>กำหนดคุณสมบัติ:</option>
-                        <option
-                          v-for="career in career_qualifications"
-                          :value="career.qa_plan_career_id"
-                          :key="career.index"
-                        >
-                          {{ career.qa_plan_career_id }}
-                          {{ career.qualification_name }}
-                        </option>
-                      </v-select>
-                    </v-text-field>
+                    <v-select
+                    :size="4"
+                    v-model="qa_plan_career_id"
+                    :items="career_qualifications"
+                    label="เลือก"
+                    item-value="qa_plan_career_id"
+                    item-text="qualification_name"
+                    variant="outlined"
+                  >
+                  <template v-slot:prepend-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <span class="grey--text">กำหนดรหัสคุณสมบัติ:</span>
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template>
+                    <template v-slot:selection="{ item }">
+                      <span
+                        >{{ item.qa_plan_career_id }} -
+                        {{ item.qualification_name }}</span
+                      >
+                    </template>
+                    <template v-slot:item="{ item }">
+                      <span
+                        >{{ item.qa_plan_career_id }} -
+                        {{ item.qualification_name }}</span
+                      >
+                    </template>
+                  </v-select>
                   </v-col>
 
                   <!--  -->
@@ -139,7 +151,7 @@
                       <template v-slot:activator="{ on, attrs }">
                         <v-text-field
                           v-model="plan.plan_start_date"
-                          label=""
+                          label="เลือก"
                           prepend-icon="mdi-calendar"
                           readonly
                           v-bind="attrs"
@@ -181,7 +193,7 @@
                       <template v-slot:activator="{ on, attrs }">
                         <v-text-field
                           v-model="plan.plan_end_date"
-                          label=""
+                          label="เลือก"
                           prepend-icon="mdi-calendar"
                           readonly
                           v-bind="attrs"
@@ -231,18 +243,11 @@
                     value="Cancel/ยกเลิก"
                     >Cancel/ยกเลิก
                   </v-btn>
-                </div>
-              </v-container>
-            </v-form>
-          </v-row>
-        </v-container>
-      </v-main>
-    </v-card>
-
-    <!-- data-table -->
-    <div style="overflow-x: auto">
-      <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
-        <v-card-title>แก้ไขข้อมูล</v-card-title>
+            </div>
+          </v-container>
+        </v-form>
+        <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
+          <v-card text="..." variant="tonal">แก้ไขข้อมูล</v-card>
         <v-row class="td">
           <v-col cols="2" md="1">P-ID </v-col>
           <v-col cols="2" md="1">QA-ID</v-col>
@@ -269,9 +274,8 @@
           </v-col>
         </v-row>
       </v-card>
-    </div>
-
-    <!-- /data-table -->
+      </v-main>
+    </v-card>
   </div>
 </template>
 
@@ -281,6 +285,7 @@ export default {
   name: 'FormPlan',
   data() {
     return {
+      pageTitle: 'รายงานประเมินตัวเอง',
       message: 'Form Plan Career',
       careers: Array,
       qa_plan_career: Array,
@@ -498,7 +503,7 @@ export default {
 // }
 .table {
   text-align: center;
-  padding-top: 45px;
-  margin-top: 45px;
+  padding-top: 15px;
+  margin-top: 50px;
 }
 </style>

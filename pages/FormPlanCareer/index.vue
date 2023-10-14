@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar dense flat dark>
-      <v-toolbar-title>อาชีพเป้าหมาย</v-toolbar-title>
+      <v-toolbar-title>{{pageTitle}}</v-toolbar-title>
     </v-app-bar>
     <v-card
       class="mx-auto pa-12 pb-8"
@@ -51,14 +51,16 @@
                 <div>แผนอาชีพ:</div>
 
                 <v-select
+                  :size="4"
                   v-model="planCareer.career_id"
                   :items="careers"
-                  label="อาชีพที่ต้องการ:"
+                  label="เลือก"
                   item-value="career_id"
                   item-text="career"
                   dense
+                  variant="outlined"
                 >
-                  <template v-slot:prepend-item>
+                <template v-slot:prepend-item>
                     <v-list-item>
                       <v-list-item-content>
                         <v-list-item-title>
@@ -66,6 +68,13 @@
                         </v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
+                  </template>
+                  <template v-slot:selection="{ item }">
+
+                    <span>{{ item.career_id }} - {{ item.career }}</span>
+                  </template>
+                  <template v-slot:item="{ item }">
+                    <span>{{ item.career_id }} - {{ item.career }}</span>
                   </template>
                 </v-select>
               </v-col>
@@ -93,12 +102,10 @@
             </div>
           </v-container>
         </v-form>
-      </v-main>
-    </v-card>
-    <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
-      <!-- <v-card-title>แก้ไขข้อมูล</v-card-title> -->
+        <v-card class="mx-auto table"  max-width="800px" cols="12" md="6">
+          <v-card text="..." variant="tonal">แก้ไขข้อมูล</v-card>
       <v-row>
-        <v-col> PlanCareer-ID</v-col>
+        <v-col>PlanCareer-ID</v-col>
         <v-col>Employee-ID</v-col>
         <v-col>Career ID</v-col>
         <v-col>Career</v-col>
@@ -123,6 +130,8 @@
         </v-col>
       </v-row>
     </v-card>
+      </v-main>
+    </v-card>
   </div>
 </template>
 <script>
@@ -132,6 +141,7 @@ export default {
   name: "FormPlanCareer",
   data() {
     return {
+      pageTitle: 'อาชีพเป้าหมาย',
       message: "Form Plan Career",
       planCareers: Array,
       planCareers_: Array,
@@ -284,8 +294,8 @@ export default {
 // }
 .table {
   text-align: center;
-  padding-top: 45px;
-  margin-top: 45px;
+  padding-top: 15px;
+  margin-top: 50px;
 }
 </style>
 

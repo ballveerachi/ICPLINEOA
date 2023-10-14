@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar  dense flat dark>
-      <v-toolbar-title>ประเมินตนเอง</v-toolbar-title>
+      <v-toolbar-title>{{pageTitle}}</v-toolbar-title>
     </v-app-bar>
     <v-card
       class="mx-auto pa-12 pb-8"
@@ -36,42 +36,70 @@
               </v-row>
               <v-row>
                 <v-col cols="12" md="12">
-                  <div>Career-ID/รหัสแผนอาชีพ:</div>
+                  <div>Career-ID/รหัสอาชีพ:</div>
                   <v-select
-                    filled
-                    density="compact"
-                    label="รหัสแผนอาชีพ"
+                    :size="4"
+                    label="เลือก"
                     v-model="selfAssessment.Plan_Career_id"
+                    :required="true"
+                    @change="getQualification()"
+                    :items="careers"
+
+                    item-value="Plan_Career_id"
+                    item-text="career"
                   >
-                    <option disabled selected>กำหนดรหัสแผนอาชีพ:</option>
-                    <option
-                      v-for="career in careers"
-                      :value="career.Plan_Career_id"
-                      :key="career.index"
-                    >
-                      {{ career.Plan_Career_id }} {{ career.career }}
-                    </option>
+                  <template v-slot:prepend-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <span class="grey--text">กำหนดรหัสอาชีพ:</span>
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template>
+                    <template v-slot:selection="{ item }">
+                      <span> {{ item.Plan_Career_id }}-{{ item.career }}</span>
+                    </template>
+                    <template v-slot:item="{ item }">
+                      <span> {{ item.Plan_Career_id }}-{{ item.career }}</span>
+                    </template>
                   </v-select>
+
                 </v-col>
               </v-row>
               <v-row>
                 <v-col>
                   <div>Qualification-ID/รหัสคุณสมบัติ</div>
                   <v-select
+                  :size="4"
                     v-model="selfAssessment.qa_plan_career_id"
-                    :required="true"
+                    :items="career_qualifications"
+                    label="เลือก"
+                    item-value="qa_plan_career_id"
+                    item-text="qualification_name"
+                    variant="outlined"
                   >
-                    <option value="" disabled selected>
-                      คุณสมบัติตามแผนอาชีพ:
-                    </option>
-                    <option
-                      v-for="career in career_qualifications"
-                      :value="career.qa_plan_career_id"
-                      :key="career.index"
-                    >
-                      {{ career.qa_plan_career_id }}
-                      {{ career.qualification_name }}me }}
-                    </option>
+                  <template v-slot:prepend-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <span class="grey--text">กำหนดรหัสคุณสมบัติ:</span>
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template>
+                    <template v-slot:selection="{ item }">
+                      <span
+                        >{{ item.qa_plan_career_id }} -
+                        {{ item.qualification_name }}</span
+                      >
+                    </template>
+                    <template v-slot:item="{ item }">
+                      <span
+                        >{{ item.qa_plan_career_id }} -
+                        {{ item.qualification_name }}</span
+                      >
+                    </template>
                   </v-select>
                 </v-col>
               </v-row>
@@ -118,16 +146,31 @@
               <v-row>
                 <v-col cols="12" md="12">
                   <div for="level">SelfAssessment/ประเมินตนเอง:</div>
+                  <v-select
+                    :size="4"
+                    v-model="selfAssessment.perform_id"
+                    :required="true"
+                    :items="performs"
+                    label="เลือก"
 
-                  <v-select v-model="selfAssessment.perform_id">
-                    <!-- <option disabled selected>ระดับความสำคัญ:</option> -->
-                    <option
-                      v-for="perform in performs"
-                      :value="perform.perform_id"
-                      :key="perform.index"
-                    >
-                      {{ perform.perform_name }}
-                    </option>
+                    item-value="perform_id"
+                    item-text="perform_name"
+                  >
+                  <template v-slot:prepend-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <span class="grey--text">ระดับการประเมินตนเอง:</span>
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template>
+                    <template v-slot:selection="{ item }">
+                      <span> {{ item.perform_name }}</span>
+                    </template>
+                    <template v-slot:item="{ item }">
+                      <span> {{ item.perform_name }}</span>
+                    </template>
                   </v-select>
                 </v-col>
               </v-row>
@@ -155,12 +198,8 @@
               </div>
             </v-container>
           </v-form>
-        </v-container>
-      </v-main>
-    </v-card>
-    <!-- data-table -->
-    <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
-      <!-- <v-card-title>แก้ไขข้อมูล</v-card-title> -->
+          <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
+      <v-card text="..." variant="tonal">แก้ไขข้อมูล</v-card>
       <v-row>
         <v-col>SA-ID</v-col>
         <v-col>QA-ID</v-col>
@@ -189,6 +228,11 @@
         </v-col>
       </v-row>
     </v-card>
+        </v-container>
+      </v-main>
+    </v-card>
+    <!-- data-table -->
+
 
     <!-- /data-table -->
   </div>
@@ -200,6 +244,7 @@ export default {
   name: 'FormSelfAssessment',
   data() {
     return {
+      pageTitle: 'ประเมินตัวเอง',
       modal_self_assessment_date: false,
       message: 'Form Self Acessment',
       currentYear: new Date().getFullYear(),
@@ -413,7 +458,7 @@ export default {
 // }
 .table {
   text-align: center;
-  padding-top: 45px;
-  margin-top: 45px;
+  padding-top: 15px;
+  margin-top: 50px;
 }
 </style>

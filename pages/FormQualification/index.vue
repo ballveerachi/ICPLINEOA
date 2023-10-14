@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-app-bar  dense flat dark>
-      <v-toolbar-title>คุณสมบัติ/ทักษะ</v-toolbar-title>
+    <v-app-bar dense flat dark>
+      <v-toolbar-title>{{pageTitle}}</v-toolbar-title>
     </v-app-bar>
     <v-card
       class="mx-auto pa-12 pb-8"
@@ -29,28 +29,40 @@
                     variant="outlined"
                     required
                     disabled
-                    class="form-control form-control-lg"
+
                   >
                   </v-text-field>
                 </v-col>
               </v-row>
               <v-row>
-                <v-col cols="12" md="6">
+                <v-col>
                   <div>รหัสแผนอาชีพ:</div>
                   <v-select
-                    :items="items"
-                    density="compact"
-                    label="อาชีพที่ต้องการ:"
+                    label="เลือก"
+                    variant="outlined"
                     v-model="qualification.planCareerId"
-                    ><option disabled selected>กำหนดรหัสแผนอาชีพ:</option>
+                    :size="4"
+                    :items="careers"
+                    item-value="Plan_Career_id"
+                    item-text="career"
+                    dense
 
-                    <option
-                      v-for="career in careers"
-                      :value="career.Plan_Career_id"
-                      :key="career.index"
-                    >
-                      {{ career.Plan_Career_id }} {{ career.career }}
-                    </option>
+                  >
+                    <template v-slot:prepend-item>
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title>
+                            <span class="grey--text">กำหนดรหัสอาชีพ:</span>
+                          </v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </template>
+                    <template v-slot:selection="{ item }">
+                      <span>{{ item.Plan_Career_id }} - {{ item.career }}</span>
+                    </template>
+                    <template v-slot:item="{ item }">
+                      <span>{{ item.Plan_Career_id }} - {{ item.career }}</span>
+                    </template>
                   </v-select>
                 </v-col>
               </v-row>
@@ -58,52 +70,100 @@
                 <v-col>
                   <div>คุณสมบัติ:</div>
                   <v-select
+                    label="เลือก"
+                    variant="outlined"
                     v-model="qualification.qualificationId"
-                    :required="true"
+                    :items="qualifications"
+                    item-value="qualificationId"
+                    item-text="qualification_name"
                   >
-                    <option disabled selected>คุณสมบัติที่กำหนด:</option>
-                    <option
-                      v-for="qualification in qualifications"
-                      :value="qualification.qualificationId"
-                      :key="qualification.index"
-                    >
-                      {{ qualification.qualificationId }}
-                      {{ qualification.qualification_name }}
-                    </option>
+                    <template v-slot:prepend-item>
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title>
+                            <span class="grey--text">กำหนดคุณสมบัติ:</span>
+                          </v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </template>
+                    <template v-slot:selection="{ item }">
+                      <span
+                        >{{ item.qualificationId }} -
+                        {{ item.qualification_name }}</span
+                      >
+                    </template>
+                    <template v-slot:item="{ item }">
+                      <span
+                        >{{ item.qualificationId }} -
+                        {{ item.qualification_name }}</span
+                      >
+                    </template>
                   </v-select>
                 </v-col>
               </v-row>
               <v-row>
                 <v-col cols="12" md="12">
                   <div for="level">ระดับความสำคัญ:</div>
-
-                  <v-select v-model="qualification.level_id">
-                    <!-- <option disabled selected>ระดับความสำคัญ:</option> -->
-                    <option
-                      v-for="level in levels"
-                      :value="level.level_id"
-                      :key="level.index"
-                    >
-                      {{ level.level_id }}
-                      {{ level.level_description }}
-                    </option>
+                  <v-select
+                    :size="4"
+                    v-model="qualification.level_id"
+                    :items="levels"
+                    item-value="level_id"
+                    item-text="level"
+                    label="เลือก"
+                    variant="outlined"
+                  >
+                    <template v-slot:prepend-item>
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title>
+                            <span class="grey--text">กำหนดระดับความสำคัญ:</span>
+                          </v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </template>
+                    <template v-slot:selection="{ item }">
+                      <span
+                        >{{ item.level_id }} -
+                        {{ item.level_description }}</span
+                      >
+                    </template>
+                    <template v-slot:item="{ item }">
+                      <span
+                        >{{ item.level_id }} -
+                        {{ item.level_description }}</span
+                      >
+                    </template>
                   </v-select>
                 </v-col>
               </v-row>
               <v-row>
                 <v-col cols="12" md="12">
                   <div>target/เป้าหมาย:</div>
-
-                  <v-select v-model="qualification.target_id">
-                    <option disabled selected>เป้าหมาย:</option>
-                    <option
-                      v-for="target in targets"
-                      :value="target.target_id"
-                      :key="target.index"
-                    >
-                      {{ target.target_id }}
-                      {{ target.target_name }}
-                    </option>
+                  <v-select
+                    :size="4"
+                    v-model="qualification.target_id"
+                    :items="targets"
+                    item-value="target_id"
+                    item-text="target"
+                    label="เลือก"
+                    variant="outlined"
+                  >
+                    <template v-slot:prepend-item>
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title>
+                            <span class="grey--text">กำหนดเป้าหมาย:</span>
+                          </v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </template>
+                    <template v-slot:selection="{ item }">
+                      <span>{{ item.target_id }} - {{ item.target_name }}</span>
+                    </template>
+                    <template v-slot:item="{ item }">
+                      <span>{{ item.target_id }} - {{ item.target_name }}</span>
+                    </template>
                   </v-select>
                 </v-col>
               </v-row>
@@ -130,39 +190,38 @@
               </div>
             </v-container>
           </v-form>
+
+          <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
+            <v-card text="..." variant="tonal">แก้ไขข้อมูล</v-card>
+            <v-row>
+              <v-col>Qualification-ID</v-col>
+              <v-col>PlanCareer-ID</v-col>
+              <v-col>PlanCareer-Name</v-col>
+              <v-col>Qualification</v-col>
+              <v-col>Level</v-col>
+              <v-col>target</v-col>
+              <v-col>Action</v-col>
+            </v-row>
+            <v-row v-for="row in getall" :key="row.index" cols="12" md="6">
+              <v-col>{{ row.qa_plan_career_id }}</v-col>
+              <v-col>{{ row.Plan_Career_id }}</v-col>
+              <v-col>{{ row.career }}</v-col>
+              <v-col>{{ row.qualification_name }}</v-col>
+              <v-col>{{ row.level_description }}</v-col>
+              <v-col>{{ row.target_name }}</v-col>
+              <v-col
+                ><v-btn @click="editUser(row.qa_plan_career_id)"
+                  ><v-icon small class="mr-2"> mdi-pencil </v-icon></v-btn
+                >
+                <v-btn @click="deleteUser(row.qa_plan_career_id)"
+                  ><v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
         </v-container>
       </v-main>
     </v-card>
-    <!-- data-table -->
-    <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
-      <!-- <v-card-title>แก้ไขข้อมูล</v-card-title> -->
-      <v-row>
-        <v-col> Qualification-ID</v-col>
-        <v-col>PlanCareer-ID</v-col>
-        <v-col>PlanCareer-Name</v-col>
-        <v-col>Qualification</v-col>
-        <v-col>Level</v-col>
-        <v-col>target</v-col>
-      </v-row>
-      <v-row v-for="row in getall" :key="row.index" cols="12" md="6">
-        <v-col>{{ row.qa_plan_career_id }}</v-col>
-        <v-col>{{ row.Plan_Career_id }}</v-col>
-        <v-col>{{ row.career }}</v-col>
-        <v-col>{{ row.qualification_name }}</v-col>
-        <v-col>{{ row.level_description }}</v-col>
-        <v-col>{{ row.target_name }}</v-col>
-        <v-col
-          ><v-btn @click="editUser(row.qa_plan_career_id)"
-            ><v-icon small class="mr-2"> mdi-pencil </v-icon></v-btn
-          >
-          <v-btn @click="deleteUser(row.qa_plan_career_id)"
-            ><v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-card>
-
-    <!-- /data-table -->
   </div>
 </template>
 <script>
@@ -173,6 +232,7 @@ export default {
   components: {},
   data() {
     return {
+      pageTitle: 'คุณสมบัติ/ทักษะ',
       message: 'Form Qualification',
       selected: '',
       getall: Array,
@@ -414,7 +474,7 @@ export default {
 // }
 .table {
   text-align: center;
-  padding-top: 45px;
-  margin-top: 45px;
+  padding-top: 15px;
+  margin-top: 50px;
 }
 </style>

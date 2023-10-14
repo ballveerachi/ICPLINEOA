@@ -1,13 +1,9 @@
 <template>
   <div>
-    <v-app-bar  dense flat dark>
-      <v-toolbar-title>ข้อมูลส่วนตัว</v-toolbar-title>
+    <v-app-bar dense flat dark>
+      <v-toolbar-title>{{pageTitle}}</v-toolbar-title>
     </v-app-bar>
 
-
-    <v-col cols="12">
-      <!-- <div class="mt-8 text-primary text-title text-center">ข้อมูลส่วนตัว</div> -->
-    </v-col>
     <v-card
       class="mx-auto pa-12 pb-8"
       elevation="8"
@@ -15,179 +11,159 @@
       rounded="lg"
     >
       <v-main>
-        <v-container class="pt-0 pb-0">
+        <!-- Form  -->
+        <v-form
+          @submit.prevent="submitForm"
+          @reset.prevent="resetForm"
+          method="post"
+        >
+          <v-container class="pt-0 pb-0">
+            <v-row>
+              <v-col cols="12" md="6">
+                <div>รหัสสมาชิก:{{ employee.id }}</div>
+                <v-text-field
+                  type="text"
+                  v-model="employee.id"
+                  placeholder="Id/รหัส"
+                  prepend-inner-icon="mdi-key"
+                  variant="outlined"
+                  required
+                  disabled
+                  class="form-control form-control-lg"
+                >
+                </v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <div>ชื่อ-สกุล :{{ employee.name }}</div>
+                <v-text-field
+                  type="text"
+                  v-model="employee.name"
+                  placeholder="ชื่อ-สกุล"
+                  prepend-inner-icon=" mdi-account-circle"
+                  variant="outlined"
+                  required
+                  disabled
+                  class="form-control form-control-lg"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" md="6"
+                ><div>สาขาวิชา:</div>
+                <v-select
+                  size="4"
+                  v-model="employee.study_faculty"
+                  label="เลือก"
+                  :items="study_facultyTypes"
+                  variant="outlined"
+                >
+                  <template v-slot:prepend-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <span class="grey--text">กำหนดสาขาวิชา:</span>
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template></v-select
+                >
+              </v-col>
+              <v-col cols="12" md="6"
+                ><div>สำเร็จการศึกษาสถาบัน:</div>
+                <v-select
+                  size="4"
+                  v-model="employee.university"
+                  label="เลือก"
+                  :items="universityTypes"
+                  variant="outlined"
+                  ><template v-slot:prepend-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <span class="grey--text">กำหนดสถาบันการศึกษา:</span>
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template></v-select
+                >
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col
+                ><div>ความบกพร่อง:</div>
+                <v-select
+                  size="4"
+                  v-model="employee.disability_type"
+                  label="เลือก"
+                  :items="disabilityTypes"
+                  variant="outlined"
+                >
+                  <template v-slot:prepend-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          <span class="grey--text">กำหนดความบกพร่อง:</span>
+                        </v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template>
+                </v-select>
+              </v-col>
+            </v-row>
+            <div class="d-flex flex-column">
+              <v-btn
+                color="success"
+                type="submit"
+                class="mt-4"
+                depressed
+                exactblock
+                value="Save/บันทึก"
+                >{{ status }}
+              </v-btn>
+
+              <v-btn
+                color="error"
+                type="reset"
+                class="mt-4"
+                depressed
+                block
+                value="Cancel/ยกเลิก"
+                >Cancel/ยกเลิก
+              </v-btn>
+            </div>
+          </v-container>
+        </v-form>
+        <!-- data-table -->
+        <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
+          <v-card text="..." variant="tonal">แก้ไขข้อมูล</v-card>
           <v-row>
-            <!-- Form  -->
-            <v-form
-              @submit.prevent="submitForm"
-              @reset.prevent="resetForm"
-              method="post"
-            >
-              <v-container>
-                <v-row>
-                  <v-col cols="12" md="6">
-                    <div>รหัสสมาชิก:{{ employee.id }}</div>
-                    <v-text-field
-                      type="text"
-                      v-model="employee.id"
-                      placeholder="Id/รหัส"
-                      prepend-inner-icon="mdi-key"
-                      variant="outlined"
-                      required
-                      disabled
-
-                      class="form-control form-control-lg"
-                    >
-                    </v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <div>ชื่อ-สกุล :{{ employee.name }}</div>
-                    <v-text-field
-                      type="text"
-                      v-model="employee.name"
-                      placeholder="ชื่อ-สกุล"
-                      prepend-inner-icon=" mdi-account-circle"
-                      variant="outlined"
-                      required
-                      disabled
-                      class="form-control form-control-lg"
-                    ></v-text-field
-                  ></v-col>
-                </v-row>
-                <v-row>
-                  <v-col cols="12" md="6"
-                    ><div>สาขาวิชา:</div>
-                    <v-select
-                      size="4"
-                      v-model="employee.study_faculty"
-                      label="เลือก"
-                      :items="[
-                        'เกษตรศาสตร์',
-                        'พืชสวน',
-                        'พืชไร่',
-                        'อารักขาพืช',
-                        'ปฐพีศาสตร์',
-                        'การส่งเสริมและสื่อสารเกษตร',
-                        'เกษตรเคมี',
-                        'การพัฒนาภูมิสังคมอย่างยั่งยืน',
-                        'วิทยาการสมุนไพร',
-                        'การจัดการและพัฒนาทรัพยากร',
-                        'วิศวกรรมเกษตร',
-                        'วิศวกรรมอาหาร',
-                        'วิทยาศาสตร์และเทคโนโลยีการอาหาร',
-                        'เทคโนโลยีหลังการเก็บเกี่ยว',
-                        'เทคโนโลยียางและพอลิเมอร์',
-                        'วิทยาการคอมพิวเตอร์',
-                        'คณิตศาสตร์',
-                        'เทคโนโลยีชีวภาพ',
-                        'เทคนิคการแพทย์',
-                        'เคมี',
-                        'สถิติและการจัดการสารสนเทศ',
-                        'เทคโนโลยีสารสนเทศ',
-                        'วัสดุศาสตร์',
-                        'ฟิสิกส์ประยุกต์',
-                        'รัฐประศาสนศาสตร์',
-                      ]"
-                      variant="outlined"
-                    ></v-select>
-                  </v-col>
-                  <v-col cols="12" md="6"
-                    ><div>สำเร็จการศึกษาสถาบัน:</div>
-                    <v-select
-                      size="4"
-                      v-model="employee.university"
-                      label="เลือก"
-                      :items="[
-                        'มหาวิทยาลัยเชียงใหม่',
-                        'มหาวิทยาลัยแม่โจ้',
-                        'มหาวิทยาลัยราชภัฏเชียงใหม่',
-                        'วิทยาลัยเทคโนโลยีราชมงคล',
-                        'วิทยาการคอมพิวเตอร์',
-                        'วิทยาลัยเทคนิคเชียงใหม่',
-                      ]"
-                      variant="outlined"
-                    ></v-select>
-                  </v-col>
-                </v-row>
-                <v-row>
-                  <v-col
-                    ><div>ความบกพร่อง:</div>
-                    <v-select
-                      size="4"
-                      v-model="employee.disability_type"
-                      label="เลือก"
-                      :items="[
-                        'การมองเห็น',
-                        'การได้ยิน',
-                        'สติปัญญา',
-                        'การเคลื่อนไหวร่างกาย หรือสุขภาพ',
-                        'การเรียนรู้',
-                        'การพูด และภาษา',
-                        'พฤติกรรม หรืออารมณ์',
-                        'ออทิสติก',
-                        'พิการซ้อน',
-                      ]"
-                      variant="outlined"
-                    ></v-select>
-                  </v-col>
-                </v-row>
-                <div class="d-flex flex-column">
-                  <v-btn
-                    color="success"
-                    type="submit"
-                    class="mt-4"
-                    depressed
-                    exactblock
-                    value="Save/บันทึก"
-                    >{{ status }}
-                  </v-btn>
-
-                  <v-btn
-                    color="error"
-                    type="reset"
-                    class="mt-4"
-                    depressed
-                    block
-                    value="Cancel/ยกเลิก"
-                    >Cancel/ยกเลิก
-                  </v-btn>
-                </div>
-              </v-container>
-            </v-form>
+            <v-col> ID</v-col>
+            <v-col>Name</v-col>
+            <v-col>Study Faculty</v-col>
+            <v-col>University</v-col>
+            <v-col>Disibility type</v-col>
+            <v-col>Action</v-col>
           </v-row>
-        </v-container>
+          <v-row v-for="row in employees" :key="row.index" cols="12" md="6">
+            <v-col>{{ row.id }}</v-col>
+            <v-col>{{ row.name }}</v-col>
+            <v-col>{{ row.study_faculty }}</v-col>
+            <v-col>{{ row.university }}</v-col>
+            <v-col>{{ row.disability_type }}</v-col>
+            <v-col
+              ><v-btn @click="editUser(row.id)"
+                ><v-icon small class="mr-2"> mdi-pencil </v-icon></v-btn
+              >
+              <v-btn @click="deleteUser(row.id)"
+                ><v-icon small class="mr-2"> mdi-delete </v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-card>
+
+        <!-- /data-table -->
       </v-main>
     </v-card>
-
-    <!-- data-table -->
-    <v-card class="mx-auto table" max-width="448px" cols="12" md="6">
-      <!-- <v-card-title>แก้ไขข้อมูล</v-card-title> -->
-      <v-row>
-        <v-col> ID</v-col>
-        <v-col>Name</v-col>
-        <v-col>Study Faculty</v-col>
-        <v-col>University</v-col>
-        <v-col>Disibility type</v-col>
-        <v-col>Action</v-col>
-      </v-row>
-      <v-row v-for="row in employees" :key="row.index" cols="12" md="6">
-        <v-col>{{ row.id }}</v-col>
-        <v-col>{{ row.name }}</v-col>
-        <v-col>{{ row.study_faculty }}</v-col>
-        <v-col>{{ row.university }}</v-col>
-        <v-col>{{ row.disability_type }}</v-col>
-        <v-col
-          ><v-btn @click="editUser(row.id)"
-            ><v-icon small class="mr-2"> mdi-pencil </v-icon></v-btn
-          >
-          <v-btn @click="deleteUser(row.id)"
-            ><v-icon small class="mr-2"> mdi-delete </v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-card>
-
-    <!-- /data-table -->
   </div>
 </template>
 
@@ -200,6 +176,7 @@ export default {
   data() {
 
     return {
+      pageTitle: 'ข้อมูลส่วนตัว',
       message: 'Form Component (แบบฟอร์มบันทึกข้อมูล)',
       employees: Array,
       employees_: Array,
@@ -212,6 +189,52 @@ export default {
         isVisible: false,
 
       },
+      study_facultyTypes: [
+        "เกษตรศาสตร์",
+        "พืชสวน",
+        "พืชไร่",
+        "อารักขาพืช",
+        "ปฐพีศาสตร์",
+        "การส่งเสริมและสื่อสารเกษตร",
+        "เกษตรเคมี",
+        "การพัฒนาภูมิสังคมอย่างยั่งยืน",
+        "วิทยาการสมุนไพร",
+        "การจัดการและพัฒนาทรัพยากร",
+        "วิศวกรรมเกษตร",
+        "วิศวกรรมอาหาร",
+        "วิทยาศาสตร์และเทคโนโลยีการอาหาร",
+        "เทคโนโลยีหลังการเก็บเกี่ยว",
+        "เทคโนโลยียางและพอลิเมอร์",
+        "วิทยาการคอมพิวเตอร์",
+        "คณิตศาสตร์",
+        "เทคโนโลยีชีวภาพ",
+        "เทคนิคการแพทย์",
+        "เคมี",
+        "สถิติและการจัดการสารสนเทศ",
+        "เทคโนโลยีสารสนเทศ",
+        "วัสดุศาสตร์",
+        "ฟิสิกส์ประยุกต์",
+        "รัฐประศาสนศาสตร์",
+      ],
+      disabilityTypes: [
+        "การมองเห็น",
+        "การได้ยิน",
+        "สติปัญญา",
+        "การเคลื่อนไหวร่างกาย หรือสุขภาพ",
+        "การเรียนรู้",
+        "การพูด และภาษา",
+        "พฤติกรรม หรืออารมณ์",
+        "ออทิสติก",
+        "พิการซ้อน",
+      ],
+      universityTypes: [
+        "มหาวิทยาลัยเชียงใหม่",
+        "มหาวิทยาลัยแม่โจ้",
+        "มหาวิทยาลัยราชภัฏเชียงใหม่",
+        "วิทยาลัยเทคโนโลยีราชมงคล",
+        "วิทยาการคอมพิวเตอร์",
+        "วิทยาลัยเทคนิคเชียงใหม่",
+      ],
 
       isEdit: false,
       status: 'Save/บันทึก',
@@ -357,8 +380,8 @@ export default {
 // }
 .table {
   text-align: center;
-  padding-top: 45px;
-  margin-top: 45px;
+  padding-top: 15px;
+  margin-top: 50px;
 }
 .flex-content {
   padding: 0;
