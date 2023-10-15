@@ -3,6 +3,36 @@
     <v-app-bar dense flat dark>
       <v-toolbar-title>Login</v-toolbar-title>
     </v-app-bar>
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="text-h5">
+          ไม่พบข้อมูลผู้ใช้!
+        </v-card-title>
+        <v-card-text>กรุณาลงทะเบียนเพื่อเข้าสู่ระบบ  </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="red darken-1"
+            text
+            @click="dialog = false"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            ลงทะเบียน
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
     <v-container class="pt-0 pb-0">
       <v-row>
         <v-col cols="12">
@@ -68,19 +98,20 @@ export default {
     liff.ready.then(() => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
-          this.userId=profile.userId
+          this.userId = profile.userId;
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
         });
       } else {
-        liff.login();
+        // liff.login();
       }
     });
   },
   data() {
     return {
+      dialog: false ,
       name: this.$store.getters.getRegister.firstname,
-      userId:''
+      userId: "",
     };
   },
   methods: {
@@ -97,26 +128,29 @@ export default {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
       var username = this.userId;
 
-        var password = username;
-        console.log("username", username);
-        var self = this;
-        axios
-          .post("http://localhost/ICPScoreCard/api-member.php", {
-            action: "checkMember",
-            user: username,
-            pass: password,
-          })
-          .then(function (res) {
-            console.log("data:", res);
-            var member_id = res.data.map((item) => item.member_id)[0];
-            var full_name = res.data.map((item) => item.full_name)[0];
-            if (member_id != null && full_name != null ) {
+      var password = username;
+      console.log("username", username);
+      var self = this;
+      axios
+        .post("http://localhost/ICPScoreCard/api-member.php", {
+          action: "checkMember",
+          user: username,
+          pass: password,
+        })
+        .then(function (res) {
+          console.log("data:", res);
+          var member_id = res.data.map((item) => item.member_id)[0];
+          var full_name = res.data.map((item) => item.full_name)[0];
+          if (member_id != null && full_name != null) {
             self.storeCommit(member_id, full_name);
+            console.log("เข้าสู่ระบบสำเร็จ");
+          } else {
+            console.log("ไม่พบบัญชีที่ลงทะเบียนไว้");
           }
         })
-          .catch(function (error) {
-            console.log(error);
-          });
+        .catch(function (error) {
+          console.log(error);
+        });
     },
     storeCommit(member_id, full_name) {
       console.log("login:", member_id);

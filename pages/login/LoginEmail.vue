@@ -23,14 +23,14 @@
         variant="outlined"
       ></v-text-field> -->
 
-      <v-text-field
+      <v-text-fie
         type="text"
         v-model="input.username"
         density="compact"
         placeholder="Email address"
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
-      ></v-text-field>
+      ></v-text-fie>
 
 
       <v-text-field
@@ -103,7 +103,7 @@ export default {
       }
     },
     cancle(){
-      this.$router.replace({ name: "index" });
+      this.$router.push("/login");
       console.log(" ยกเลิก ");
     },
     checkMember() {
