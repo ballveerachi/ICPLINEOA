@@ -66,7 +66,7 @@
                 color="green"
                 dark
                 class="w-100 mt-4 my-btn1"
-                @click="checkMember"
+                @click="sendmessage"
                 ><img
                   class="imgline"
                   src="~/assets/line.png"
