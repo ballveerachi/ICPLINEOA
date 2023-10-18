@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar dense flat dark>
-      <v-toolbar-title>{{pageTitle}}</v-toolbar-title>
+      <v-toolbar-title>{{ pageTitle }}</v-toolbar-title>
     </v-app-bar>
 
     <v-card
@@ -169,25 +169,45 @@
 
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 import liff from "@line/liff";
 export default {
-  name: 'FormComponent',
+  mounted() {
+    liff.init({ liffId: "2000700725-PRVZgqqz" });
+    liff.ready.then(() => {
+      if (liff.isLoggedIn()) {
+        liff
+          .sendMessages([
+            {
+              type: "text",
+              text: "Hello, World!",
+            },
+          ])
+          .then(() => {
+            console.log("message sent");
+          })
+          .catch((err) => {
+            console.log("error", err);
+          });
+      } else {
+        liff.login();
+      }
+    });
+  },
+  name: "FormComponent",
   data() {
-
     return {
-      pageTitle: 'ข้อมูลส่วนตัว',
-      message: 'Form Component (แบบฟอร์มบันทึกข้อมูล)',
+      pageTitle: "ข้อมูลส่วนตัว",
+      message: "Form Component (แบบฟอร์มบันทึกข้อมูล)",
       employees: Array,
       employees_: Array,
       employee: {
         id: this.$store.getters.myMember_id,
         name: this.$store.getters.myName,
-        study_faculty: '',
-        university: '',
-        disability_type: '',
+        study_faculty: "",
+        university: "",
+        disability_type: "",
         isVisible: false,
-
       },
       study_facultyTypes: [
         "เกษตรศาสตร์",
@@ -237,47 +257,45 @@ export default {
       ],
 
       isEdit: false,
-      status: 'Save/บันทึก',
-
-    }
-
+      status: "Save/บันทึก",
+    };
   },
   head() {
     return {
-      title: this.pageTitle
+      title: this.pageTitle,
     };
   },
   methods: {
     resetForm() {
-      this.status = 'บันทึก'
-      this.isEdit = false
-      console.log('ยกเลิกการบันทึกข้อมูล')
+      this.status = "บันทึก";
+      this.isEdit = false;
+      console.log("ยกเลิกการบันทึกข้อมูล");
       // this.employee.id = 0;
       // this.employee.name = "";
-      this.employee.study_faculty = ''
-      this.employee.university = ''
-      this.employee.disability_type = ''
-      this.employee.isVisible = false
+      this.employee.study_faculty = "";
+      this.employee.university = "";
+      this.employee.disability_type = "";
+      this.employee.isVisible = false;
     },
     getAllUser() {
-      console.log(' แสดงข้อมูลทั้งหมด ')
-      var self = this
+      console.log(" แสดงข้อมูลทั้งหมด ");
+      var self = this;
       axios
-        .post('http://localhost/ICPScoreCard/api.php', {
-          action: 'getall',
+        .post("http://localhost/ICPScoreCard/api.php", {
+          action: "getall",
         })
         .then(function (res) {
-          console.log('data-Y-Y', res.data)
-          self.employees = res.data
+          console.log("data-Y-Y", res.data);
+          self.employees = res.data;
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     submitForm() {
       if (!this.isEdit) {
-        console.log('บันทึกข้อมูล')
-        console.log('Form employee:', this.employee)
+        console.log("บันทึกข้อมูล");
+        console.log("Form employee:", this.employee);
         const newEmployee = {
           id: this.employee.id,
           name: this.employee.name,
@@ -285,12 +303,12 @@ export default {
           university: this.employee.university,
           disibility_type: this.employee.disability_type,
           isVisible: this.employee.isVisible,
-        }
-        this.$emit('saveData', newEmployee)
+        };
+        this.$emit("saveData", newEmployee);
 
         axios
-          .post('http://localhost/ICPScoreCard/api.php', {
-            action: 'insert',
+          .post("http://localhost/ICPScoreCard/api.php", {
+            action: "insert",
             id: this.employee.id,
             name: this.employee.name,
             study_faculty: this.employee.study_faculty,
@@ -298,17 +316,17 @@ export default {
             disibility_type: this.employee.disability_type,
           })
           .then((res) => {
-            console.log(res)
-            this.resetForm()
-            this.getAllUser()
+            console.log(res);
+            this.resetForm();
+            this.getAllUser();
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       } else {
         axios
-          .post('http://localhost/ICPScoreCard/api.php', {
-            action: 'update',
+          .post("http://localhost/ICPScoreCard/api.php", {
+            action: "update",
             id: this.employee.id,
             name: this.employee.name,
             study_faculty: this.employee.study_faculty,
@@ -316,60 +334,60 @@ export default {
             disability_type: this.employee.disability_type,
           })
           .then((response) => {
-            console.log(response)
-            this.resetForm()
-            this.getAllUser()
+            console.log(response);
+            this.resetForm();
+            this.getAllUser();
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       }
     },
     editUser(id) {
-      this.status = 'อัพเดท'
-      this.isEdit = true
-      var self = this
+      this.status = "อัพเดท";
+      this.isEdit = true;
+      var self = this;
       axios
-        .post('http://localhost/ICPScoreCard/api.php', {
-          action: 'edit',
+        .post("http://localhost/ICPScoreCard/api.php", {
+          action: "edit",
           id: id,
         })
         .then(function (response) {
-          console.log(response)
-          self.employee.id = response.data.id
-          self.employee.name = response.data.name
-          self.employee.study_faculty = response.data.study_faculty
-          self.employee.university = response.data.university
-          self.employee.disability_type = response.data.disability_type
-          self.employees_ = response.data
+          console.log(response);
+          self.employee.id = response.data.id;
+          self.employee.name = response.data.name;
+          self.employee.study_faculty = response.data.study_faculty;
+          self.employee.university = response.data.university;
+          self.employee.disability_type = response.data.disability_type;
+          self.employees_ = response.data;
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     deleteUser(id) {
-      if (confirm('คุณต้องการลบรหัส ' + id + ' หรือไม่ ?')) {
-        var self = this
+      if (confirm("คุณต้องการลบรหัส " + id + " หรือไม่ ?")) {
+        var self = this;
         axios
-          .post('http://localhost/ICPScoreCard/api.php', {
-            action: 'delete',
+          .post("http://localhost/ICPScoreCard/api.php", {
+            action: "delete",
             id: id,
           })
           .then(function (response) {
-            console.log(response)
-            self.resetForm()
-            self.getAllUser()
+            console.log(response);
+            self.resetForm();
+            self.getAllUser();
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       }
     },
   },
   created() {
-    this.getAllUser()
+    this.getAllUser();
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 .v-application .pa-12 {
@@ -402,10 +420,7 @@ v-row:nth-child(even) {
   background-color: #f2f2f2;
 }
 .elevated-app-bar {
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
-
-
-
-
-  </style>
+</style>

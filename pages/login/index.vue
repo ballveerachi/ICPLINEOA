@@ -25,7 +25,7 @@
           <v-btn
             color="green darken-1"
             text
-            @click="dialog = false"
+            @click="register"
           >
             ลงทะเบียน
           </v-btn>
@@ -103,20 +103,23 @@ export default {
           console.log("LineID", this.userId);
         });
       } else {
-        // liff.login();
+        liff.login();
       }
     });
   },
   data() {
     return {
-      dialog: false ,
+      dialog: true ,
       name: this.$store.getters.getRegister.firstname,
       userId: "",
     };
   },
   methods: {
+    goregister(){
+      this.$router.push("register");
+    },
     userid() {
-      this.$router.push("/login/LoginEmail");
+
     },
     line() {
       this.$router.push("/register");
@@ -146,6 +149,8 @@ export default {
             console.log("เข้าสู่ระบบสำเร็จ");
           } else {
             console.log("ไม่พบบัญชีที่ลงทะเบียนไว้");
+            this.dialog = true;
+
           }
         })
         .catch(function (error) {
