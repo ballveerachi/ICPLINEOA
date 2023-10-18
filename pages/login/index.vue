@@ -102,6 +102,19 @@ export default {
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
         });
+        liff
+          .sendMessages([
+            {
+              type: "text",
+              text: "Hello, World!",
+            },
+          ])
+          .then(() => {
+            console.log("message sent");
+          })
+          .catch((err) => {
+            console.log("error", err);
+          });
       } else {
         liff.login();
       }
