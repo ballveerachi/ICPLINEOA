@@ -5,14 +5,14 @@
     </v-app-bar>
     <v-dialog v-model="dialog" persistent max-width="290">
       <v-card>
-        <v-card-title class="text-h5"> ไม่พบข้อมูลผู้ใช้! </v-card-title>
+        <v-card-title class="text-h5"> ไม่พบข้อมูลผู้ใช้ ! </v-card-title>
         <v-card-text>กรุณาลงทะเบียนเพื่อเข้าสู่ระบบ </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="red darken-1" text @click="dialog = false">
             Cancel
           </v-btn>
-          <v-btn color="green darken-1" text @click="register">
+          <v-btn color="green darken-1" text @click="goregister">
             ลงทะเบียน
           </v-btn>
         </v-card-actions>
@@ -108,14 +108,14 @@ export default {
   },
   data() {
     return {
-      dialog: true,
+      dialog: false,
       name: this.$store.getters.getRegister.firstname,
       userId: "",
     };
   },
   methods: {
     goregister() {
-      this.$router.push("register");
+      this.$router.push("/register");
     },
     userid() {},
     line() {
@@ -162,7 +162,8 @@ export default {
             console.log("เข้าสู่ระบบสำเร็จ");
           } else {
             console.log("ไม่พบบัญชีที่ลงทะเบียนไว้");
-            this.dialog = true;
+            self.dialog = true;
+            // self.dialog.get();
           }
         })
         .catch(function (error) {
