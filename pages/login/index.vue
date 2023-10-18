@@ -3,30 +3,16 @@
     <v-app-bar dense flat dark>
       <v-toolbar-title>Login</v-toolbar-title>
     </v-app-bar>
-    <v-dialog
-      v-model="dialog"
-      persistent
-      max-width="290"
-    >
+    <v-dialog v-model="dialog" persistent max-width="290">
       <v-card>
-        <v-card-title class="text-h5">
-          ไม่พบข้อมูลผู้ใช้!
-        </v-card-title>
-        <v-card-text>กรุณาลงทะเบียนเพื่อเข้าสู่ระบบ  </v-card-text>
+        <v-card-title class="text-h5"> ไม่พบข้อมูลผู้ใช้! </v-card-title>
+        <v-card-text>กรุณาลงทะเบียนเพื่อเข้าสู่ระบบ </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="red darken-1"
-            text
-            @click="dialog = false"
-          >
+          <v-btn color="red darken-1" text @click="dialog = false">
             Cancel
           </v-btn>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="register"
-          >
+          <v-btn color="green darken-1" text @click="register">
             ลงทะเบียน
           </v-btn>
         </v-card-actions>
@@ -75,6 +61,19 @@
                   width="40px"
                 />เข้าสู่ระบบ Line</v-btn
               >
+              <v-btn
+                rounded
+                color="green"
+                dark
+                class="w-100 mt-4 my-btn1"
+                @click="checkMember"
+                ><img
+                  class="imgline"
+                  src="~/assets/line.png"
+                  alt=""
+                  width="40px"
+                />ส่งข้อความ Line</v-btn
+              >
               <div class="text-right mt-2">
                 ยังไม่มีบัญชีใช่ไหม
                 <router-link :to="{ name: 'register' }"
@@ -102,44 +101,45 @@ export default {
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
         });
-        liff
-          .sendMessages([
-            {
-              type: "text",
-              text: "Hello, World!",
-            },
-          ])
-          .then(() => {
-            console.log("message sent");
-          })
-          .catch((err) => {
-            console.log("error", err);
-          });
       } else {
-        liff.login();
+        // liff.login();
       }
     });
   },
   data() {
     return {
-      dialog: true ,
+      dialog: true,
       name: this.$store.getters.getRegister.firstname,
       userId: "",
     };
   },
   methods: {
-    goregister(){
+    goregister() {
       this.$router.push("register");
     },
-    userid() {
-
-    },
+    userid() {},
     line() {
       this.$router.push("/register");
     },
     login() {
       this.$router.push("/");
     },
+    sendmessage() {
+      liff
+        .sendMessages([
+          {
+            type: "text",
+            text: "Hello, World!",
+          },
+        ])
+        .then(() => {
+          console.log("message sent");
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+    },
+
     checkMember() {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
       var username = this.userId;
@@ -163,7 +163,6 @@ export default {
           } else {
             console.log("ไม่พบบัญชีที่ลงทะเบียนไว้");
             this.dialog = true;
-
           }
         })
         .catch(function (error) {
