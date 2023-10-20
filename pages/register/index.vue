@@ -70,7 +70,7 @@ export default {
           console.log("LineID", profile.userId);
         });
       } else {
-        // liff.login();
+        liff.login();
       }
     });
   },
@@ -127,10 +127,14 @@ export default {
             full_name: this.form.full_name,
           })
           .then((res) => {
+            if (member_id != null && full_name != null) {
+              console.log("มีบัญชีที่ลงทะเบียนแล้ว");
+          } else {
             console.log("สมัครเรียบร้อย", this.form);
             this.$store.dispatch("setLine",this.form.email);
             this.$router.push("/register/done");
             console.log(res);
+          }
           })
           .catch(function (error) {
             console.log(error);
