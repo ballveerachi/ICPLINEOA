@@ -199,8 +199,8 @@ export default {
     return {
       pageTitle: "ข้อมูลส่วนตัว",
       message: "Form Component (แบบฟอร์มบันทึกข้อมูล)",
-      employees: Array,
-      employees_: Array,
+      employees: [],
+      employees_: [],
       employee: {
         id: this.$store.getters.myMember_id,
         name: this.$store.getters.myName,

@@ -143,9 +143,9 @@ export default {
     return {
       pageTitle: 'อาชีพเป้าหมาย',
       message: "Form Plan Career",
-      planCareers: Array,
-      planCareers_: Array,
-      careers: Array,
+      planCareers: [],
+      planCareers_: [],
+      careers: [],
       //Plan_Career_id	Employee_id	Name_Plan_Career Description
       planCareer: {
         Plan_Career_id: "",

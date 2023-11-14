@@ -102,7 +102,7 @@ export default {
           console.log("LineID", this.userId);
         });
       } else {
-        // liff.login();
+        liff.login();
       }
     });
   },

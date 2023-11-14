@@ -108,7 +108,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      members: Array,
+      members: [],
       member: {
         member_id: "",
         full_name: "",

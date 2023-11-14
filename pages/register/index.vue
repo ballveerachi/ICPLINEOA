@@ -70,7 +70,7 @@ export default {
           console.log("LineID", profile.userId);
         });
       } else {
-        // liff.login();
+        liff.login();
       }
     });
   },
