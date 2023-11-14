@@ -129,7 +129,7 @@ export default {
         .sendMessages([
           {
             type: "text",
-            text: "Hello, World!",
+            text: "11",
           },
         ])
         .then(() => {
