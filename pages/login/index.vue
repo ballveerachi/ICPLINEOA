@@ -128,9 +128,9 @@ export default {
       liff
         .sendMessages([
           {
-            type: "flex", altText: "คำนวณค่างวดรถ",
+            type: "text",
+            text: "11",
           },
-          // contents: flexJson
         ])
         .then(() => {
           console.log("message sent");
