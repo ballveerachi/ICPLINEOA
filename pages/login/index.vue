@@ -140,8 +140,6 @@ export default {
           .catch((err) => {
             console.error(err.code, message);
           });
-      } else {
-        createResultTable(user, user, user, user, user);
       }
     },
 
