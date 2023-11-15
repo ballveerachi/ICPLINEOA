@@ -172,20 +172,6 @@
 import axios from "axios";
 import liff from "@line/liff";
 export default {
-  mounted() {
-    liff.init({ liffId: "2000700725-PRVZgqqz" });
-    liff.ready.then(() => {
-      if (liff.isLoggedIn()) {
-        liff.getProfile().then((profile) => {
-          this.userId = profile.userId;
-          console.log("ข้อมูลจากLine", profile);
-          console.log("LineID", this.userId);
-        });
-      } else {
-        liff.login();
-      }
-    });
-  },
   name: "FormComponent",
   data() {
     return {
@@ -297,6 +283,26 @@ export default {
           isVisible: this.employee.isVisible,
         };
         this.$emit("saveData", newEmployee);
+        liff.init({ liffId: "2000700725-PRVZgqqz" });
+        liff.ready.then(() => {
+          if (liff.isLoggedIn()) {
+            liff
+              .sendMessages([
+                {
+                  type: "text",
+                  text: "Hello, World!",
+                },
+              ])
+              .then(() => {
+                console.log("message sent");
+              })
+              .catch((err) => {
+                console.log("error", err);
+              });
+          } else {
+            liff.login();
+          }
+        });
         axios
           .post("http://localhost/ICPScoreCard/api.php", {
             action: "insert",

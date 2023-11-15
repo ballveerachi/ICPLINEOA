@@ -111,7 +111,6 @@ export default {
       dialog: false,
       name: this.$store.getters.getRegister.firstname,
       userId: "",
-      user: "สมชาย",
     };
   },
   methods: {
@@ -126,14 +125,18 @@ export default {
       this.$router.push("/");
     },
     sendmessage() {
-        liff
-          .sendMessages("55555")
-          .then(() => {
-          })
-          .catch((err) => {
-            console.error(err.code, message);
-          });
-
+      liff
+        .sendMessages([
+          {
+            type: "flex", altText: "คำนวณค่างวดรถ", contents: flexJson
+          },
+        ])
+        .then(() => {
+          console.log("message sent");
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
     },
 
     checkMember() {
