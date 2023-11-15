@@ -126,13 +126,8 @@ export default {
       this.$router.push("/");
     },
     sendmessage() {
-        // Create flex message
-        let message = createFlexMessage(
-          userId,
-          user
-          );
         liff
-          .sendMessages(message,"55555")
+          .sendMessages("55555")
           .then(() => {
           })
           .catch((err) => {
