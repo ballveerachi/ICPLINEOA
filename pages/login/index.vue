@@ -111,6 +111,7 @@ export default {
       dialog: false,
       name: this.$store.getters.getRegister.firstname,
       userId: "",
+      user: "สมชาย",
     };
   },
   methods: {
@@ -125,19 +126,23 @@ export default {
       this.$router.push("/");
     },
     sendmessage() {
-      liff
-        .sendMessages([
-          {
-            type: "text",
-            text: "11",
-          },
-        ])
-        .then(() => {
-          console.log("message sent");
-        })
-        .catch((err) => {
-          console.log("error", err);
-        });
+      if (
+        liff.getContext().type !== "none" &&
+        liff.getContext().type !== "external"
+      ) {
+        // Create flex message
+        let message = createFlexMessage(user, user, user, user, user);
+        liff
+          .sendMessages(message)
+          .then(() => {
+            liff.closeWindow();
+          })
+          .catch((err) => {
+            console.error(err.code, message);
+          });
+      } else {
+        createResultTable(user, user, user, user, user);
+      }
     },
 
     checkMember() {
