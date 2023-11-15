@@ -171,7 +171,6 @@
 <script>
 import axios from "axios";
 import liff from "@line/liff";
-import { createFlexMessage } from "./path-to-your-flex-message-module";
 export default {
   mounted() {
     liff.init({ liffId: "2000700725-PRVZgqqz" });
@@ -298,53 +297,36 @@ export default {
           isVisible: this.employee.isVisible,
         };
         this.$emit("saveData", newEmployee);
-        let message = createFlexMessage(
-          this.employee.id,
-          this.employee.name,
-          this.employee.study_faculty,
-          this.employee.university,
-          this.employee.disability_type,
-          this.employee.isVisible
-        );
         liff
-          .sendMessages([message])
-          .then(() => {
-            liff.closeWindow();
-          })
-          .catch((err) => {
-            console.error(err.code, error.message);
-          });
-
-        // liff
-        // .sendMessages([
-        //   {
-        //     type: "flex",
-        //     altText: "this is a flex message",
-        //     contents: {
-        //       type: "bubble",
-        //       body: {
-        //         type: "box",
-        //         layout: "vertical",
-        //         contents: [
-        //           {
-        //             type: "text",
-        //             text: "hello",
-        //           },
-        //           {
-        //             type: "text",
-        //             text: "world",
-        //           },
-        //         ],
-        //       },
-        //     },
-        //   },
-        // ])
-        // .then(() => {
-        //   console.log("message sent");
-        // })
-        // .catch((err) => {
-        //   console.log("error", err);
-        // });
+        .sendMessages([
+          {
+            type: "flex",
+            altText: "this is a flex message",
+            contents: {
+              type: "bubble",
+              body: {
+                type: "box",
+                layout: "vertical",
+                contents: [
+                  {
+                    type: "text",
+                    text: "hello",
+                  },
+                  {
+                    type: "text",
+                    text: "world",
+                  },
+                ],
+              },
+            },
+          },
+        ])
+        .then(() => {
+          console.log("message sent");
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
         axios
           .post("http://localhost/ICPScoreCard/api.php", {
             action: "insert",
@@ -425,50 +407,6 @@ export default {
   },
   created() {
     this.getAllUser();
-  },
-  createFlexMessage(
-    id,
-    name,
-    study_faculty,
-    university,
-    disibility_type,
-    isVisible
-  ) {
-    // สร้าง Object สำหรับ Flex Message
-    const flexJson = {
-      type: "bubble",
-      body: {
-        type: "box",
-        layout: "vertical",
-        contents: [
-          {
-            type: "text",
-            text: `ID: ${id}`,
-          },
-          {
-            type: "text",
-            text: `Name: ${name}`,
-          },
-          {
-            type: "text",
-            text: `Study Faculty: ${study_faculty}`,
-          },
-          {
-            type: "text",
-            text: `University: ${university}`,
-          },
-          {
-            type: "text",
-            text: `Disability Type: ${disibility_type}`,
-          },
-          {
-            type: "text",
-            text: `Visible: ${isVisible}`,
-          },
-        ],
-      },
-    };
-    return [{ type: "flex", altText: "คำนวณค่างวดรถ", contents: flexJson }];
   },
 };
 </script>
