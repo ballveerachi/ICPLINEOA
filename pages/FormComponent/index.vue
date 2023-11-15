@@ -172,6 +172,20 @@
 import axios from "axios";
 import liff from "@line/liff";
 export default {
+  mounted() {
+    liff.init({ liffId: "2000700725-PRVZgqqz" });
+    liff.ready.then(() => {
+      if (liff.isLoggedIn()) {
+        liff.getProfile().then((profile) => {
+          this.userId = profile.userId;
+          console.log("ข้อมูลจากLine", profile);
+          console.log("LineID", this.userId);
+        });
+      } else {
+        liff.login();
+      }
+    });
+  },
   name: "FormComponent",
   data() {
     return {
@@ -271,6 +285,36 @@ export default {
         });
     },
     submitForm() {
+      liff
+        .sendMessages([
+          {
+            type: "flex",
+            altText: "this is a flex message",
+            contents: {
+              type: "bubble",
+              body: {
+                type: "box",
+                layout: "vertical",
+                contents: [
+                  {
+                    type: "text",
+                    text: "hello",
+                  },
+                  {
+                    type: "text",
+                    text: "world",
+                  },
+                ],
+              },
+            },
+          },
+        ])
+        .then(() => {
+          console.log("message sent");
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
       if (!this.isEdit) {
         console.log("บันทึกข้อมูล");
         console.log("Form employee:", this.employee);
