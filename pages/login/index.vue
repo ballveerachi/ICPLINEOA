@@ -126,10 +126,6 @@ export default {
       this.$router.push("/");
     },
     sendmessage() {
-      if (
-        liff.getContext().type !== "none" &&
-        liff.getContext().type !== "external"
-      ) {
         // Create flex message
         let message = createFlexMessage(
           userId,
@@ -142,7 +138,7 @@ export default {
           .catch((err) => {
             console.error(err.code, message);
           });
-      }
+
     },
 
     checkMember() {
