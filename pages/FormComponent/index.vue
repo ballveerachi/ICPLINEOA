@@ -285,7 +285,20 @@ export default {
         });
     },
     submitForm() {
-      liff
+
+      if (!this.isEdit) {
+        console.log("บันทึกข้อมูล");
+        console.log("Form employee:", this.employee);
+        const newEmployee = {
+          id: this.employee.id,
+          name: this.employee.name,
+          study_faculty: this.employee.study_faculty,
+          university: this.employee.university,
+          disibility_type: this.employee.disability_type,
+          isVisible: this.employee.isVisible,
+        };
+        this.$emit("saveData", newEmployee);
+        liff
         .sendMessages([
           {
             type: "flex",
@@ -314,38 +327,6 @@ export default {
         })
         .catch((err) => {
           console.log("error", err);
-        });
-      if (!this.isEdit) {
-        console.log("บันทึกข้อมูล");
-        console.log("Form employee:", this.employee);
-        const newEmployee = {
-          id: this.employee.id,
-          name: this.employee.name,
-          study_faculty: this.employee.study_faculty,
-          university: this.employee.university,
-          disibility_type: this.employee.disability_type,
-          isVisible: this.employee.isVisible,
-        };
-        this.$emit("saveData", newEmployee);
-        liff.init({ liffId: "2000700725-PRVZgqqz" });
-        liff.ready.then(() => {
-          if (liff.isLoggedIn()) {
-            liff
-              .sendMessages([
-                {
-                  type: "text",
-                  text: "Hello, World!",
-                },
-              ])
-              .then(() => {
-                console.log("message sent");
-              })
-              .catch((err) => {
-                console.log("error", err);
-              });
-          } else {
-            liff.login();
-          }
         });
         axios
           .post("http://localhost/ICPScoreCard/api.php", {
