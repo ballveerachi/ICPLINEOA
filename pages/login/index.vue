@@ -137,8 +137,7 @@ export default {
                 layout: "vertical",
                 contents: [
                   {
-                    type: "text",
-                    text: "hello",
+                    user
                   },
                   {
                     type: "text",
