@@ -131,11 +131,13 @@ export default {
         liff.getContext().type !== "external"
       ) {
         // Create flex message
-        let message = createFlexMessage(user, user, user, user, user);
+        let message = createFlexMessage(
+          userId,
+          user
+          );
         liff
-          .sendMessages(message)
+          .sendMessages(message,"55555")
           .then(() => {
-            liff.closeWindow();
           })
           .catch((err) => {
             console.error(err.code, message);
