@@ -313,6 +313,7 @@ export default {
                       type: "text",
                       text: "บันทึกข้อมูล",
                       weight: "bold",
+                      size:"md",
                       align: "center",
                       contents: [],
                     },
