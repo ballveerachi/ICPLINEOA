@@ -312,6 +312,8 @@ export default {
                     {
                       type: "text",
                       text: "บันทึกข้อมูล",
+                      weight: "bold",
+                      size:"M",
                       align: "center",
                       contents: [],
                     },
@@ -344,17 +346,20 @@ export default {
                       type: "button",
                       action: {
                         type: "uri",
-                        label: "Button",
+                        label: "Back",
                         uri: "https://linecorp.com",
                       },
+                      color: "#CFC9CAFF",
+                      style: "primary",
                     },
                     {
                       type: "button",
                       action: {
                         type: "uri",
-                        label: "Button",
+                        label: "Next",
                         uri: "https://linecorp.com",
                       },
+                      style: "primary",
                     },
                   ],
                 },
