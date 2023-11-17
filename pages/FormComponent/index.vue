@@ -304,6 +304,7 @@ export default {
             altText: "this is a flex message",
             contents: {
               type: "bubble",
+              size: "mega",
               body: {
                 type: "box",
                 layout: "vertical",
