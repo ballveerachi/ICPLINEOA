@@ -298,36 +298,75 @@ export default {
         };
         this.$emit("saveData", newEmployee);
         liff
-        .sendMessages([
-          {
-            type: "flex",
-            altText: "this is a flex message",
-            contents: {
-              type: "bubble",
-              size: "mega",
-              body: {
-                type: "box",
-                layout: "vertical",
-                contents: [
-                  {
-                    type: "text",
-                    text: "hello",
-                  },
-                  {
-                    type: "text",
-                    text: "world",
-                  },
-                ],
+          .sendMessages([
+            {
+              type: "flex",
+              altText: "this is a flex message",
+              contents: {
+                type: "bubble",
+                direction: "ltr",
+                header: {
+                  type: "box",
+                  layout: "vertical",
+                  contents: [
+                    {
+                      type: "text",
+                      text: "บันทึกข้อมูล",
+                      align: "center",
+                      contents: [],
+                    },
+                  ],
+                },
+                hero: {
+                  type: "image",
+                  url: "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
+                  size: "full",
+                  aspectRatio: "1.51:1",
+                  aspectMode: "fit",
+                },
+                body: {
+                  type: "box",
+                  layout: "vertical",
+                  contents: [
+                    {
+                      type: "text",
+                      text: "Body",
+                      align: "center",
+                      contents: [],
+                    },
+                  ],
+                },
+                footer: {
+                  type: "box",
+                  layout: "horizontal",
+                  contents: [
+                    {
+                      type: "button",
+                      action: {
+                        type: "uri",
+                        label: "Button",
+                        uri: "https://linecorp.com",
+                      },
+                    },
+                    {
+                      type: "button",
+                      action: {
+                        type: "uri",
+                        label: "Button",
+                        uri: "https://linecorp.com",
+                      },
+                    },
+                  ],
+                },
               },
             },
-          },
-        ])
-        .then(() => {
-          console.log("message sent");
-        })
-        .catch((err) => {
-          console.log("error", err);
-        });
+          ])
+          .then(() => {
+            console.log("message sent");
+          })
+          .catch((err) => {
+            console.log("error", err);
+          });
         axios
           .post("http://localhost/ICPScoreCard/api.php", {
             action: "insert",
