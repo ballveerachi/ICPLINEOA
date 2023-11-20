@@ -345,7 +345,7 @@ export default {
       console.log(' แสดงข้อมูลทั้งหมด ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-plan.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-plan.php", {
           action: 'getall',
         })
         .then(function (res) {
@@ -360,7 +360,7 @@ export default {
       console.log(' ข้อมูลอาชีพ ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-career-qualification.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
           action: 'getEmpCareer',
           employee_id: this.employee_id,
         })
@@ -376,7 +376,7 @@ export default {
       console.log('แผนอาชีพ', this.plan.Plan_Career_id)
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-career-qualification.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
           action: 'getCareer_Qualifiation',
           Plan_Career_id: this.plan.Plan_Career_id,
         })
@@ -403,7 +403,7 @@ export default {
         this.$emit('saveData', newPlan)
 
         axios
-          .post('http://localhost/ICPScoreCard/api-plan.php', {
+          .post("https://icp2022.net/ICPScoreCard/api-plan.php", {
             action: 'insert',
             planId: this.plan.planId,
             qa_plan_career_id: this.plan.qa_plan_career_id,
@@ -422,7 +422,7 @@ export default {
           })
       } else {
         axios
-          .post('http://localhost/ICPScoreCard/api-plan.php', {
+          .post("https://icp2022.net/ICPScoreCard/api-plan.php", {
             action: 'update',
             planId: this.plan.planId,
             qa_plan_career_id: this.plan.qa_plan_career_id,
@@ -446,7 +446,7 @@ export default {
       this.isEdit = true
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-plan.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-plan.php", {
           action: 'edit',
           planId: planId,
         })
@@ -474,7 +474,7 @@ export default {
       if (confirm('คุณต้องการลบรหัส ' + planId + ' หรือไม่ ?')) {
         var self = this
         axios
-          .post('http://localhost/ICPScoreCard/api-plan.php', {
+          .post("https://icp2022.net/ICPScoreCard/api-plan.php", {
             action: 'delete',
             planId: planId,
           })

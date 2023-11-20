@@ -290,7 +290,7 @@ export default {
       console.log(' แสดงข้อมูลทั้งหมด ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-self-assessment.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
           action: 'getall',
         })
         .then(function (res) {
@@ -314,7 +314,7 @@ export default {
         this.$emit('saveData', newSelfAssessment)
 
         axios
-          .post('http://localhost/ICPScoreCard/api-self-assessment.php', {
+          .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
             action: 'insert',
             self_assessment_id: this.selfAssessment.self_assessment_id,
             qa_plan_career_id: this.selfAssessment.qa_plan_career_id,
@@ -331,7 +331,7 @@ export default {
           })
       } else {
         axios
-          .post('http://localhost/ICPScoreCard/api-self-assessment.php', {
+          .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
             action: 'update',
             self_assessment_id: this.selfAssessment.self_assessment_id,
             qa_plan_career_id: this.selfAssessment.qa_plan_career_id,
@@ -352,7 +352,7 @@ export default {
       console.log(' ค่าประเมินตนเอง ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-self-assessment.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
           action: 'getPerform',
         })
         .then(function (res) {
@@ -367,7 +367,7 @@ export default {
       console.log(' ข้อมูลอาชีพ ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-self-assessment.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
           action: 'getEmpCareer',
           employee_id: this.employee_id,
         })
@@ -383,7 +383,7 @@ export default {
       console.log('แผนอาชีพ', this.selfAssessment.Plan_Career_id)
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-self-assessment.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
           action: 'getCareer_Qualifiation',
 
           Plan_Career_id: this.selfAssessment.Plan_Career_id,
@@ -401,7 +401,7 @@ export default {
       this.isEdit = true
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-self-assessment.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
           action: 'edit',
           self_assessment_id: self_assessment_id,
         })
@@ -426,7 +426,7 @@ export default {
       if (confirm('คุณต้องการลบรหัส ' + self_assessment_id + ' หรือไม่ ?')) {
         var self = this
         axios
-          .post('http://localhost/ICPScoreCard/api-self-assessment.php', {
+          .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
             action: 'delete',
             self_assessment_id: self_assessment_id,
           })

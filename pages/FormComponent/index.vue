@@ -273,7 +273,7 @@ export default {
       console.log(" แสดงข้อมูลทั้งหมด ");
       var self = this;
       axios
-        .post("http://localhost/ICPScoreCard/api.php", {
+        .post("https://icp2022.net/ICPScoreCard/api.php", {
           action: "getall",
         })
         .then(function (res) {
@@ -297,9 +297,8 @@ export default {
           isVisible: this.employee.isVisible,
         };
         this.$emit("saveData", newEmployee);
-
         axios
-          .post("http://localhost/ICPScoreCard/api.php", {
+          .post("https://icp2022.net/ICPScoreCard/api.php", {
             action: "insert",
             id: this.employee.id,
             name: this.employee.name,
@@ -392,7 +391,7 @@ export default {
           });
       } else {
         axios
-          .post("http://localhost/ICPScoreCard/api.php", {
+          .post("https://icp2022.net/ICPScoreCard/api.php", {
             action: "update",
             id: this.employee.id,
             name: this.employee.name,
@@ -415,7 +414,7 @@ export default {
       this.isEdit = true;
       var self = this;
       axios
-        .post("http://localhost/ICPScoreCard/api.php", {
+        .post("https://icp2022.net/ICPScoreCard/api.php", {
           action: "edit",
           id: id,
         })
@@ -436,7 +435,7 @@ export default {
       if (confirm("คุณต้องการลบรหัส " + id + " หรือไม่ ?")) {
         var self = this;
         axios
-          .post("http://localhost/ICPScoreCard/api.php", {
+          .post("https://icp2022.net/ICPScoreCard/api.php", {
             action: "delete",
             id: id,
           })

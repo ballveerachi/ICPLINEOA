@@ -277,7 +277,7 @@ export default {
       console.log(' แสดงข้อมูลทั้งหมด ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-qa-plan-career.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
           action: 'getall',
         })
         .then(function (res) {
@@ -292,7 +292,7 @@ export default {
       console.log(' ข้อมูลอาชีพ ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-qualification.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
           action: 'getEmpCareer',
           employee_id: this.employee_id,
         })
@@ -308,7 +308,7 @@ export default {
       console.log(' แสดงข้อมูลคุณสมบัติ ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-qualification.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
           action: 'getQualifiation',
           // career_id: this.qualification.planCareerId,
         })
@@ -324,7 +324,7 @@ export default {
       console.log(' แสดงข้อมูลระดับ ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-qualification.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
           action: 'getLevel',
         })
         .then(function (res) {
@@ -339,7 +339,7 @@ export default {
       console.log(' ข้อมูลค่าเป้าหมาย ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-qualification.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
           action: 'getTarget',
         })
         .then(function (res) {
@@ -367,7 +367,7 @@ export default {
         this.$emit('saveData', newQualification)
 
         axios
-          .post('http://localhost/ICPScoreCard/api-qa-plan-career.php', {
+          .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: 'insert',
             plan_career_id: this.qualification.planCareerId,
             qualification_id: this.qualification.qualificationId,
@@ -391,7 +391,7 @@ export default {
         console.log('level_id:', this.qualification.level_id)
 
         axios
-          .post('http://localhost/ICPScoreCard/api-qa-plan-career.php', {
+          .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: 'update',
             qa_plan_career_id: this.qualification.qa_plan_career_id,
             plan_career_id: this.qualification.planCareerId,
@@ -418,7 +418,7 @@ export default {
       var self = this
       console.log('qa_plan_career_id:', qa_plan_career_id)
       axios
-        .post('http://localhost/ICPScoreCard/api-qa-plan-career.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
           action: 'edit',
           qa_plan_career_id: qa_plan_career_id,
         })
@@ -440,7 +440,7 @@ export default {
       if (confirm('คุณต้องการลบรหัส ' + qa_plan_career_id + ' หรือไม่ ?')) {
         var self = this
         axios
-          .post('http://localhost/ICPScoreCard/api-qa-plan-career.php', {
+          .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: 'delete',
             qa_plan_career_id: qa_plan_career_id,
           })

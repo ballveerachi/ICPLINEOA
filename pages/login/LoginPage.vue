@@ -79,7 +79,7 @@ export default {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
       var self = this;
       axios
-        .post("http://localhost/ICPScoreCard/api-member.php", {
+        .post("https://icp2022.net/ICPScoreCard/api-member.php", {
           action: "checkMember",
           user: this.input.username,
           pass: this.input.password,

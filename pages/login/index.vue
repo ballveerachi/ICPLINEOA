@@ -165,7 +165,7 @@ export default {
       console.log("username", username);
       var self = this;
       axios
-        .post("http://localhost/ICPScoreCard/api-member.php", {
+        .post("https://icp2022.net/ICPScoreCard/api-member.php", {
           action: "checkMember",
           user: username,
           pass: password,

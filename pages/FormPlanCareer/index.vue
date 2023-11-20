@@ -170,7 +170,7 @@ export default {
       console.log(" แสดงข้อมูลทั้งหมด ");
       var self = this;
       axios
-        .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+        .post("https://icp2022.net/ICPScoreCard/api-plan-career.php", {
           action: "getall",
         })
         .then(function (res) {
@@ -185,7 +185,7 @@ export default {
       console.log(" แสดงข้อมูลทั้งหมด ");
       var self = this;
       axios
-        .post("http://localhost/ICPScoreCard/api-career.php", {
+        .post("https://icp2022.net/ICPScoreCard/api-career.php", {
           action: "getall",
         })
         .then(function (res) {
@@ -207,7 +207,7 @@ export default {
         this.$emit("saveData", newPlanCareer);
 
         axios
-          .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+          .post("https://icp2022.net/ICPScoreCard/api-plan-career.php", {
             action: "insert",
             Employee_id: this.planCareer.Employee_id,
             career_id: this.planCareer.career_id,
@@ -222,7 +222,7 @@ export default {
           });
       } else {
         axios
-          .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+          .post("https://icp2022.net/ICPScoreCard/api-plan-career.php", {
             action: "update",
             Plan_Career_id: this.planCareer.Plan_Career_id,
             Employee_id: this.planCareer.Employee_id,
@@ -244,7 +244,7 @@ export default {
       var self = this;
       console.log("Plan_Career_id:", Plan_Career_id);
       axios
-        .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+        .post("https://icp2022.net/ICPScoreCard/api-plan-career.php", {
           action: "edit",
           Plan_Career_id: Plan_Career_id,
         })
@@ -264,7 +264,7 @@ export default {
       if (confirm("คุณต้องการลบรหัส " + Plan_Career_id + " หรือไม่ ?")) {
         var self = this;
         axios
-          .post("http://localhost/ICPScoreCard/api-plan-career.php", {
+          .post("https://icp2022.net/ICPScoreCard/api-plan-career.php", {
             action: "delete",
             Plan_Career_id: Plan_Career_id,
           })

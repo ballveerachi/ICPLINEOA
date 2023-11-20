@@ -143,7 +143,7 @@ export default {
       console.log(' get employees ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-pivot.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-pivot.php", {
           action: 'getEmployees',
           id: this.$store.getters.myMember_id,
         })
@@ -159,7 +159,7 @@ export default {
       console.log(' get qualifications ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-pivot.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-pivot.php", {
           action: 'getPlanCareer',
           employeeId: this.employee.id,
         })
@@ -175,7 +175,7 @@ export default {
       console.log(' get qualifications ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-pivot.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-pivot.php", {
           action: 'getQualification',
           Plan_Career_id: this.planCareer.Plan_Career_id,
         })
@@ -192,7 +192,7 @@ export default {
       console.log(' get plans ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-pivot.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-pivot.php", {
           action: 'getPlan',
           qualificationId: this.qualification.qualificationId,
         })
@@ -208,7 +208,7 @@ export default {
       console.log(' get assessments ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-pivot.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-pivot.php", {
           action: 'getAssessment',
           qualificationId: this.qualification.qualificationId,
         })
@@ -256,7 +256,7 @@ export default {
       console.log(' get assessments ')
       var self = this
       axios
-        .post('http://localhost/ICPScoreCard/api-pivot.php', {
+        .post("https://icp2022.net/ICPScoreCard/api-pivot.php", {
           action: 'getAllAssessment',
         })
         .then(function (res) {
