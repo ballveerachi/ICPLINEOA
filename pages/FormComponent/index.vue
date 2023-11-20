@@ -94,10 +94,9 @@
             </v-row>
             <v-row>
               <v-col
-                ><div>ความบกพร่อง:</div>
+                ><div required >ความบกพร่อง:</div>
                 <v-select
                   required
-                  :rules="[(v) => !!v || 'กรุณาเลือก']"
                   size="4"
                   v-model="employee.disability_type"
                   label="เลือก"
@@ -108,7 +107,7 @@
                     <v-list-item>
                       <v-list-item-content>
                         <v-list-item-title>
-                          <span class="grey--text">กำหนดความบกพร่อง:</span>
+                          <span required class="grey--text">กำหนดความบกพร่อง:</span>
                         </v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
