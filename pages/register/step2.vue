@@ -140,7 +140,7 @@ export default {
          console.log("สมัครเรียบร้อย",this.form);
         //this.$router.push("/register/done");
         axios
-          .post("http://localhost/ICPScoreCard/api-member.php", {
+          .post("https://icp2022.net/ICPScoreCard/api-member.php", {
             action: "insert",
             member_id: this.member.member_id,
             full_name: this.member.full_name,

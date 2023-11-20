@@ -118,7 +118,7 @@ export default {
       if (this.validate()) {
         this.$store.dispatch("setRegister", this.form);
         axios
-          .post("http://localhost/ICPScoreCard/api-member.php", {
+          .post("https://icp2022.net/ICPScoreCard/api-member.php", {
             action: "insert_register",
             user_id: this.form.user_id,
             email: this.form.email,
@@ -142,7 +142,7 @@ export default {
     console.log(" แสดงข้อมูลทั้งหมด ");
     var self = this;
     axios
-      .post("http://localhost/ICPScoreCard/api-member.php", {
+      .post("https://icp2022.net/ICPScoreCard/api-member.php", {
         action: "getall",
       })
       .then(function (res) {

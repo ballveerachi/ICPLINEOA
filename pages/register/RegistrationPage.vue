@@ -132,7 +132,7 @@ export default {
         };
         this.$emit("saveData", newMember);
         axios
-          .post("http://localhost/ICPScoreCard/api-member.php", {
+          .post("https://icp2022.net/ICPScoreCard/api-member.php", {
             action: "insert",
             member_id: this.member.member_id,
             full_name: this.member.full_name,
@@ -150,7 +150,7 @@ export default {
           });
       } else {
         axios
-          .post("http://localhost/ICPScoreCard/api-member.php", {
+          .post("https://icp2022.net/ICPScoreCard/api-member.php", {
             action: "update",
             member_id: this.member.member_id,
             full_name: this.member.full_name,
@@ -175,7 +175,7 @@ export default {
       console.log(" แสดงข้อมูลทั้งหมด ");
       var self = this;
       axios
-        .post("http://localhost/ICPScoreCard/api-member.php", {
+        .post("https://icp2022.net/ICPScoreCard/api-member.php", {
           action: "getall",
         })
         .then(function (res) {
@@ -191,7 +191,7 @@ export default {
       this.isEdit = true;
       var self = this;
       axios
-        .post("http://localhost/ICPScoreCard/api-member.php", {
+        .post("https://icp2022.net/ICPScoreCard/api-member.php", {
           action: "edit",
           id: id,
         })
@@ -221,7 +221,7 @@ export default {
       if (confirm("คุณต้องการลบรหัส " + id + " หรือไม่ ?")) {
         var self = this;
         axios
-          .post("http://localhost/ICPScoreCard/api-member.php", {
+          .post("https://icp2022.net/ICPScoreCard/api-member.php", {
             action: "delete",
             id: id,
           })
