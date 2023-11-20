@@ -297,7 +297,18 @@ export default {
           isVisible: this.employee.isVisible,
         };
         this.$emit("saveData", newEmployee);
-        liff
+
+        axios
+          .post("http://localhost/ICPScoreCard/api.php", {
+            action: "insert",
+            id: this.employee.id,
+            name: this.employee.name,
+            study_faculty: this.employee.study_faculty,
+            university: this.employee.university,
+            disibility_type: this.employee.disability_type,
+          })
+          .then((res) => {
+            liff
           .sendMessages([
             {
               type: "flex",
@@ -313,7 +324,7 @@ export default {
                       type: "text",
                       text: "บันทึกข้อมูล",
                       weight: "bold",
-                      size:"md",
+                      size:"lg",
                       align: "center",
                       contents: [],
                     },
@@ -332,7 +343,7 @@ export default {
                   contents: [
                     {
                       type: "text",
-                      text: "Body",
+                      text: "xxxxx",
                       align: "center",
                       contents: [],
                     },
@@ -372,16 +383,6 @@ export default {
           .catch((err) => {
             console.log("error", err);
           });
-        axios
-          .post("http://localhost/ICPScoreCard/api.php", {
-            action: "insert",
-            id: this.employee.id,
-            name: this.employee.name,
-            study_faculty: this.employee.study_faculty,
-            university: this.employee.university,
-            disibility_type: this.employee.disability_type,
-          })
-          .then((res) => {
             console.log(res);
             this.resetForm();
             this.getAllUser();
