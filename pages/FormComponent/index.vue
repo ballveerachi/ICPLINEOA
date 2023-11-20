@@ -52,6 +52,7 @@
                 ><div>สาขาวิชา:</div>
                 <v-select
                   required
+                  :rules="[(v) => !!v || 'กรุณาเลือก']"
                   size="4"
                   v-model="employee.study_faculty"
                   label="เลือก"
@@ -73,6 +74,7 @@
                 ><div>สำเร็จการศึกษาสถาบัน:</div>
                 <v-select
                   required
+                  :rules="[(v) => !!v || 'กรุณาเลือก']"
                   size="4"
                   v-model="employee.university"
                   label="เลือก"
@@ -95,6 +97,7 @@
                 ><div>ความบกพร่อง:</div>
                 <v-select
                   required
+                  :rules="[(v) => !!v || 'กรุณาเลือก']"
                   size="4"
                   v-model="employee.disability_type"
                   label="เลือก"
@@ -311,80 +314,80 @@ export default {
           })
           .then((res) => {
             liff
-          .sendMessages([
-            {
-              type: "flex",
-              altText: "this is a flex message",
-              contents: {
-                type: "bubble",
-                direction: "ltr",
-                header: {
-                  type: "box",
-                  layout: "vertical",
-                  contents: [
-                    {
-                      type: "text",
-                      text: "บันทึกข้อมูล",
-                      weight: "bold",
-                      size:"lg",
-                      align: "center",
-                      contents: [],
+              .sendMessages([
+                {
+                  type: "flex",
+                  altText: "this is a flex message",
+                  contents: {
+                    type: "bubble",
+                    direction: "ltr",
+                    header: {
+                      type: "box",
+                      layout: "vertical",
+                      contents: [
+                        {
+                          type: "text",
+                          text: "บันทึกข้อมูล",
+                          weight: "bold",
+                          size: "lg",
+                          align: "center",
+                          contents: [],
+                        },
+                      ],
                     },
-                  ],
-                },
-                hero: {
-                  type: "image",
-                  url: "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
-                  size: "full",
-                  aspectRatio: "1.51:1",
-                  aspectMode: "fit",
-                },
-                body: {
-                  type: "box",
-                  layout: "vertical",
-                  contents: [
-                    {
-                      type: "text",
-                      text: "xxxxx",
-                      align: "center",
-                      contents: [],
+                    hero: {
+                      type: "image",
+                      url: "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
+                      size: "full",
+                      aspectRatio: "1.51:1",
+                      aspectMode: "fit",
                     },
-                  ],
-                },
-                footer: {
-                  type: "box",
-                  layout: "horizontal",
-                  contents: [
-                    {
-                      type: "button",
-                      action: {
-                        type: "uri",
-                        label: "Back",
-                        uri: "https://linecorp.com",
-                      },
-                      color: "#CFC9CAFF",
-                      style: "primary",
+                    body: {
+                      type: "box",
+                      layout: "vertical",
+                      contents: [
+                        {
+                          type: "text",
+                          text: "xxxxx",
+                          align: "center",
+                          contents: [],
+                        },
+                      ],
                     },
-                    {
-                      type: "button",
-                      action: {
-                        type: "uri",
-                        label: "Next",
-                        uri: "https://linecorp.com",
-                      },
-                      style: "primary",
+                    footer: {
+                      type: "box",
+                      layout: "horizontal",
+                      contents: [
+                        {
+                          type: "button",
+                          action: {
+                            type: "uri",
+                            label: "Back",
+                            uri: "https://linecorp.com",
+                          },
+                          color: "#CFC9CAFF",
+                          style: "primary",
+                        },
+                        {
+                          type: "button",
+                          action: {
+                            type: "uri",
+                            label: "Next",
+                            uri: "https://linecorp.com",
+                          },
+                          style: "primary",
+                        },
+                      ],
                     },
-                  ],
+                  },
                 },
-              },
-            },
-          ])
-          .then(() => {
-            console.log("message sent");
-          })
-          .catch((err) => {
-            console.log("error", err);
-          });
+              ])
+              .then(() => {
+                console.log("message sent");
+              })
+              .catch((err) => {
+                console.log("error", err);
+              });
             console.log(res);
             this.resetForm();
             this.getAllUser();
