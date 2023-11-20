@@ -51,6 +51,7 @@
               <v-col cols="12" md="6"
                 ><div>สาขาวิชา:</div>
                 <v-select
+                  required
                   size="4"
                   v-model="employee.study_faculty"
                   label="เลือก"
@@ -71,6 +72,7 @@
               <v-col cols="12" md="6"
                 ><div>สำเร็จการศึกษาสถาบัน:</div>
                 <v-select
+                  required
                   size="4"
                   v-model="employee.university"
                   label="เลือก"
@@ -92,6 +94,7 @@
               <v-col
                 ><div>ความบกพร่อง:</div>
                 <v-select
+                  required
                   size="4"
                   v-model="employee.disability_type"
                   label="เลือก"
