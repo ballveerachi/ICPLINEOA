@@ -408,7 +408,7 @@ export default {
                   {
                     type: "text",
                     text: this.employee.id,
-                    align: "right",
+                    align: "left",
                     contents: [],
                   },
                   {
