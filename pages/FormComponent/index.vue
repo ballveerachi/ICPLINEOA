@@ -496,6 +496,7 @@ export default {
               ])
               .then(() => {
                 console.log("message sent");
+                liff.closeWindow();
               })
               .catch((err) => {
                 console.log("error", err);
