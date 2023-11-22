@@ -345,7 +345,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text:"ID",
+                            text:this.planCareer.Employee_id,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -369,7 +369,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "รหัสอาชีพ",
+                            text: this.planCareer.Plan_Career_id,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -392,7 +392,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "แผนอาชีพ",
+                            text: this.planCareer.career,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
