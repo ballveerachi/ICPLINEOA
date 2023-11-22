@@ -406,22 +406,16 @@ export default {
                 layout: "vertical",
                 contents: [
                   {
-                    type: "text",
-                    text: "ผู้ใช้",
-                    align: "center",
-                    contents: [
-                      {
-                        type: "text",
-                        text: this.employee.id,
-                        align: "center",
-                      },
-                    ],
+                    type: "span",
+                    text: "LINE",
+                    size: "32px",
+                    weight: "bold",
+                    color: "#00ff00",
                   },
                   {
-                    type: "text",
-                    text: this.employee.name,
-                    align: "center",
-                    contents: [],
+                    type: "span",
+                    text: " Developers",
+                    size: "24px",
                   },
                 ],
               },
