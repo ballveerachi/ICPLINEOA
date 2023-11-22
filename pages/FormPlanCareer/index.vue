@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar dense flat dark>
-      <v-toolbar-title>{{pageTitle}}</v-toolbar-title>
+      <v-toolbar-title>{{ pageTitle }}</v-toolbar-title>
     </v-app-bar>
     <v-card
       class="mx-auto pa-12 pb-8"
@@ -60,7 +60,7 @@
                   dense
                   variant="outlined"
                 >
-                <template v-slot:prepend-item>
+                  <template v-slot:prepend-item>
                     <v-list-item>
                       <v-list-item-content>
                         <v-list-item-title>
@@ -70,7 +70,6 @@
                     </v-list-item>
                   </template>
                   <template v-slot:selection="{ item }">
-
                     <span>{{ item.career_id }} - {{ item.career }}</span>
                   </template>
                   <template v-slot:item="{ item }">
@@ -102,34 +101,34 @@
             </div>
           </v-container>
         </v-form>
-        <v-card class="mx-auto table"  max-width="800px" cols="12" md="6">
+        <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
           <v-card text="..." variant="tonal">แก้ไขข้อมูล</v-card>
-      <v-row>
-        <v-col>PlanCareer-ID</v-col>
-        <v-col>Employee-ID</v-col>
-        <v-col>Career ID</v-col>
-        <v-col>Career</v-col>
-        <v-col>Name</v-col>
-        <v-col>University</v-col>
-        <v-col>Action</v-col>
-      </v-row>
-      <v-row v-for="row in planCareers" :key="row.index" cols="12" md="6">
-        <v-col>{{ row.Plan_Career_id }}</v-col>
-        <v-col>{{ row.Employee_id }}</v-col>
-        <v-col>{{ row.career_id }}</v-col>
-        <v-col>{{ row.career }}</v-col>
-        <v-col>{{ row.name }}</v-col>
-        <v-col>{{ row.university }}</v-col>
-        <v-col
-          ><v-btn @click="editUser(row.Plan_Career_id)"
-            ><v-icon small class="mr-2"> mdi-pencil </v-icon></v-btn
-          >
-          <v-btn @click="deleteUser(row.Plan_Career_id)"
-            ><v-icon small class="mr-2"> mdi-delete </v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-card>
+          <v-row>
+            <v-col>PlanCareer-ID</v-col>
+            <v-col>Employee-ID</v-col>
+            <v-col>Career ID</v-col>
+            <v-col>Career</v-col>
+            <v-col>Name</v-col>
+            <v-col>University</v-col>
+            <v-col>Action</v-col>
+          </v-row>
+          <v-row v-for="row in planCareers" :key="row.index" cols="12" md="6">
+            <v-col>{{ row.Plan_Career_id }}</v-col>
+            <v-col>{{ row.Employee_id }}</v-col>
+            <v-col>{{ row.career_id }}</v-col>
+            <v-col>{{ row.career }}</v-col>
+            <v-col>{{ row.name }}</v-col>
+            <v-col>{{ row.university }}</v-col>
+            <v-col
+              ><v-btn @click="editUser(row.Plan_Career_id)"
+                ><v-icon small class="mr-2"> mdi-pencil </v-icon></v-btn
+              >
+              <v-btn @click="deleteUser(row.Plan_Career_id)"
+                ><v-icon small class="mr-2"> mdi-delete </v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-card>
       </v-main>
     </v-card>
   </div>
@@ -155,7 +154,7 @@ export default {
   name: "FormPlanCareer",
   data() {
     return {
-      pageTitle: 'อาชีพเป้าหมาย',
+      pageTitle: "อาชีพเป้าหมาย",
       message: "Form Plan Career",
       planCareers: [],
       planCareers_: [],
@@ -338,7 +337,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.planCareer.Plan_Career_id,
+                            text: this.employee.id,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -353,7 +352,7 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "รหัสอาชีพ",
+                            text: "ชื่อผู้ใช้",
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -362,7 +361,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.planCareer.Plan_Career_id,
+                            text: this.employee.name,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -376,7 +375,7 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "แผนอาชีพ",
+                            text: "สาขาวิชา",
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -385,8 +384,54 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.planCareer.career_id ,
+                            text: this.employee.study_faculty,
                             weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "สถาบันการศึกษา",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: this.employee.university,
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "ความบกพร่อง",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: this.employee.disability_type,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -411,7 +456,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormQualification",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
                     },
                     height: "sm",
                     style: "primary",
@@ -421,7 +466,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Back",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/",
                     },
                     color: "#CFC9CAFF",
                     height: "sm",
