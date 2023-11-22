@@ -406,7 +406,7 @@ export default {
                   },
                   {
                     type: "text",
-                    text: "อาชีพเป้าหมาย",
+                    text: "ข้อมูลส่วนตัว",
                     weight: "bold",
                     size: "sm",
                     align: "center",
