@@ -300,10 +300,15 @@ export default {
             altText: "this is a flex message",
             contents: {
               type: "bubble",
-              direction: "ltr",
-              header: {
+              body: {
                 type: "box",
                 layout: "vertical",
+                spacing: "md",
+                // action: {
+                //   type: "uri",
+                //   label: "Action",
+                //   uri: "https://linecorp.com",
+                // },
                 contents: [
                   {
                     type: "text",
@@ -313,48 +318,113 @@ export default {
                     align: "center",
                     contents: [],
                   },
-                ],
-              },
-              hero: {
-                type: "image",
-                url: "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
-                size: "full",
-                aspectRatio: "1.51:1",
-                aspectMode: "fit",
-              },
-              body: {
-                type: "box",
-                layout: "vertical",
-                contents: [
                   {
-                    type: "text",
-                    text: "xxxxx",
-                    align: "center",
-                    contents: [],
+                    type: "box",
+                    layout: "vertical",
+                    spacing: "sm",
+                    contents: [
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "ID",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text:"ID",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "รหัสอาชีพ",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: "รหัสอาชีพ",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "แผนอาชีพ",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: "แผนอาชีพ",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+
+                    ],
                   },
                 ],
               },
               footer: {
                 type: "box",
-                layout: "horizontal",
+                layout: "vertical",
                 contents: [
                   {
-                    type: "button",
-                    action: {
-                      type: "uri",
-                      label: "Back",
-                      uri: "https://linecorp.com",
-                    },
-                    color: "#CFC9CAFF",
-                    style: "primary",
+                    type: "spacer",
+                    size: "xxl",
                   },
                   {
                     type: "button",
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://linecorp.com",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
                     },
+                    height: "sm",
+                    style: "primary",
+                  },
+                  {
+                    type: "button",
+                    action: {
+                      type: "uri",
+                      label: "Back",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/",
+                    },
+                    color: "#CFC9CAFF",
+                    height: "sm",
                     style: "primary",
                   },
                 ],
