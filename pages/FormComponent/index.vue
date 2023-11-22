@@ -310,7 +310,7 @@ export default {
             disibility_type: this.employee.disability_type,
           })
           .then((res) => {
-            console.log("ข้อมูล11", res);
+            console.log("ข้อมูล11",res);
             this.resetForm();
             this.sendMessages();
             this.getAllUser();
@@ -407,8 +407,9 @@ export default {
                 contents: [
                   {
                     type: "text",
-                    text: "ผู้ใช้",
+                    text: this.employee.id,
                     align: "right",
+                    contents: [],
                   },
                   {
                     type: "text",
