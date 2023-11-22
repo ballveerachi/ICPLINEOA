@@ -504,6 +504,10 @@ export default {
                     contents: [],
                   },
                   {
+                    type: "spacer",
+                    size: "xxl",
+                  },
+                  {
                     type: "box",
                     layout: "vertical",
                     spacing: "sm",
