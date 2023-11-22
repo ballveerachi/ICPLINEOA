@@ -413,7 +413,7 @@ export default {
                   },
                   {
                     type: "text",
-                    text: employee.name,
+                    text: this.employee.name,
                     align: "center",
                     contents: [],
                   },
