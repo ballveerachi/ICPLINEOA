@@ -297,7 +297,7 @@ export default {
         .sendMessages([
           {
             type: "flex",
-            altText: "this is a flex message",
+            altText: "บันทึกข้อมูล",
             contents: {
               type: "bubble",
               body: {

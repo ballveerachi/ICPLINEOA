@@ -405,6 +405,14 @@ export default {
                     contents: [],
                   },
                   {
+                    type: "text",
+                    text: "อาชีพเป้าหมาย",
+                    weight: "bold",
+                    size: "sm",
+                    align: "center",
+                    contents: [],
+                  },
+                  {
                     type: "box",
                     layout: "vertical",
                     spacing: "sm",
