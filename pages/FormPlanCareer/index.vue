@@ -385,7 +385,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.planCareer.career ,
+                            text: this.planCareer.career_id ,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
