@@ -314,18 +314,18 @@ export default {
               .sendMessages([
                 {
                   type: "flex",
-                  altText: "this is a flex message",
+                  altText: "บันทึกข้อมูล",
                   contents: {
                     type: "bubble",
                     body: {
                       type: "box",
                       layout: "vertical",
                       spacing: "md",
-                      action: {
-                        type: "uri",
-                        label: "Action",
-                        uri: "https://linecorp.com",
-                      },
+                      // action: {
+                      //   type: "uri",
+                      //   label: "Action",
+                      //   uri: "https://linecorp.com",
+                      // },
                       contents: [
                         {
                           type: "text",
@@ -354,7 +354,7 @@ export default {
                                 },
                                 {
                                   type: "text",
-                                  text: "400kcl",
+                                  text: this.employee.id,
                                   weight: "regular",
                                   size: "md",
                                   color: "#000000FF",
@@ -378,7 +378,7 @@ export default {
                                 },
                                 {
                                   type: "text",
-                                  text: "400kcl",
+                                  text: this.employee.name,
                                   size: "md",
                                   color: "#000000FF",
                                   align: "end",
@@ -401,7 +401,7 @@ export default {
                                 },
                                 {
                                   type: "text",
-                                  text: "400kcl",
+                                  text: this.employee.study_faculty,
                                   weight: "regular",
                                   size: "md",
                                   color: "#000000FF",
@@ -425,7 +425,7 @@ export default {
                                 },
                                 {
                                   type: "text",
-                                  text: "400kcl",
+                                  text: this.employee.university,
                                   size: "md",
                                   color: "#000000FF",
                                   align: "end",
@@ -448,7 +448,7 @@ export default {
                                 },
                                 {
                                   type: "text",
-                                  text: "400kcl",
+                                  text: this.employee.disability_type,
                                   size: "md",
                                   color: "#000000FF",
                                   align: "end",
