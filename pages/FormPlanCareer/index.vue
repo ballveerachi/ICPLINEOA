@@ -338,7 +338,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.employee.id,
+                            text: this.planCareer.Employee_id,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -353,7 +353,7 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "ชื่อผู้ใช้",
+                            text: "รหัสอาชีพ",
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -362,7 +362,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.employee.name,
+                            text: this.planCareer.Plan_Career_id,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -376,7 +376,7 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "สาขาวิชา",
+                            text: "แผนอาชีพ",
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -385,54 +385,8 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.employee.study_faculty,
+                            text: this.planCareer.career_id + this.planCareer.career ,
                             weight: "regular",
-                            size: "sm",
-                            color: "#000000FF",
-                            align: "end",
-                            contents: [],
-                          },
-                        ],
-                      },
-                      {
-                        type: "box",
-                        layout: "baseline",
-                        contents: [
-                          {
-                            type: "text",
-                            text: "สถาบันการศึกษา",
-                            weight: "regular",
-                            size: "sm",
-                            color: "#000000FF",
-                            margin: "sm",
-                            contents: [],
-                          },
-                          {
-                            type: "text",
-                            text: this.employee.university,
-                            size: "sm",
-                            color: "#000000FF",
-                            align: "end",
-                            contents: [],
-                          },
-                        ],
-                      },
-                      {
-                        type: "box",
-                        layout: "baseline",
-                        contents: [
-                          {
-                            type: "text",
-                            text: "ความบกพร่อง",
-                            weight: "regular",
-                            size: "sm",
-                            color: "#000000FF",
-                            margin: "sm",
-                            contents: [],
-                          },
-                          {
-                            type: "text",
-                            text: this.employee.disability_type,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -457,7 +411,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormQualification",
                     },
                     height: "sm",
                     style: "primary",
@@ -466,8 +420,8 @@ export default {
                     type: "button",
                     action: {
                       type: "uri",
-                      label: "Button",
-                      uri: "https://linecorp.com",
+                      label: "Back",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
                     },
                     color: "#CFC9CAFF",
                     height: "sm",

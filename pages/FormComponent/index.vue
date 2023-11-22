@@ -551,8 +551,8 @@ export default {
                     type: "button",
                     action: {
                       type: "uri",
-                      label: "Button",
-                      uri: "https://linecorp.com",
+                      label: "Back",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/",
                     },
                     color: "#CFC9CAFF",
                     height: "sm",
