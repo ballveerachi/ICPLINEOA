@@ -383,7 +383,7 @@ export default {
         .sendMessages([
           {
             type: "flex",
-            altText: "this is a flex message",
+            altText: "บันทึกข้อมูลส่วนตัว",
             contents: {
               type: "bubble",
               direction: "ltr",
