@@ -382,70 +382,181 @@ export default {
       liff
         .sendMessages([
           {
-            type: "flex",
-            altText: "บันทึกข้อมูลส่วนตัว",
-            contents: {
-              type: "bubble",
-              direction: "ltr",
-              header: {
-                type: "box",
-                layout: "vertical",
-                contents: [
-                  {
-                    type: "text",
-                    text: "บันทึกข้อมูล",
-                    weight: "bold",
-                    size: "lg",
-                    align: "center",
-                    contents: [],
-                  },
-                ],
+            type: "bubble",
+            body: {
+              type: "box",
+              layout: "vertical",
+              spacing: "md",
+              action: {
+                type: "uri",
+                label: "Action",
+                uri: "https://linecorp.com",
               },
-              body: {
-                type: "box",
-                layout: "vertical",
-                contents: [
-                  {
-                    type: "span",
-                    text: "ไอดีผู้ใช้",
-                  },
-                  {
-                    type: "span",
-                    text: "112",
-                  },
-                  {
-                    type: "text",
-                    text: "hello, world",
-                    align: "start",
-                    contents: [],
-                  },
-                ],
-              },
-              footer: {
-                type: "box",
-                layout: "horizontal",
-                contents: [
-                  {
-                    type: "button",
-                    action: {
-                      type: "uri",
-                      label: "Back",
-                      uri: "https://linecorp.com",
+              contents: [
+                {
+                  type: "text",
+                  text: "บันทึกข้อมูล",
+                  weight: "bold",
+                  size: "xl",
+                  align: "center",
+                  contents: [],
+                },
+                {
+                  type: "box",
+                  layout: "vertical",
+                  spacing: "sm",
+                  contents: [
+                    {
+                      type: "box",
+                      layout: "baseline",
+                      contents: [
+                        {
+                          type: "text",
+                          text: "ID",
+                          size: "md",
+                          color: "#000000FF",
+                          margin: "sm",
+                          contents: [],
+                        },
+                        {
+                          type: "text",
+                          text: this.employee.id,
+                          weight: "regular",
+                          size: "md",
+                          color: "#000000FF",
+                          align: "end",
+                          contents: [],
+                        },
+                      ],
                     },
-                    color: "#CFC9CAFF",
-                    style: "primary",
-                  },
-                  {
-                    type: "button",
-                    action: {
-                      type: "uri",
-                      label: "Next",
-                      uri: "https://linecorp.com",
+                    {
+                      type: "box",
+                      layout: "baseline",
+                      contents: [
+                        {
+                          type: "text",
+                          text: "ชื่อผู้ใช้",
+                          weight: "regular",
+                          size: "md",
+                          color: "#000000FF",
+                          margin: "sm",
+                          contents: [],
+                        },
+                        {
+                          type: "text",
+                          text: this.employee.name,
+                          size: "md",
+                          color: "#000000FF",
+                          align: "end",
+                          contents: [],
+                        },
+                      ],
                     },
-                    style: "primary",
+                    {
+                      type: "box",
+                      layout: "baseline",
+                      contents: [
+                        {
+                          type: "text",
+                          text: "สาขาวิชา",
+                          weight: "regular",
+                          size: "md",
+                          color: "#000000FF",
+                          margin: "sm",
+                          contents: [],
+                        },
+                        {
+                          type: "text",
+                          text: this.employee.study_faculty,
+                          weight: "regular",
+                          size: "md",
+                          color: "#000000FF",
+                          align: "end",
+                          contents: [],
+                        },
+                      ],
+                    },
+                    {
+                      type: "box",
+                      layout: "baseline",
+                      contents: [
+                        {
+                          type: "text",
+                          text: "สถาบันการศึกษา",
+                          weight: "regular",
+                          size: "md",
+                          color: "#000000FF",
+                          margin: "sm",
+                          contents: [],
+                        },
+                        {
+                          type: "text",
+                          text: this.employee.university,
+                          size: "md",
+                          color: "#000000FF",
+                          align: "end",
+                          contents: [],
+                        },
+                      ],
+                    },
+                    {
+                      type: "box",
+                      layout: "baseline",
+                      contents: [
+                        {
+                          type: "text",
+                          text: "ความบกพร่อง",
+                          weight: "regular",
+                          size: "md",
+                          color: "#000000FF",
+                          margin: "sm",
+                          contents: [],
+                        },
+                        {
+                          type: "text",
+                          text: this.employee.disability_type,
+                          size: "md",
+                          color: "#000000FF",
+                          align: "end",
+                          contents: [],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            footer: {
+              type: "box",
+              layout: "vertical",
+              contents: [
+                {
+                  type: "spacer",
+                  size: "xxl",
+                },
+                {
+                  type: "button",
+                  action: {
+                    type: "uri",
+                    label: "Next",
+                    uri: "https://linecorp.com",
                   },
-                ],
-              },
+                  color: "#2BEB0FFF",
+                  height: "sm",
+                  style: "primary",
+                },
+                {
+                  type: "button",
+                  action: {
+                    type: "uri",
+                    label: "Button",
+                    uri: "https://linecorp.com",
+                  },
+                  color: "#F8F4F4FF",
+                  height: "sm",
+                  style: "secondary",
+                },
+              ],
             },
           },
         ])
