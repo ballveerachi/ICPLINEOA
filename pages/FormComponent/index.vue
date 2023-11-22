@@ -312,7 +312,7 @@ export default {
           .then((res) => {
             console.log("ข้อมูล11",res);
             this.resetForm();
-            this.sendMessages();
+            this.sendMessages(this.employee.id);
             this.getAllUser();
           })
           .catch(function (error) {
@@ -405,6 +405,12 @@ export default {
                 type: "box",
                 layout: "vertical",
                 contents: [
+                  {
+                    type: "text",
+                    text: message,
+                    align: "center",
+                    contents: [],
+                  },
                   {
                     type: "text",
                     text: message,
