@@ -312,7 +312,7 @@ export default {
           .then((res) => {
             console.log("ข้อมูล11",res);
             this.resetForm();
-            this.sendMessages(this.employee.name);
+            this.sendMessages(this.employee.id,this.employee.name,this.employee.study_faculty,this.employee.university,this.employee.disability_type);
             this.getAllUser();
           })
           .catch(function (error) {
