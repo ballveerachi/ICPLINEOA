@@ -414,7 +414,7 @@ export default {
                 contents: [
                   {
                     type: "text",
-                    text: message,
+                    text: "รหัสผู้ใช้" = message,
                     align: "center",
                     contents: [],
                   },
