@@ -408,13 +408,13 @@ export default {
                   {
                     type: "text",
                     text: this.employee.id,
-                    align: "left",
+                    align: "start",
                     contents: [],
                   },
                   {
                     type: "text",
                     text: this.employee.name,
-                    align: "right",
+                    align: "end",
                     contents: [],
                   },
                 ],
