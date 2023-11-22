@@ -310,197 +310,7 @@ export default {
             disibility_type: this.employee.disability_type,
           })
           .then((res) => {
-            liff
-              .sendMessages([
-                {
-                  type: "flex",
-                  altText: "บันทึกข้อมูล",
-                  contents: {
-                    type: "bubble",
-                    body: {
-                      type: "box",
-                      layout: "vertical",
-                      spacing: "md",
-                      // action: {
-                      //   type: "uri",
-                      //   label: "Action",
-                      //   uri: "https://linecorp.com",
-                      // },
-                      contents: [
-                        {
-                          type: "text",
-                          text: "บันทึกข้อมูล",
-                          weight: "bold",
-                          size: "lg",
-                          align: "center",
-                          contents: [],
-                        },
-                        {
-                          type: "box",
-                          layout: "vertical",
-                          spacing: "sm",
-                          contents: [
-                            {
-                              type: "box",
-                              layout: "baseline",
-                              contents: [
-                                {
-                                  type: "text",
-                                  text: "ID",
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  margin: "sm",
-                                  contents: [],
-                                },
-                                {
-                                  type: "text",
-                                  text: this.employee.id,
-                                  weight: "regular",
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  align: "end",
-                                  contents: [],
-                                },
-                              ],
-                            },
-                            {
-                              type: "box",
-                              layout: "baseline",
-                              contents: [
-                                {
-                                  type: "text",
-                                  text: "ชื่อผู้ใช้",
-                                  weight: "regular",
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  margin: "sm",
-                                  contents: [],
-                                },
-                                {
-                                  type: "text",
-                                  text: this.employee.name,
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  align: "end",
-                                  contents: [],
-                                },
-                              ],
-                            },
-                            {
-                              type: "box",
-                              layout: "baseline",
-                              contents: [
-                                {
-                                  type: "text",
-                                  text: "สาขาวิชา",
-                                  weight: "regular",
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  margin: "sm",
-                                  contents: [],
-                                },
-                                {
-                                  type: "text",
-                                  text: this.employee.study_faculty,
-                                  weight: "regular",
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  align: "end",
-                                  contents: [],
-                                },
-                              ],
-                            },
-                            {
-                              type: "box",
-                              layout: "baseline",
-                              contents: [
-                                {
-                                  type: "text",
-                                  text: "สถาบันการศึกษา",
-                                  weight: "regular",
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  margin: "sm",
-                                  contents: [],
-                                },
-                                {
-                                  type: "text",
-                                  text: this.employee.university,
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  align: "end",
-                                  contents: [],
-                                },
-                              ],
-                            },
-                            {
-                              type: "box",
-                              layout: "baseline",
-                              contents: [
-                                {
-                                  type: "text",
-                                  text: "ความบกพร่อง",
-                                  weight: "regular",
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  margin: "sm",
-                                  contents: [],
-                                },
-                                {
-                                  type: "text",
-                                  text: this.employee.disability_type,
-                                  size: "sm",
-                                  color: "#000000FF",
-                                  align: "end",
-                                  contents: [],
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                    footer: {
-                      type: "box",
-                      layout: "vertical",
-                      contents: [
-                        {
-                          type: "spacer",
-                          size: "xxl",
-                        },
-                        {
-                          type: "button",
-                          action: {
-                            type: "uri",
-                            label: "Next",
-                            uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
-                          },
-                          height: "sm",
-                          style: "primary",
-                        },
-                        {
-                          type: "button",
-                          action: {
-                            type: "uri",
-                            label: "Button",
-                            uri: "https://linecorp.com",
-                          },
-                          color: "#CFC9CAFF",
-                          height: "sm",
-                          style: "primary",
-                        },
-                      ],
-                    },
-                  },
-                },
-              ])
-              .then(() => {
-                console.log("message sent");
-                liff.closeWindow();
-              })
-              .catch((err) => {
-                console.log("error", err);
-              });
+            this.sendMessages();
             console.log(res);
             this.resetForm();
             this.getAllUser();
@@ -567,6 +377,199 @@ export default {
             console.log(error);
           });
       }
+    },
+    sendMessages() {
+      liff
+        .sendMessages([
+          {
+            type: "flex",
+            altText: "บันทึกข้อมูล",
+            contents: {
+              type: "bubble",
+              body: {
+                type: "box",
+                layout: "vertical",
+                spacing: "md",
+                // action: {
+                //   type: "uri",
+                //   label: "Action",
+                //   uri: "https://linecorp.com",
+                // },
+                contents: [
+                  {
+                    type: "text",
+                    text: "บันทึกข้อมูล",
+                    weight: "bold",
+                    size: "lg",
+                    align: "center",
+                    contents: [],
+                  },
+                  {
+                    type: "box",
+                    layout: "vertical",
+                    spacing: "sm",
+                    contents: [
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "ID",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: this.employee.id,
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "ชื่อผู้ใช้",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: this.employee.name,
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "สาขาวิชา",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: this.employee.study_faculty,
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "สถาบันการศึกษา",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: this.employee.university,
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "ความบกพร่อง",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: this.employee.disability_type,
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+              footer: {
+                type: "box",
+                layout: "vertical",
+                contents: [
+                  {
+                    type: "spacer",
+                    size: "xxl",
+                  },
+                  {
+                    type: "button",
+                    action: {
+                      type: "uri",
+                      label: "Next",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
+                    },
+                    height: "sm",
+                    style: "primary",
+                  },
+                  {
+                    type: "button",
+                    action: {
+                      type: "uri",
+                      label: "Button",
+                      uri: "https://linecorp.com",
+                    },
+                    color: "#CFC9CAFF",
+                    height: "sm",
+                    style: "primary",
+                  },
+                ],
+              },
+            },
+          },
+        ])
+        .then(() => {
+          console.log("message sent");
+          liff.closeWindow();
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
     },
   },
   created() {
