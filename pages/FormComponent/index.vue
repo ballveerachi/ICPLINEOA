@@ -313,181 +313,185 @@ export default {
             liff
               .sendMessages([
                 {
-                  type: "bubble",
-                  body: {
-                    type: "box",
-                    layout: "vertical",
-                    spacing: "md",
-                    action: {
-                      type: "uri",
-                      label: "Action",
-                      uri: "https://linecorp.com",
+                  type: "flex",
+                  altText: "this is a flex message",
+                  contents: {
+                    type: "bubble",
+                    body: {
+                      type: "box",
+                      layout: "vertical",
+                      spacing: "md",
+                      action: {
+                        type: "uri",
+                        label: "Action",
+                        uri: "https://linecorp.com",
+                      },
+                      contents: [
+                        {
+                          type: "text",
+                          text: "บันทึกข้อมูล",
+                          weight: "bold",
+                          size: "xl",
+                          align: "center",
+                          contents: [],
+                        },
+                        {
+                          type: "box",
+                          layout: "vertical",
+                          spacing: "sm",
+                          contents: [
+                            {
+                              type: "box",
+                              layout: "baseline",
+                              contents: [
+                                {
+                                  type: "text",
+                                  text: "ID",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  margin: "sm",
+                                  contents: [],
+                                },
+                                {
+                                  type: "text",
+                                  text: "400kcl",
+                                  weight: "regular",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  align: "end",
+                                  contents: [],
+                                },
+                              ],
+                            },
+                            {
+                              type: "box",
+                              layout: "baseline",
+                              contents: [
+                                {
+                                  type: "text",
+                                  text: "ชื่อผู้ใช้",
+                                  weight: "regular",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  margin: "sm",
+                                  contents: [],
+                                },
+                                {
+                                  type: "text",
+                                  text: "400kcl",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  align: "end",
+                                  contents: [],
+                                },
+                              ],
+                            },
+                            {
+                              type: "box",
+                              layout: "baseline",
+                              contents: [
+                                {
+                                  type: "text",
+                                  text: "สาขาวิชา",
+                                  weight: "regular",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  margin: "sm",
+                                  contents: [],
+                                },
+                                {
+                                  type: "text",
+                                  text: "400kcl",
+                                  weight: "regular",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  align: "end",
+                                  contents: [],
+                                },
+                              ],
+                            },
+                            {
+                              type: "box",
+                              layout: "baseline",
+                              contents: [
+                                {
+                                  type: "text",
+                                  text: "สถาบันการศึกษา",
+                                  weight: "regular",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  margin: "sm",
+                                  contents: [],
+                                },
+                                {
+                                  type: "text",
+                                  text: "400kcl",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  align: "end",
+                                  contents: [],
+                                },
+                              ],
+                            },
+                            {
+                              type: "box",
+                              layout: "baseline",
+                              contents: [
+                                {
+                                  type: "text",
+                                  text: "ความบกพร่อง",
+                                  weight: "regular",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  margin: "sm",
+                                  contents: [],
+                                },
+                                {
+                                  type: "text",
+                                  text: "400kcl",
+                                  size: "md",
+                                  color: "#000000FF",
+                                  align: "end",
+                                  contents: [],
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
                     },
-                    contents: [
-                      {
-                        type: "text",
-                        text: "บันทึกข้อมูล",
-                        weight: "bold",
-                        size: "xl",
-                        align: "center",
-                        contents: [],
-                      },
-                      {
-                        type: "box",
-                        layout: "vertical",
-                        spacing: "sm",
-                        contents: [
-                          {
-                            type: "box",
-                            layout: "baseline",
-                            contents: [
-                              {
-                                type: "text",
-                                text: "ID",
-                                size: "md",
-                                color: "#000000FF",
-                                margin: "sm",
-                                contents: [],
-                              },
-                              {
-                                type: "text",
-                                text: "400kcl",
-                                weight: "regular",
-                                size: "md",
-                                color: "#000000FF",
-                                align: "end",
-                                contents: [],
-                              },
-                            ],
-                          },
-                          {
-                            type: "box",
-                            layout: "baseline",
-                            contents: [
-                              {
-                                type: "text",
-                                text: "ชื่อผู้ใช้",
-                                weight: "regular",
-                                size: "md",
-                                color: "#000000FF",
-                                margin: "sm",
-                                contents: [],
-                              },
-                              {
-                                type: "text",
-                                text: "400kcl",
-                                size: "md",
-                                color: "#000000FF",
-                                align: "end",
-                                contents: [],
-                              },
-                            ],
-                          },
-                          {
-                            type: "box",
-                            layout: "baseline",
-                            contents: [
-                              {
-                                type: "text",
-                                text: "สาขาวิชา",
-                                weight: "regular",
-                                size: "md",
-                                color: "#000000FF",
-                                margin: "sm",
-                                contents: [],
-                              },
-                              {
-                                type: "text",
-                                text: "400kcl",
-                                weight: "regular",
-                                size: "md",
-                                color: "#000000FF",
-                                align: "end",
-                                contents: [],
-                              },
-                            ],
-                          },
-                          {
-                            type: "box",
-                            layout: "baseline",
-                            contents: [
-                              {
-                                type: "text",
-                                text: "สถาบันการศึกษา",
-                                weight: "regular",
-                                size: "md",
-                                color: "#000000FF",
-                                margin: "sm",
-                                contents: [],
-                              },
-                              {
-                                type: "text",
-                                text: "400kcl",
-                                size: "md",
-                                color: "#000000FF",
-                                align: "end",
-                                contents: [],
-                              },
-                            ],
-                          },
-                          {
-                            type: "box",
-                            layout: "baseline",
-                            contents: [
-                              {
-                                type: "text",
-                                text: "ความบกพร่อง",
-                                weight: "regular",
-                                size: "md",
-                                color: "#000000FF",
-                                margin: "sm",
-                                contents: [],
-                              },
-                              {
-                                type: "text",
-                                text: "400kcl",
-                                size: "md",
-                                color: "#000000FF",
-                                align: "end",
-                                contents: [],
-                              },
-                            ],
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                  footer: {
-                    type: "box",
-                    layout: "vertical",
-                    contents: [
-                      {
-                        type: "spacer",
-                        size: "xxl",
-                      },
-                      {
-                        type: "button",
-                        action: {
-                          type: "uri",
-                          label: "Next",
-                          uri: "https://linecorp.com",
+                    footer: {
+                      type: "box",
+                      layout: "vertical",
+                      contents: [
+                        {
+                          type: "spacer",
+                          size: "xxl",
                         },
-                        color: "#2BEB0FFF",
-                        height: "sm",
-                        style: "primary",
-                      },
-                      {
-                        type: "button",
-                        action: {
-                          type: "uri",
-                          label: "Button",
-                          uri: "https://linecorp.com",
+                        {
+                          type: "button",
+                          action: {
+                            type: "uri",
+                            label: "Next",
+                            uri: "https://linecorp.com",
+                          },
+                          color: "#2BEB0FFF",
+                          height: "sm",
+                          style: "primary",
                         },
-                        color: "#F8F4F4FF",
-                        height: "sm",
-                        style: "secondary",
-                      },
-                    ],
+                        {
+                          type: "button",
+                          action: {
+                            type: "uri",
+                            label: "Button",
+                            uri: "https://linecorp.com",
+                          },
+                          color: "#F8F4F4FF",
+                          height: "sm",
+                          style: "secondary",
+                        },
+                      ],
+                    },
                   },
                 },
               ])
@@ -564,7 +568,6 @@ export default {
           });
       }
     },
-    sendMessages() {},
   },
   created() {
     this.getAllUser();
