@@ -407,7 +407,7 @@ export default {
                 contents: [
                   {
                     type: "text",
-                    text: "รหัสผู้ใช้" = message,
+                    text: message,
                     align: "center",
                     contents: [],
                   },
