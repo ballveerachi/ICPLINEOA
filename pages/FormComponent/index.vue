@@ -473,7 +473,7 @@ export default {
                           action: {
                             type: "uri",
                             label: "Next",
-                            uri: "https://linecorp.com",
+                            uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
                           },
                           height: "sm",
                           style: "primary",
