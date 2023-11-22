@@ -406,13 +406,13 @@ export default {
                 layout: "vertical",
                 contents: [
                   {
-                    type: "text",
-                    text: this.employee.id,
+                    type: "span",
+                    text: "ไอดีผู้ใช้",
                     align: "start",
                     contents: [],
                   },
                   {
-                    type: "text",
+                    type: "span",
                     text: this.employee.name,
                     align: "end",
                     contents: [],
