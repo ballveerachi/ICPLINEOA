@@ -310,9 +310,9 @@ export default {
             disibility_type: this.employee.disability_type,
           })
           .then((res) => {
-            console.log(res);
+            console.log("ข้อมูล",res);
             this.resetForm();
-            this.sendMessages();
+            this.sendMessages(this.id);
             this.getAllUser();
           })
           .catch(function (error) {
@@ -378,7 +378,7 @@ export default {
           });
       }
     },
-    sendMessages() {
+    sendMessages(message) {
       liff
         .sendMessages([
           {
@@ -407,7 +407,7 @@ export default {
                 contents: [
                   {
                     type: "text",
-                    text: "xxxxx",
+                    text: message,
                     align: "center",
                     contents: [],
                   },
