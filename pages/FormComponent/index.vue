@@ -379,13 +379,6 @@ export default {
       }
     },
     sendMessages(message) {
-      message = createFlexMessage(
-        this.employee.id,
-        this.employee.name,
-        this.employee.study_faculty,
-        this.employee.university,
-        this.employee.disability_type
-            );
       liff
         .sendMessages([
           {
