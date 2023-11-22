@@ -408,19 +408,19 @@ export default {
                   {
                     type: "text",
                     text: "ผู้ใช้",
-                    align: "right",
+                    align: "center",
                     contents: [
                       {
                         type: "text",
                         text: this.employee.id,
-                        align: "right",
+                        align: "center",
                       },
                     ],
                   },
                   {
                     type: "text",
                     text: this.employee.name,
-                    align: "right",
+                    align: "center",
                     contents: [],
                   },
                 ],
