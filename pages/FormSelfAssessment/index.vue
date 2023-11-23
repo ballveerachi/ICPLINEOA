@@ -240,7 +240,22 @@
 
 <script>
 import axios from 'axios'
+import liff from "@line/liff";
 export default {
+  mounted() {
+    liff.init({ liffId: "2000700725-PRVZgqqz" });
+    liff.ready.then(() => {
+      if (liff.isLoggedIn()) {
+        liff.getProfile().then((profile) => {
+          this.userId = profile.userId;
+          console.log("ข้อมูลจากLine", profile);
+          console.log("LineID", this.userId);
+        });
+      } else {
+        liff.login();
+      }
+    });
+  },
   name: 'FormSelfAssessment',
   data() {
     return {
@@ -323,8 +338,9 @@ export default {
           })
           .then((res) => {
             console.log(res)
-            this.resetForm()
-            this.getAllUser()
+            this.sendMessages();
+            this.resetForm();
+            this.getAllUser();
           })
           .catch(function (error) {
             console.log(error)
@@ -439,6 +455,207 @@ export default {
             console.log(error)
           })
       }
+    },
+    sendMessages() {
+      liff
+        .sendMessages([
+          {
+            type: "flex",
+            altText: "บันทึกข้อมูล",
+            contents: {
+              type: "bubble",
+              body: {
+                type: "box",
+                layout: "vertical",
+                spacing: "md",
+                // action: {
+                //   type: "uri",
+                //   label: "Action",
+                //   uri: "https://linecorp.com",
+                // },
+                contents: [
+                  {
+                    type: "text",
+                    text: "บันทึกข้อมูล",
+                    weight: "bold",
+                    size: "lg",
+                    align: "center",
+                    contents: [],
+                  },
+                  {
+                    type: "text",
+                    text: "การประเมินตนเอง",
+                    weight: "bold",
+                    size: "sm",
+                    align: "center",
+                    contents: [],
+                  },
+                  {
+                    type: "box",
+                    layout: "vertical",
+                    spacing: "sm",
+                    contents: [
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "รหัสแผนการประเมินตนเอง",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: "รหัสแผนการประเมินตนเอง",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "รหัสแผนอาชีพ",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: "รหัสแผนอาชีพ",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "คุณสมบัติ",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: "คุณสมบัติ",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "วันที่ประเมินแผนตนเอง",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: "วันที่ประเมินแผนตนเอง",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "ระดับการประเมิน",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: "ระดับการประเมิน",
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+              footer: {
+                type: "box",
+                layout: "vertical",
+                contents: [
+                  {
+                    type: "spacer",
+                    size: "xxl",
+                  },
+                  {
+                    type: "button",
+                    action: {
+                      type: "uri",
+                      label: "Next",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
+                    },
+                    height: "sm",
+                    style: "primary",
+                  },
+                  {
+                    type: "button",
+                    action: {
+                      type: "uri",
+                      label: "Back",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/",
+                    },
+                    color: "#CFC9CAFF",
+                    height: "sm",
+                    style: "primary",
+                  },
+                ],
+              },
+            },
+          },
+        ])
+        .then(() => {
+          console.log("message sent");
+          liff.closeWindow();
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
     },
   },
   created() {

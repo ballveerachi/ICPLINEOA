@@ -226,7 +226,7 @@
 </template>
 <script>
 import axios from 'axios'
-
+import liff from "@line/liff";
 export default {
   mounted() {
     liff.init({ liffId: "2000700725-PRVZgqqz" });
@@ -502,10 +502,6 @@ export default {
                     size: "sm",
                     align: "center",
                     contents: [],
-                  },
-                  {
-                    type: "spacer",
-                    size: "xxl",
                   },
                   {
                     type: "box",
