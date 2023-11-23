@@ -369,7 +369,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.planCareer.Plan_Career_id,
+                            text: this.planCareer.Employee_id,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -392,7 +392,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.planCareer.career,
+                            text:this.planCareer.Employee_id,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
