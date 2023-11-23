@@ -721,7 +721,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormSelfAssessment",
                     },
                     height: "sm",
                     style: "primary",
@@ -731,7 +731,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Back",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlan",
                     },
                     color: "#CFC9CAFF",
                     height: "sm",
