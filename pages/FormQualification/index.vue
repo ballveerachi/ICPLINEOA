@@ -266,6 +266,9 @@ export default {
         level_id: '',
         target_id: '',
         qualification_id: '',
+        level_description: '',
+        target_name: '',
+        qualification_name: '',
         // month: "มกราคม",
         // self_assessment: "Yes",
       },
@@ -593,7 +596,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.qualification.level_id,
+                            text: this.qualification.level_description,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -616,7 +619,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.qualification.target_id,
+                            text: this.qualification.target_name,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
