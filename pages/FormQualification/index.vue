@@ -576,7 +576,7 @@ export default {
                             text: "คุณสมบัติ",
                             weight: "regular",
                             size: "sm",
-                            color: this.qualification.qualification_id,
+                            color: this.qualification.level_id,
                             align: "end",
                             contents: [],
                           },
