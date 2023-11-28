@@ -593,7 +593,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "ระดับความสำคัญ",
+                            text: this.qualification.level_description,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -616,7 +616,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "เป้าหมาย",
+                            text: this.qualification.target_name,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
