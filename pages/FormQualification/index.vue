@@ -596,7 +596,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.qualification.level_description,
+                            text: this.level_description,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -619,7 +619,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.qualification.target_name,
+                            text: this.target_name,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
