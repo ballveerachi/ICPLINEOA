@@ -593,7 +593,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.qualification.level_description,
+                            text: this.qualification.level_id,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -616,7 +616,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.qualification.target_name,
+                            text: this.qualification.target_id,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
