@@ -214,7 +214,7 @@ export default {
     submitForm() {
       if (!this.isEdit) {
         console.log("Employee_id", this.planCareer.Employee_id);
-        console.log("career_id", this.planCareer.career_id);
+        console.log("career_id", this.planCareer.career_id.career_id);
         const newPlanCareer = {
           Employee_id: this.planCareer.Employee_id,
           career_id: this.planCareer.career_id,
