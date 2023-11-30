@@ -59,7 +59,7 @@
                   item-text="career"
                   dense
                   variant="outlined"
-                  @change="(val) => onPlanCareerChange(val)"
+                  @change="(item) => onPlanCareerChange(item)"
                 >
                   <template v-slot:prepend-item>
                     <v-list-item>
