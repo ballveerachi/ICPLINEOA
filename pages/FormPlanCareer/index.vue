@@ -450,7 +450,7 @@ export default {
         });
     },
     onPlanCareerChange(val){
-      console.log("onPlanCeer",val);
+      console.log("onPlanCeer",val.career);
     }
   },
   created() {
