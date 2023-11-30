@@ -59,6 +59,7 @@
                   item-text="career"
                   dense
                   variant="outlined"
+                  @update:model-value="(val) => onPlanCareerChange(val)"
                 >
                   <template v-slot:prepend-item>
                     <v-list-item>
@@ -447,6 +448,9 @@ export default {
           console.log("error", err);
         });
     },
+    onPlanCareerChange(val){
+      console.log("onPlanCeer",val);
+    }
   },
   created() {
     this.getAllUser();

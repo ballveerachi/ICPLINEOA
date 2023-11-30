@@ -61,7 +61,7 @@
                   width="40px"
                 />เข้าสู่ระบบ Line</v-btn
               >
-              <v-btn
+              <!-- <v-btn
                 rounded
                 color="green"
                 dark
@@ -73,7 +73,7 @@
                   alt=""
                   width="40px"
                 />ส่งข้อความ Line</v-btn
-              >
+              > -->
               <div class="text-right mt-2">
                 ยังไม่มีบัญชีใช่ไหม
                 <router-link :to="{ name: 'register' }"
