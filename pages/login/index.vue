@@ -118,7 +118,7 @@ export default {
       this.$router.push("/register");
     },
     userid() {
-      this.$router.push("login/LoginEmail");
+      this.$router.push("/LoginEmail");
     },
     line() {
       this.$router.push("/register");
