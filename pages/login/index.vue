@@ -28,12 +28,12 @@
               <h1 class="text-title mt-4">ตัวเลือกการเข้าสู่ระบบ</h1>
             </div>
             <div>
-              <v-btn
+              <div
                 class="w-100 text-center my-btn outlined text-primary mt-5"
                 @click="userid"
               >
                 ล็อกอินด้วยบัญชีอีเมลล์
-              </v-btn>
+              </div>
               <p class="text-center mt-4">หรือ</p>
               <v-btn
                 rounded
@@ -61,7 +61,7 @@
                   width="40px"
                 />เข้าสู่ระบบ Line</v-btn
               >
-              <!-- <v-btn
+              <v-btn
                 rounded
                 color="green"
                 dark
@@ -73,7 +73,7 @@
                   alt=""
                   width="40px"
                 />ส่งข้อความ Line</v-btn
-              > -->
+              >
               <div class="text-right mt-2">
                 ยังไม่มีบัญชีใช่ไหม
                 <router-link :to="{ name: 'register' }"
@@ -117,9 +117,7 @@ export default {
     goregister() {
       this.$router.push("/register");
     },
-    userid() {
-      this.$router.push("/LoginEmail");
-    },
+    userid() {},
     line() {
       this.$router.push("/register");
     },
