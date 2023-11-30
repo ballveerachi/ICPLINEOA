@@ -54,12 +54,13 @@
                   :size="4"
                   v-model="planCareer.career_id"
                   :items="careers"
+                  return-object
                   label="เลือก"
                   item-value="career_id"
                   item-text="career"
                   dense
                   variant="outlined"
-                  @change="(items) => onPlanCareerChange(items)"
+                  @change="(val) => onPlanCareerChange(val)"
                 >
                   <template v-slot:prepend-item>
                     <v-list-item>
