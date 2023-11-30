@@ -23,15 +23,15 @@
         variant="outlined"
       ></v-text-field> -->
 
-
-      <v-text-field
+      <v-text-fie
         type="text"
         v-model="input.username"
         density="compact"
         placeholder="Email address"
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
-      ></v-text-field>
+      ></v-text-fie>
+
 
       <v-text-field
         type="password"
@@ -110,7 +110,7 @@ export default {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
       var self = this;
       axios
-        .post("http://localhost/ICPScoreCard/api-member.php", {
+        .post("https://icp2022.net/ICPScoreCard/api-member.php", {
           action: "checkMember",
           user: this.input.username,
           pass: this.input.password,
