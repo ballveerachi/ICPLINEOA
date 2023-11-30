@@ -524,7 +524,7 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "รหัสแผนอาชีพ",
+                            text: "แผนอาชีพ",
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -533,7 +533,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "รหัสแผนอาชีพ",
+                            text: "แผนอาชีพ",
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -571,7 +571,7 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "วันที่ประเมินแผนตนเอง",
+                            text: "วันที่ประเมินแผน",
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -580,7 +580,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "วันที่ประเมินแผนตนเอง",
+                            text: "วันที่ประเมินแผน",
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
