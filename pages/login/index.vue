@@ -28,12 +28,12 @@
               <h1 class="text-title mt-4">ตัวเลือกการเข้าสู่ระบบ</h1>
             </div>
             <div>
-              <div
+              <v-btn
                 class="w-100 text-center my-btn outlined text-primary mt-5"
                 @click="userid"
               >
                 ล็อกอินด้วยบัญชีอีเมลล์
-              </div>
+              </v-btn>
               <p class="text-center mt-4">หรือ</p>
               <v-btn
                 rounded
