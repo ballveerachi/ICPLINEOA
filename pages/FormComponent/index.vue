@@ -20,7 +20,7 @@
           <v-container class="pt-0 pb-0">
             <v-row>
               <v-col cols="12" md="6">
-                <div>รหัสสมาชิก:{{ employee.id }}</div>
+                <div>รหัสสมาชิก:</div>
                 <v-text-field
                   type="text"
                   v-model="employee.id"
@@ -34,7 +34,7 @@
                 </v-text-field>
               </v-col>
               <v-col cols="12" md="6">
-                <div>ชื่อ-สกุล :{{ employee.name }}</div>
+                <div>ชื่อ-สกุล :</div>
                 <v-text-field
                   type="text"
                   v-model="employee.name"
