@@ -451,6 +451,7 @@ export default {
     },
     onPlanCareerChange(val){
       console.log("onPlanCeer",val.career);
+      console.log("onPlanCeer1",val.career_id);
     }
   },
   created() {
