@@ -172,7 +172,7 @@ export default {
       status: "Save/บันทึก",
 
       show:{
-      careername:val.career,
+      careername:this.val.career,
     },
     };
   },
