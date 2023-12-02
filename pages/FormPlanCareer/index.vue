@@ -170,10 +170,6 @@ export default {
       },
       isEdit: false,
       status: "Save/บันทึก",
-
-      show:{
-      careername:this.val.career,
-    },
     };
   },
   methods: {
@@ -218,10 +214,10 @@ export default {
     submitForm() {
       if (!this.isEdit) {
         console.log("Employee_id", this.planCareer.Employee_id);
-        console.log("career_id", this.planCareer.career_id);
+        console.log("career_id", this.planCareer.career_id.career_id);
         const newPlanCareer = {
           Employee_id: this.planCareer.Employee_id,
-          career_id: this.planCareer.career_id.career_id,
+          career_id: this.planCareer.career_id,
         };
         this.$emit("saveData", newPlanCareer);
 
@@ -366,6 +362,29 @@ export default {
                         contents: [
                           {
                             type: "text",
+                            text: "รหัสอาชีพ",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: this.planCareer.Employee_id,
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
                             text: "แผนอาชีพ",
                             weight: "regular",
                             size: "sm",
@@ -375,7 +394,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text:this.show.careername,
+                            text:this.planCareer.career,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
