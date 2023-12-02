@@ -627,7 +627,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "แผนการเรียนรู้",
+                            text: this.plan.doing,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -650,7 +650,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "แผนปฏิบัติการ",
+                            text: this.plan.leaning,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -673,7 +673,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "วันที่เริ่มแผน",
+                            text: this.plan.plan_start_date,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -696,7 +696,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "วันที่สิ้นสุดแผน",
+                            text:  this.plan.plan_end_date,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",

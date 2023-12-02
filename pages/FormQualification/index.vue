@@ -271,6 +271,9 @@ export default {
       },
       isEdit: false,
       status: 'Save/บันทึก',
+      show:{
+
+      }
     }
   },
   methods: {
@@ -514,29 +517,6 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "รหัสคุณสมบัติ",
-                            size: "sm",
-                            color: "#000000FF",
-                            margin: "sm",
-                            contents: [],
-                          },
-                          {
-                            type: "text",
-                            text: "รหัสคุณสมบัติ",
-                            weight: "regular",
-                            size: "sm",
-                            color: "#000000FF",
-                            align: "end",
-                            contents: [],
-                          },
-                        ],
-                      },
-                      {
-                        type: "box",
-                        layout: "baseline",
-                        contents: [
-                          {
-                            type: "text",
                             text: "แผนอาชีพ",
                             weight: "regular",
                             size: "sm",
@@ -670,6 +650,22 @@ export default {
           console.log("error", err);
         });
     },
+    onPlanCareerChange(val){
+      console.log("onPlanCeerName",val.career);
+      console.log("onPlanCeerId",val.career_id);
+    },
+    onQualificationChange(val){
+      console.log("onPlanCeerName",val.career);
+      console.log("onPlanCeerId",val.career_id);
+    },
+    onLevelChange(val){
+      console.log("onPlanCeerName",val.career);
+      console.log("onPlanCeerId",val.career_id);
+    },
+    onTargetChange(val){
+      console.log("onPlanCeerName",val.career);
+      console.log("onPlanCeerId",val.career_id);
+    }
   },
   created() {
     this.getAllUser()

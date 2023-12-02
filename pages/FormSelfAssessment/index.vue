@@ -580,7 +580,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "วันที่ประเมินแผน",
+                            text: this.selfAssessment.self_assessment_date,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
