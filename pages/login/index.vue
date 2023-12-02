@@ -98,8 +98,8 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.userId = profile.userId;
-          console.log("ข้อมูลจากLine", profile);
-          console.log("LineID", this.userId);
+          console.log("ข้อมูลจากLine:", profile);
+          console.log("LineID:", this.userId);
         });
       } else {
         liff.login();

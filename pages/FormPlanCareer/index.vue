@@ -221,7 +221,7 @@ export default {
         console.log("career_id", this.planCareer.career_id);
         const newPlanCareer = {
           Employee_id: this.planCareer.Employee_id,
-          career_id: this.planCareer.career_id,
+          career_id: this.planCareer.career_id.career_id,
         };
         this.$emit("saveData", newPlanCareer);
 
