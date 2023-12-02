@@ -23,14 +23,14 @@
         variant="outlined"
       ></v-text-field> -->
 
-      <v-text-fie
+      <v-text-field
         type="text"
         v-model="input.username"
         density="compact"
         placeholder="Email address"
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
-      ></v-text-fie>
+      ></v-text-field>
 
 
       <v-text-field
