@@ -1,5 +1,96 @@
 <template>
 <div>
+  <div>
+    <v-app-bar color="primary" dense flat dark>
+      <v-toolbar-title>Register/สมัครสมาชิก</v-toolbar-title>
+    </v-app-bar>
+
+    <v-card
+      class="mx-auto pa-12 pb-8"
+      elevation="8"
+      max-width="448"
+      rounded="lg"
+    >
+      <div>Register</div>
+
+      <v-text-field
+        type="text"
+        v-model="member.member_id"
+        density="compact"
+        placeholder="Email address"
+        prepend-inner-icon="mdi-email-outline"
+        variant="outlined"
+      ></v-text-field>
+
+
+      <v-text-field
+        type="password"
+        v-model="member.full_name"
+        density="compact"
+        placeholder="Enter your password"
+        prepend-inner-icon="mdi-lock-outline"
+        variant="outlined"
+      ></v-text-field>
+
+      <v-text-field
+        type="password"
+        v-model="member.email"
+        density="compact"
+        placeholder="Enter your password"
+        prepend-inner-icon="mdi-lock-outline"
+        variant="outlined"
+      ></v-text-field>
+
+      <v-text-field
+        type="password"
+        v-model="member.password"
+        density="compact"
+        placeholder="Enter your password"
+        prepend-inner-icon="mdi-lock-outline"
+        variant="outlined"
+      ></v-text-field>
+
+      <v-text-field
+        type="password"
+        v-model="member.status"
+        density="compact"
+        placeholder="Enter your password"
+        prepend-inner-icon="mdi-lock-outline"
+        variant="outlined"
+      ></v-text-field>
+
+
+
+      <v-btn
+        rounded
+        color="#28a745"
+        dark
+        class="w-100 mt-10 my-btn"
+        @click="login()"
+        >Log in</v-btn
+      >
+      <v-btn
+        rounded
+        color="#DCDCDC"
+        dark
+        class="w-100 mt-10 my-btn"
+        @click="cancle()"
+        >Cancel/ยกเลิก</v-btn
+      >
+
+      <v-card-text class="text-center">
+        <a
+          class="text-blue text-decoration-none"
+          href="#"
+          rel="noopener noreferrer"
+          target="_blank"
+
+        ><router-link :to="{ name: '/register/registrationpage' }">Sign up now <v-icon icon="mdi-chevron-right"></v-icon></router-link>
+
+        </a>
+      </v-card-text>
+    </v-card>
+  </div>
   <div class="vue-tempalte">
     <form @submit.prevent="submitForm" method="post">
       <h3>Sign Up/ลงทะเบียนเข้าสู่ระบบ</h3>
@@ -116,6 +207,7 @@ export default {
         password: "",
         status:"",
       },
+
     };
   },
   methods: {

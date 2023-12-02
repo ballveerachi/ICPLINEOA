@@ -68,7 +68,7 @@
           rel="noopener noreferrer"
           target="_blank"
 
-        ><router-link :to="{ name: '/email' }">Sign up now <v-icon icon="mdi-chevron-right"></v-icon></router-link>
+        ><router-link :to="{ name: '/register/registrationpage' }">Sign up now <v-icon icon="mdi-chevron-right"></v-icon></router-link>
 
         </a>
       </v-card-text>
