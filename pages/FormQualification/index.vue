@@ -283,8 +283,6 @@ export default {
         LevelName:" ",
         TargetName: " ",
 
-
-
       },
 
       isEdit: false,
@@ -394,7 +392,7 @@ export default {
         console.log('เป้าหมาย', this.qualification.target_id.target_id)
         console.log('ระดับ', this.qualification.level_id.level_id)
         const newQualification = {
-          plan_career_id: this.qualification.planCareerId,
+          plan_career_id: this.qualification.planCareerId.planCareerId,
           qualification_id: this.qualification.qualificationId,
           target_id: this.qualification.target_id.target_id,
           level_id: this.qualification.level_id.level_id,
