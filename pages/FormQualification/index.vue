@@ -544,7 +544,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "แผนอาชีพ",
+                            text: this.Line.QaName,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -567,7 +567,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "คุณสมบัติ",
+                            text: this.Line.qualificationName,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -591,7 +591,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.qualification.level_id,
+                            text: this.Line.LevelName,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -614,7 +614,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.qualification.target_id,
+                            text: this.Line.TargetName,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
