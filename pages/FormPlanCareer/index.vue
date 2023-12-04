@@ -219,8 +219,8 @@ export default {
         console.log("career_id", this.planCareer.career_id.career_id);
         const newPlanCareer = {
           Employee_id: this.planCareer.Employee_id,
-          // career_id: this.planCareer.career_id.career_id,
-          career_id: 3
+          career_id: this.planCareer.career_id.career_id,
+
         };
         this.$emit("saveData", newPlanCareer);
 
@@ -228,8 +228,8 @@ export default {
           .post("https://icp2022.net/ICPScoreCard/api-plan-career.php", {
             action: "insert",
             Employee_id: this.planCareer.Employee_id,
-            // career_id: this.planCareer.career_id,
-            career_id: 3,
+            career_id: this.planCareer.career_id.career_id,
+
           })
           .then((res) => {
             console.log(res);
@@ -246,7 +246,7 @@ export default {
             action: "update",
             Plan_Career_id: this.planCareer.Plan_Career_id,
             Employee_id: this.planCareer.Employee_id,
-            career_id: this.planCareer.career_id,
+            career_id: this.planCareer.career_id.career_id,
           })
           .then((response) => {
             console.log(response);
@@ -271,7 +271,7 @@ export default {
         .then(function (response) {
           self.planCareer.Plan_Career_id = response.data.Plan_Career_id;
           self.planCareer.Employee_id = response.data.Employee_id;
-          self.planCareer.career_id = response.data.career_id;
+          self.planCareer.career_id.career_id = response.data.career_id.career_id;
           self.planCareer.career = response.data.career;
           self.planCareers_ = response.data;
           console.log("แก้ไขแผนอาชีพ:", response.data);

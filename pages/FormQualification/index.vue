@@ -43,9 +43,11 @@
                     v-model="qualification.planCareerId"
                     :size="4"
                     :items="careers"
+                    return-object
                     item-value="Plan_Career_id"
                     item-text="career"
                     dense
+                    @change="(val) => onQaPlanCareerChange(val)"
 
                   >
                     <template v-slot:prepend-item>
@@ -74,8 +76,10 @@
                     variant="outlined"
                     v-model="qualification.qualificationId"
                     :items="qualifications"
+                    return-object
                     item-value="qualificationId"
                     item-text="qualification_name"
+                    @change="(val) => onQualificationChange(val)"
                   >
                     <template v-slot:prepend-item>
                       <v-list-item>
@@ -108,10 +112,12 @@
                     :size="4"
                     v-model="qualification.level_id"
                     :items="levels"
+                    return-object
                     item-value="level_id"
                     item-text="level"
                     label="เลือก"
                     variant="outlined"
+                    @change="(val) => onLevelChange(val)"
                   >
                     <template v-slot:prepend-item>
                       <v-list-item>
@@ -144,10 +150,12 @@
                     :size="4"
                     v-model="qualification.target_id"
                     :items="targets"
+                    return-object
                     item-value="target_id"
                     item-text="target"
                     label="เลือก"
                     variant="outlined"
+                    @change="(val) => onTargetChange(val)"
                   >
                     <template v-slot:prepend-item>
                       <v-list-item>
@@ -269,6 +277,16 @@ export default {
         // month: "มกราคม",
         // self_assessment: "Yes",
       },
+      Line:{
+        QaName:" ",
+        qualificationName:" ",
+        LevelName:" ",
+        TargetName: " ",
+
+
+
+      },
+
       isEdit: false,
       status: 'Save/บันทึก',
       show:{
@@ -371,25 +389,25 @@ export default {
       if (!this.isEdit) {
         console.log('บันทึกข้อมูล')
         console.log('รหัสคุณสมบัติ', this.qa_plan_career_id)
-        console.log('แผนอาชีพ', this.qualification.planCareerId)
-        console.log('คุณสมบัติ', this.qualification.qualificationId)
-        console.log('เป้าหมาย', this.qualification.target_id)
-        console.log('ระดับ', this.qualification.level_id)
+        console.log('แผนอาชีพ', this.qualification.planCareerId.planCareerId)
+        console.log('คุณสมบัติ', this.qualification.qualificationId.qualificationId)
+        console.log('เป้าหมาย', this.qualification.target_id.target_id)
+        console.log('ระดับ', this.qualification.level_id.level_id)
         const newQualification = {
           plan_career_id: this.qualification.planCareerId,
           qualification_id: this.qualification.qualificationId,
-          target_id: this.qualification.target_id,
-          level_id: this.qualification.level_id,
+          target_id: this.qualification.target_id.target_id,
+          level_id: this.qualification.level_id.level_id,
         }
         this.$emit('saveData', newQualification)
 
         axios
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: 'insert',
-            plan_career_id: this.qualification.planCareerId,
-            qualification_id: this.qualification.qualificationId,
-            target_id: this.qualification.target_id,
-            level_id: this.qualification.level_id,
+            plan_career_id: this.qualification.planCareerId.planCareerId,
+            qualification_id: this.qualification.qualificationId.qualificationId,
+            target_id: this.qualification.target_id.target_id,
+            level_id: this.qualification.level_id.level_id,
           })
           .then((res) => {
             console.log('insert:', res)
@@ -403,19 +421,19 @@ export default {
           })
       } else {
         console.log('qa_plan_career_id:', this.qualification.qa_plan_career_id)
-        console.log('plan_career_id:', this.qualification.planCareerId)
-        console.log('qualificationId:', this.qualification.qualificationId)
-        console.log('target_id:', this.qualification.target_id)
-        console.log('level_id:', this.qualification.level_id)
+        console.log('plan_career_id:', this.qualification.planCareerId.planCareerId)
+        console.log('qualificationId:', this.qualification.qualificationId.qualificationId)
+        console.log('target_id:', this.qualification.target_id.target_id)
+        console.log('level_id:', this.qualification.level_id.level_id)
 
         axios
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: 'update',
             qa_plan_career_id: this.qualification.qa_plan_career_id,
-            plan_career_id: this.qualification.planCareerId,
-            qualificationId: this.qualification.qualificationId,
-            target_id: this.qualification.target_id,
-            level_id: this.qualification.level_id,
+            plan_career_id: this.qualification.planCareerId.planCareerId,
+            qualificationId: this.qualification.qualificationId.qualificationId,
+            target_id: this.qualification.target_id.target_id,
+            level_id: this.qualification.level_id.level_id,
 
             // month: this.qualification.month,
             // result: this.qualification.self_assessment,
@@ -443,10 +461,10 @@ export default {
         .then(function (response) {
           console.log(response)
           self.qualification.qa_plan_career_id = response.data.qa_plan_career_id
-          self.qualification.qualificationId = response.data.qualificationId
-          self.qualification.planCareerId = response.data.plan_career_id
-          self.qualification.target_id = response.data.target_id
-          self.qualification.level_id = response.data.level_id
+          self.qualification.qualificationId = response.data.qualificationId.qualificationId
+          self.qualification.planCareerId = response.data.plan_career_id.plan_career_id
+          self.qualification.target_id = response.data.target_id.target_id
+          self.qualification.level_id = response.data.level_id.level_id
           self.qualifications_ = response.data
           console.log('แก้ไขคุณสมบัติ:', response.data)
         })
@@ -650,21 +668,25 @@ export default {
           console.log("error", err);
         });
     },
-    onPlanCareerChange(val){
-      console.log("onPlanCeerName",val.career);
-      console.log("onPlanCeerId",val.career_id);
+    onQaPlanCareerChange(val){
+      this.Line.QaName = val.career
+      console.log("QaName",val.career);
+
     },
     onQualificationChange(val){
-      console.log("onPlanCeerName",val.career);
-      console.log("onPlanCeerId",val.career_id);
+      this.Line.qualificationName = val.qualification_name
+      console.log("onqualificationName",val.qualification_name);
+
     },
     onLevelChange(val){
-      console.log("onPlanCeerName",val.career);
-      console.log("onPlanCeerId",val.career_id);
+      this.Line.LevelName = val.level_description
+      console.log("onLevelName",val.level_description);
+
     },
     onTargetChange(val){
-      console.log("onPlanCeerName",val.career);
-      console.log("onPlanCeerId",val.career_id);
+      this.Line.TargetName = val.target_name
+      console.log("onTargetName",val.target_name);
+
     }
   },
   created() {
