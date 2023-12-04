@@ -168,6 +168,8 @@ export default {
         career_id: "",
         career: "",
       },
+      LineCareer : "",
+
       isEdit: false,
       status: "Save/บันทึก",
     };
@@ -394,7 +396,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text:this.planCareer.career,
+                            text:this.LineCareer,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -450,8 +452,9 @@ export default {
         });
     },
     onPlanCareerChange(val){
-      console.log("onPlanCeerName",val.career);
-      console.log("onPlanCeerId",val.career_id);
+
+      this.LineCareer =val.career
+      console.log("onPlanCeerName",this.LineCareer);
     }
   },
   created() {
