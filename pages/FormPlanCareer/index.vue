@@ -219,7 +219,8 @@ export default {
         console.log("career_id", this.planCareer.career_id.career_id);
         const newPlanCareer = {
           Employee_id: this.planCareer.Employee_id,
-          career_id: this.planCareer.career_id,
+          // career_id: this.planCareer.career_id.career_id,
+          career_id: 3
         };
         this.$emit("saveData", newPlanCareer);
 
@@ -227,7 +228,8 @@ export default {
           .post("https://icp2022.net/ICPScoreCard/api-plan-career.php", {
             action: "insert",
             Employee_id: this.planCareer.Employee_id,
-            career_id: this.planCareer.career_id,
+            // career_id: this.planCareer.career_id,
+            career_id: 3,
           })
           .then((res) => {
             console.log(res);
