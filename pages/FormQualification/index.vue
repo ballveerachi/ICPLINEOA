@@ -392,7 +392,8 @@ export default {
         console.log('เป้าหมาย', this.qualification.target_id.target_id)
         console.log('ระดับ', this.qualification.level_id.level_id)
         const newQualification = {
-          plan_career_id: this.qualification.planCareerId.planCareerId,
+          // plan_career_id: this.qualification.planCareerId.planCareerId,
+          plan_career_id: 240,
           qualification_id: this.qualification.qualificationId,
           target_id: this.qualification.target_id.target_id,
           level_id: this.qualification.level_id.level_id,
@@ -402,7 +403,8 @@ export default {
         axios
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: 'insert',
-            plan_career_id: this.qualification.planCareerId.planCareerId,
+            // plan_career_id: this.qualification.planCareerId.planCareerId,
+            plan_career_id: 240,
             qualification_id: this.qualification.qualificationId.qualificationId,
             target_id: this.qualification.target_id.target_id,
             level_id: this.qualification.level_id.level_id,
