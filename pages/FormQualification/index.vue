@@ -256,24 +256,25 @@ export default {
     return {
       pageTitle: 'คุณสมบัติ/ทักษะ',
       message: 'Form Qualification',
-      selected: '',
+      selected:  " ",
       getall: [],
       targets: [],
       levels: [],
       qualifications: [],
       qualifications_: [],
       employee_id: this.$store.getters.myMember_id,
-      careerPath: '',
+      careerPath:  " ",
       careers: [],
       career_qualifications: [],
       qualification: {
-        qa_plan_career_id: '',
-        qualificationId: '',
-        planCareerId: '',
-        qualification_name: '',
-        level_id: '',
-        target_id: '',
-        qualification_id: '',
+        qa_plan_career_id:  " ",
+        qualificationId:  " ",
+        planCareerId:  " ",
+        qualification_name:  " ",
+        level_id:  " ",
+        target_id:  " ",
+        qualification_id: " ",
+        Plan_Career_id:" ",
         // month: "มกราคม",
         // self_assessment: "Yes",
       },
@@ -387,14 +388,13 @@ export default {
       if (!this.isEdit) {
         console.log('บันทึกข้อมูล')
         console.log('รหัสคุณสมบัติ', this.qa_plan_career_id)
-        console.log('แผนอาชีพ', this.qualification.planCareerId)
+        console.log('แผนอาชีพ', this.qualification.planCareerId.Plan_Career_id)
         console.log('คุณสมบัติ', this.qualification.qualificationId.qualificationId)
         console.log('เป้าหมาย', this.qualification.target_id.target_id)
         console.log('ระดับ', this.qualification.level_id.level_id)
         const newQualification = {
-          // plan_career_id: this.qualification.planCareerId,
-          plan_career_id: 555,
-          qualification_id: this.qualification.qualificationId,
+          plan_career_id: this.qualification.planCareerId.Plan_Career_id,
+          qualification_id: this.qualification.qualificationId.Plan_Career_id,
           target_id: this.qualification.target_id.target_id,
           level_id: this.qualification.level_id.level_id,
         }
@@ -403,8 +403,7 @@ export default {
         axios
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: 'insert',
-            // plan_career_id: this.qualification.planCareerId.planCareerId,
-            plan_career_id: 555,
+            plan_career_id: this.qualification.planCareerId.Plan_Career_id,
             qualification_id: this.qualification.qualificationId.qualificationId,
             target_id: this.qualification.target_id.target_id,
             level_id: this.qualification.level_id.level_id,
