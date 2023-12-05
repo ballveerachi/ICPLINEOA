@@ -420,7 +420,7 @@ export default {
           })
       } else {
         console.log('qa_plan_career_id:', this.qualification.qa_plan_career_id)
-        console.log('plan_career_id:', this.qualification.planCareerId.planCareerId)
+        console.log('plan_career_id:', this.qualification.planCareerId.Plan_Career_id)
         console.log('qualificationId:', this.qualification.qualificationId.qualificationId)
         console.log('target_id:', this.qualification.target_id.target_id)
         console.log('level_id:', this.qualification.level_id.level_id)
@@ -429,7 +429,7 @@ export default {
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: 'update',
             qa_plan_career_id: this.qualification.qa_plan_career_id,
-            plan_career_id: this.qualification.planCareerId.planCareerId,
+            plan_career_id: this.qualification.planCareerId.Plan_Career_id,
             qualificationId: this.qualification.qualificationId.qualificationId,
             target_id: this.qualification.target_id.target_id,
             level_id: this.qualification.level_id.level_id,
