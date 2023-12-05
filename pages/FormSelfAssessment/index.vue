@@ -512,29 +512,6 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "รหัสแผนการประเมินตนเอง",
-                            size: "sm",
-                            color: "#000000FF",
-                            margin: "sm",
-                            contents: [],
-                          },
-                          {
-                            type: "text",
-                            text: "รหัสแผนการประเมินตนเอง",
-                            weight: "regular",
-                            size: "sm",
-                            color: "#000000FF",
-                            align: "end",
-                            contents: [],
-                          },
-                        ],
-                      },
-                      {
-                        type: "box",
-                        layout: "baseline",
-                        contents: [
-                          {
-                            type: "text",
                             text: "แผนอาชีพ",
                             weight: "regular",
                             size: "sm",

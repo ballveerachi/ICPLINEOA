@@ -81,7 +81,7 @@
                     item-value="qa_plan_career_id"
                     item-text="qualification_name"
                     variant="outlined"
-                
+
                   >
                   <template v-slot:prepend-item>
                     <v-list-item>
@@ -550,29 +550,6 @@ export default {
                     layout: "vertical",
                     spacing: "sm",
                     contents: [
-                      {
-                        type: "box",
-                        layout: "baseline",
-                        contents: [
-                          {
-                            type: "text",
-                            text: "รหัสแผนเรียน",
-                            size: "sm",
-                            color: "#000000FF",
-                            margin: "sm",
-                            contents: [],
-                          },
-                          {
-                            type: "text",
-                            text: "รหัสแผนเรียน",
-                            weight: "regular",
-                            size: "sm",
-                            color: "#000000FF",
-                            align: "end",
-                            contents: [],
-                          },
-                        ],
-                      },
                       {
                         type: "box",
                         layout: "baseline",
