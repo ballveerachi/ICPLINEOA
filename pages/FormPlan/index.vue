@@ -75,10 +75,12 @@
                     :size="4"
                     v-model="qa_plan_career_id"
                     :items="career_qualifications"
+                    return-object
                     label="เลือก"
                     item-value="qa_plan_career_id"
                     item-text="qualification_name"
                     variant="outlined"
+                    @change="(val) => onQualificationChange(val)"
                   >
                   <template v-slot:prepend-item>
                     <v-list-item>
@@ -337,7 +339,11 @@ export default {
           .toISOString()
           .substr(0, 10),
       },
+      Line:{
+        qualificationName:" ",
 
+
+      },
       isEdit: false,
       status: 'Save/บันทึก',
     }
@@ -751,6 +757,11 @@ export default {
         });
     },
   },
+  onQualificationChange(val){
+      this.Line.qualificationName = val.qualification_name
+      console.log("onqualificationName",val.qualification_name);
+
+    },
   created() {
     this.getAllUser()
     this.getCareer()
