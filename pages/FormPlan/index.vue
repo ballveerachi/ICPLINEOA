@@ -81,7 +81,7 @@
                     item-value="qa_plan_career_id"
                     item-text="qualification_name"
                     variant="outlined"
-                    @change="(val) => onQualificationChange(val)"
+                
                   >
                   <template v-slot:prepend-item>
                     <v-list-item>
@@ -416,7 +416,7 @@ export default {
         console.log('Form Plan Career:', this.plan.qa_plan_career_id)
         const newPlan = {
           planId: this.plan.planId,
-          qa_plan_career_id: this.plan.qa_plan_career_id.qualification_name,
+          qa_plan_career_id: this.plan.qa_plan_career_id,
           doing: this.plan.doing,
           leaning: this.plan.leaning,
           plan_start_date: this.plan.plan_start_date,
@@ -428,7 +428,7 @@ export default {
           .post("https://icp2022.net/ICPScoreCard/api-plan.php", {
             action: 'insert',
             planId: this.plan.planId,
-            qa_plan_career_id: this.plan.qa_plan_career_id.qualification_name,
+            qa_plan_career_id: this.plan.qa_plan_career_id,
             doing: this.plan.doing,
             leaning: this.plan.leaning,
             plan_start_date: this.plan.plan_start_date,
