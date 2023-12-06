@@ -246,7 +246,7 @@ export default {
             action: "update",
             Plan_Career_id: this.planCareer.Plan_Career_id,
             Employee_id: this.planCareer.Employee_id,
-            career_id: this.planCareer.career_id.career_id,
+            career_id: this.planCareer.career_id,
           })
           .then((response) => {
             console.log(response);
