@@ -361,8 +361,8 @@ export default {
             action: "update",
             self_assessment_id: this.selfAssessment.self_assessment_id,
             qa_plan_career_id: this.selfAssessment.qa_plan_career_id,
-            self_assessment_date: this.selfAssessment.self_assessment_date,
-            perform_id: this.selfAssessment.perform_id,
+            self_assessment_date: this.selfAssessment.self_assessment_date.self_assessment_date,
+            perform_id: this.selfAssessment.perform_id.perform_id,
           })
           .then((response) => {
             console.log(response);
