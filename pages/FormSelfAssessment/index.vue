@@ -292,9 +292,8 @@ export default {
         Plan_Career_id: "",
         qa_plan_career_id: "",
       },
-      Line:{
+      Line: {
         PerformName: " ",
-
       },
       isEdit: false,
       status: "Save/บันทึก",
@@ -363,7 +362,7 @@ export default {
             self_assessment_id: this.selfAssessment.self_assessment_id,
             qa_plan_career_id: this.selfAssessment.qa_plan_career_id,
             self_assessment_date: this.selfAssessment.self_assessment_date,
-            perform_id: this.selfAssessment.perform_id.perform_id,
+            perform_id: this.selfAssessment.perform_id,
           })
           .then((response) => {
             console.log(response);
@@ -645,10 +644,9 @@ export default {
           console.log("error", err);
         });
     },
-    onPerformChange(val){
-      this.Line.PerformName = val.perform_name
-      console.log("onLevelName",val.perform_name);
-
+    onPerformChange(val) {
+      this.Line.PerformName = val.perform_name;
+      console.log("onLevelName", val.perform_name);
     },
   },
   created() {
