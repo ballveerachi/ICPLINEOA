@@ -394,7 +394,7 @@ export default {
         console.log('ระดับ', this.qualification.level_id.level_id)
         const newQualification = {
           plan_career_id: this.qualification.planCareerId.Plan_Career_id,
-          qualification_id: this.qualification.qualificationId.Plan_Career_id,
+          qualification_id: this.qualification.qualificationId.qualificationId,
           target_id: this.qualification.target_id.target_id,
           level_id: this.qualification.level_id.level_id,
         }
@@ -463,7 +463,7 @@ export default {
           self.qualification.qualificationId = response.data.qualificationId
           self.qualification.planCareerId = response.data.plan_career_id
           self.qualification.target_id = response.data.target_id
-          self.qualification.level_id = response.data.level_id.level_id
+          self.qualification.level_id = response.data.level_id
           self.qualifications_ = response.data
           console.log('แก้ไขคุณสมบัติ:', response.data)
         })
