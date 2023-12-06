@@ -271,7 +271,7 @@ export default {
         .then(function (response) {
           self.planCareer.Plan_Career_id = response.data.Plan_Career_id;
           self.planCareer.Employee_id = response.data.Employee_id;
-          self.planCareer.career_id = response.data.career_id.career_id;
+          self.planCareer.career_id = response.data.career_id;
           self.planCareer.career = response.data.career;
           self.planCareers_ = response.data;
           console.log("แก้ไขแผนอาชีพ:", response.data);
