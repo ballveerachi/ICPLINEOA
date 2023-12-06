@@ -363,7 +363,7 @@ export default {
             self_assessment_id: this.selfAssessment.self_assessment_id,
             qa_plan_career_id: this.selfAssessment.qa_plan_career_id,
             self_assessment_date: this.selfAssessment.self_assessment_date,
-            perform_id: this.selfAssessment.perform_id.perform_id,
+            perform_id: this.selfAssessment.perform_id,
           })
           .then((response) => {
             console.log(response);
@@ -440,7 +440,7 @@ export default {
           self.getQualification();
           self.selfAssessment.qa_plan_career_id =
             response.data.qa_plan_career_id;
-          (self.selfAssessment.perform_id = response.data.perform_id.perform_id),
+          (self.selfAssessment.perform_id = response.data.perform_id),
             (self.selfAssessment.self_assessment_date =
               response.data.self_assessment_date),
             (self.selfAssessments_ = response.data);
