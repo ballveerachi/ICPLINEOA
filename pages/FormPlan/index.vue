@@ -18,8 +18,6 @@
         <v-container class="pt-0 pb-0">
           <v-row>
 
-
-
                   <!-- Plan_Career_id -->
                   <v-col cols="12" md="6">
                     <div for="career_plan-id">รหัสแผนเรียน/ทำ:</div>
