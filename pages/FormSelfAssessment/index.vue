@@ -440,7 +440,7 @@ export default {
           self.getQualification();
           self.selfAssessment.qa_plan_career_id =
             response.data.qa_plan_career_id;
-          (self.selfAssessment.perform_id = response.data.perform_id.perform_id),
+          (self.selfAssessment.perform_id = response.data.perform_id),
             (self.selfAssessment.self_assessment_date =
               response.data.self_assessment_date),
             (self.selfAssessments_ = response.data);

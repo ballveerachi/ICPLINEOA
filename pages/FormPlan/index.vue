@@ -476,7 +476,7 @@ export default {
         .then(function (response) {
           console.log(response)
           self.plan.planId = response.data.planId
-          self.plan.Plan_Career_id = response.data.plan_career_id.plan_career_id
+          self.plan.Plan_Career_id = response.data.plan_career_id
           self.getQualification()
           self.plan.qualification_name = response.data.qualification_name
           self.plan.qa_plan_career_id = response.data.qa_plan_career_id
