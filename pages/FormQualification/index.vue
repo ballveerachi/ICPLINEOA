@@ -429,7 +429,7 @@ export default {
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: 'update',
             qa_plan_career_id: this.qualification.qa_plan_career_id.qa_plan_career_id,
-            plan_career_id: this.qualification.planCareerId.plan_career_id.plan_career_id,
+            plan_career_id: this.qualification.planCareerId.Plan_Career_id,
             qualification_id: this.qualification.qualificationId.qualificationId,
             target_id: this.qualification.target_id.target_id,
             level_id: this.qualification.level_id.level_id,
