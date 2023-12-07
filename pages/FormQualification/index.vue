@@ -463,7 +463,7 @@ export default {
           self.qualification.qualificationId = response.data.qualificationId
           self.qualification.planCareerId = response.data.plan_career_id
           self.qualification.target_id = response.data.target_id
-          self.qualification.level_id.level_id = response.data.level_id
+          self.qualification.level_id = response.data.level_id.level_id
           self.qualifications_ = response.data
           console.log('แก้ไขคุณสมบัติ:', response.data)
         })
