@@ -297,7 +297,7 @@ export default {
     resetForm() {
       this.status = 'Save/บันทึก'
       this.isEdit = false
-      console.log('ยกเลิกการบันทึกข้อมูล')
+      console.log('รีเซ็ตฟรอม')
       // this.qualification.qualificationId = 0;
       this.qualification.planCareerId = ''
       this.qualification.qualification_name = ''
