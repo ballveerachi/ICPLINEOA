@@ -581,7 +581,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "คุณสมบัติ",
+                            text: this.Line.qualificationName,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
