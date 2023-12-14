@@ -395,7 +395,9 @@ export default {
     },
     getQualification(val) {
       console.log('value', val.career)
+      console.log('แผนอาชีพ', val.Plan_Career_id)
       console.log('แผนอาชีพ', this.plan.Plan_Career_id)
+
       // var self = this
       // axios
       //   .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
