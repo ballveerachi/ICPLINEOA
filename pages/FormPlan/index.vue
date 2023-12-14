@@ -336,6 +336,7 @@ export default {
           .substr(0, 10),
       },
       Line: {
+        career:" ",
         QaName: " ",
         qualificationName: " ",
       },
@@ -388,6 +389,7 @@ export default {
         });
     },
     getQualification(val) {
+      this.Line.career =val.career
       console.log("เลือก", val.career);
       console.log("แผนอาชีพ", val.Plan_Career_id);
       console.log("แผนอาชีพ", this.plan.Plan_Career_id);
@@ -558,7 +560,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.Line.qualificationName,
+                            text: this.Line.career,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
