@@ -42,6 +42,7 @@
                     v-model="plan.Plan_Career_id"
                     :required="true"
                     return-object
+                    @change="(val) =>getQualification(val)"
                     :items="careers"
                     label="เลือก"
                     item-value="Plan_Career_id"
@@ -392,22 +393,22 @@ export default {
           console.log(error)
         })
     },
-    getQualification() {
-      // console.log('value', val)
+    getQualification(val) {
+      console.log('value', val)
       console.log('แผนอาชีพ', this.plan.Plan_Career_id)
-      var self = this
-      axios
-        .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
-          action: 'getCareer_Qualifiation',
-          Plan_Career_id: this.plan.Plan_Career_id,
-        })
-        .then(function (res) {
-          console.log('ข้อมูลคุณสมบัติ', res.data)
-          self.career_qualifications = res.data
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
+      // var self = this
+      // axios
+      //   .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
+      //     action: 'getCareer_Qualifiation',
+      //     Plan_Career_id: this.plan.Plan_Career_id,
+      //   })
+      //   .then(function (res) {
+      //     console.log('ข้อมูลคุณสมบัติ', res.data)
+      //     self.career_qualifications = res.data
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error)
+      //   })
     },
     submitForm() {
       if (!this.isEdit) {
