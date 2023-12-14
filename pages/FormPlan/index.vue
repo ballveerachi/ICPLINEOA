@@ -394,7 +394,7 @@ export default {
         })
     },
     getQualification(val) {
-      console.log('value', val)
+      console.log('value', val.career)
       console.log('แผนอาชีพ', this.plan.Plan_Career_id)
       // var self = this
       // axios
