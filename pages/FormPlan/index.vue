@@ -42,7 +42,6 @@
                     v-model="plan.Plan_Career_id"
                     :required="true"
                     return-object
-                    @change="getQualification()"
                     :items="careers"
                     label="เลือก"
                     item-value="Plan_Career_id"
