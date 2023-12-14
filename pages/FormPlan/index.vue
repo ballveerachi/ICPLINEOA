@@ -22,7 +22,7 @@
                 <div for="career_plan-id">รหัสแผนเรียน/ทำ:</div>
                 <v-text-field
                   type="text"
-                  v-model="plan.Plan_Career_id.Plan_Career_id"
+                  v-model="plan.planId"
                   placeholder="Id/รหัส"
                   prepend-inner-icon="mdi-key"
                   variant="outlined"
