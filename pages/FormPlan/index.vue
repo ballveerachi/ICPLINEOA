@@ -388,7 +388,7 @@ export default {
         });
     },
     getQualification(val) {
-      console.log("เลิอก", val.career);
+      console.log("เลือก", this.val.career);
       console.log("แผนอาชีพ", val.Plan_Career_id);
       console.log("แผนอาชีพ", this.plan.Plan_Career_id);
       var self = this;
