@@ -296,6 +296,7 @@ export default {
         qa_plan_career_id: "",
       },
       Line: {
+         career:" ",
         PerformName: " ",
         qualificationName: " ",
       },
@@ -410,6 +411,7 @@ export default {
         });
     },
     getQualification(val) {
+      this.Line.career =val.career
       console.log("เลิอก", val.career);
       console.log("แผนอาชีพ", val.Plan_Career_id);
       console.log("แผนอาชีพ", this.selfAssessment.Plan_Career_id.Plan_Career_id);
@@ -526,7 +528,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.Line.qualificationName,
+                            text: this.Line.career,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
