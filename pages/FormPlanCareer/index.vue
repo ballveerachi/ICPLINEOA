@@ -454,7 +454,6 @@ export default {
         });
     },
     onPlanCareerChange(val){
-
       this.LineCareer =val.career
       console.log("onPlanCeerName",this.LineCareer);
     }
