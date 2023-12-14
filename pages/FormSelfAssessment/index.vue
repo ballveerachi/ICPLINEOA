@@ -526,7 +526,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: val.career,
+                            text: this.Line.qualificationName,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
