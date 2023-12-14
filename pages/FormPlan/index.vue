@@ -343,7 +343,7 @@ export default {
       Line:{
         QaName:" ",
         qualificationName:" ",
-        NameQualification:" ",
+
 
       },
       isEdit: false,
@@ -737,8 +737,8 @@ export default {
     },
   },
     onQualificationChange(val){
-      this.Line.NameQualification = val.qualification_name
-      console.log("NameQualification",val.qualification_name);
+      this.Line.qualificationName = val.qualification_name
+      console.log("qualificationName",val.qualification_name);
     },
   created() {
     this.getAllUser()
