@@ -397,20 +397,19 @@ export default {
       console.log('value', val.career)
       console.log('แผนอาชีพ', val.Plan_Career_id)
       console.log('แผนอาชีพ', this.plan.Plan_Career_id)
-
-      // var self = this
-      // axios
-      //   .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
-      //     action: 'getCareer_Qualifiation',
-      //     Plan_Career_id: this.plan.Plan_Career_id,
-      //   })
-      //   .then(function (res) {
-      //     console.log('ข้อมูลคุณสมบัติ', res.data)
-      //     self.career_qualifications = res.data
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error)
-      //   })
+      var self = this
+      axios
+        .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
+          action: 'getCareer_Qualifiation',
+          Plan_Career_id: this.plan.Plan_Career_id,
+        })
+        .then(function (res) {
+          console.log('ข้อมูลคุณสมบัติ', res.data)
+          self.career_qualifications = res.data
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     },
     submitForm() {
       if (!this.isEdit) {
