@@ -42,7 +42,8 @@
                     label="เลือก"
                     v-model="selfAssessment.Plan_Career_id"
                     :required="true"
-                    @change="getQualification()"
+                    return-object
+                    @change="(val) => getQualification(val)"
                     :items="careers"
                     item-value="Plan_Career_id"
                     item-text="career"
@@ -73,9 +74,11 @@
                     v-model="selfAssessment.qa_plan_career_id"
                     :items="career_qualifications"
                     label="เลือก"
+                    return-object
                     item-value="qa_plan_career_id"
                     item-text="qualification_name"
                     variant="outlined"
+                    @change="(val) => onQualificationChange(val)"
                   >
                     <template v-slot:prepend-item>
                       <v-list-item>
@@ -294,6 +297,7 @@ export default {
       },
       Line: {
         PerformName: " ",
+        qualificationName: " ",
       },
       isEdit: false,
       status: "Save/บันทึก",
@@ -405,7 +409,10 @@ export default {
           console.log(error);
         });
     },
-    getQualification() {
+    getQualification(val) {
+      console.log("เลิอก", val.career);
+      console.log("แผนอาชีพ", val.Plan_Career_id);
+      console.log("แผนอาชีพ", this.selfAssessment.Plan_Career_id);
       console.log("แผนอาชีพ", this.selfAssessment.Plan_Career_id);
       var self = this;
       axios
@@ -520,7 +527,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "แผนอาชีพ",
+                            text: this.val.career,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -543,7 +550,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "คุณสมบัติ",
+                            text: this.Line.qualificationName,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -647,6 +654,10 @@ export default {
     onPerformChange(val) {
       this.Line.PerformName = val.perform_name;
       console.log("onLevelName", val.perform_name);
+    },
+     onQualificationChange(val) {
+      this.Line.qualificationName = val.qualification_name;
+      console.log("เลือก", this.Line.qualificationName);
     },
   },
   created() {
