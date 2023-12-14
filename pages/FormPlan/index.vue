@@ -42,7 +42,7 @@
                     v-model="plan.Plan_Career_id"
                     :required="true"
                     return-object
-                    @change="(val)=>getQualification(val)"
+                    @change="getQualification()"
                     :items="careers"
                     label="เลือก"
                     item-value="Plan_Career_id"
@@ -393,7 +393,7 @@ export default {
           console.log(error)
         })
     },
-    getQualification(val) {
+    getQualification() {
       // console.log('value', val)
       console.log('แผนอาชีพ', this.plan.Plan_Career_id)
       var self = this
