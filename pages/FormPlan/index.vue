@@ -730,7 +730,7 @@ export default {
     },
     onQualificationChange(val) {
       this.Line.qualificationName = val.qualification_name;
-      console.log("เลือก", val.qualification_name);
+      console.log("เลือก", this.Line.qualificationName);
     },
   },
   created() {
