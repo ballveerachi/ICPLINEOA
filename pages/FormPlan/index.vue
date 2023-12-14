@@ -41,7 +41,8 @@
                     :size="4"
                     v-model="plan.Plan_Career_id"
                     :required="true"
-                    @change="getQualification()"
+                    return-object
+                    @change="(val) =>getQualification(val)"
                     :items="careers"
                     label="เลือก"
                     item-value="Plan_Career_id"
@@ -393,6 +394,7 @@ export default {
         })
     },
     getQualification() {
+      console.log('value', val)
       console.log('แผนอาชีพ', this.plan.Plan_Career_id)
       var self = this
       axios
