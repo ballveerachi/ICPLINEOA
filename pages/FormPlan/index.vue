@@ -80,6 +80,7 @@
                     item-value="qa_plan_career_id"
                     item-text="qualification_name"
                     variant="outlined"
+                    @change="(val) =>onNameQualificationChange(val)"
 
                   >
                   <template v-slot:prepend-item>
@@ -342,7 +343,7 @@ export default {
       Line:{
         QaName:" ",
         qualificationName:" ",
-
+        NameQualification:" ",
 
       },
       isEdit: false,
@@ -564,7 +565,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "แผนอาชีพ",
+                            text: this.val.career,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -739,6 +740,10 @@ export default {
       this.Line.qualificationName = val.qualification_name
       console.log("onqualificationName",val.qualification_name);
 
+    },
+    onNameQualificationChange(val){
+      this.Line.NameQualification = val.qualification_name
+      console.log("NameQualification",val.qualification_name);
     },
   created() {
     this.getAllUser()
