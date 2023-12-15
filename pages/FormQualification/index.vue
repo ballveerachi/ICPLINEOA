@@ -439,7 +439,7 @@ export default {
             // level_id: this.qualification.level_id.level_id,
             qa_plan_career_id: 166,
             plan_career_id: 249,
-            qualification_id:2,
+            qualificationId:2,
             target_id:2,
             level_id: 1,
             // month: this.qualification.month,
