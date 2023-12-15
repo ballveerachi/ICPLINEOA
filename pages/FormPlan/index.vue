@@ -410,7 +410,6 @@ export default {
     submitForm() {
       if (!this.isEdit) {
         console.log("บันทึก");
-        console.log("Form Plan Career:", this.plan.qa_plan_career_id);
         console.log("รหัสแผน", this.plan.planId);
         console.log("แผนอาชีพ", this.plan.qa_plan_career_id);
         console.log("แผน",this.plan.doin);
@@ -438,7 +437,7 @@ export default {
             plan_end_date: this.plan.plan_end_date,
           })
           .then((res) => {
-            console.log("ข้อมูลที่บันทึก",data);
+            console.log("ข้อมูลที่บันทึก",res.data);
             console.log(res);
             this.sendMessages();
             this.resetForm();
