@@ -432,6 +432,7 @@ export default {
             plan_end_date: this.plan.plan_end_date,
           })
           .then((res) => {
+            console.log("ข้อมูลที่บันทึก",res);
             console.log(res);
             this.sendMessages();
             this.resetForm();
