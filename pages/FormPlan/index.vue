@@ -324,6 +324,7 @@ export default {
         leaning: "",
         planCareerId: "",
         Plan_Career_id: "",
+        plan_career_id:"",
         plan_start_date: new Date(
           Date.now() - new Date().getTimezoneOffset() * 60000
         )
