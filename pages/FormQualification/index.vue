@@ -432,12 +432,16 @@ export default {
         axios
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
             action: "update",
-            qa_plan_career_id: this.qualification.qa_plan_career_id,
-            plan_career_id: this.qualification.planCareerId,
-            qualification_id:this.qualification.qualificationId.qualificationId,
-            target_id: this.qualification.target_id.target_id,
-            level_id: this.qualification.level_id.level_id,
-
+            // qa_plan_career_id: this.qualification.qa_plan_career_id,
+            // plan_career_id: this.qualification.planCareerId,
+            // qualification_id:this.qualification.qualificationId.qualificationId,
+            // target_id: this.qualification.target_id.target_id,
+            // level_id: this.qualification.level_id.level_id,
+            qa_plan_career_id: 164,
+            plan_career_id: 249,
+            qualification_id:2,
+            target_id:2,
+            level_id: 2,
             // month: this.qualification.month,
             // result: this.qualification.self_assessment,
           })
