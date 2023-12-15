@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar dense flat dark>
-      <v-toolbar-title>{{pageTitle}}</v-toolbar-title>
+      <v-toolbar-title>{{ pageTitle }}</v-toolbar-title>
     </v-app-bar>
     <v-card
       class="mx-auto pa-12 pb-8"
@@ -29,7 +29,6 @@
                     variant="outlined"
                     required
                     disabled
-
                   >
                   </v-text-field>
                 </v-col>
@@ -48,7 +47,6 @@
                     item-text="career"
                     dense
                     @change="(val) => onQaPlanCareerChange(val)"
-
                   >
                     <template v-slot:prepend-item>
                       <v-list-item>
@@ -233,7 +231,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 import liff from "@line/liff";
 export default {
   mounted() {
@@ -250,187 +248,195 @@ export default {
       }
     });
   },
-  name: 'FormQualification',
+  name: "FormQualification",
   components: {},
   data() {
     return {
-      pageTitle: 'คุณสมบัติ/ทักษะ',
-      message: 'Form Qualification',
-      selected:  " ",
+      pageTitle: "คุณสมบัติ/ทักษะ",
+      message: "Form Qualification",
+      selected: " ",
       getall: [],
       targets: [],
       levels: [],
       qualifications: [],
       qualifications_: [],
-      employee_id:this.$store.getters.myMember_id,
-      careerPath:  " ",
+      employee_id: this.$store.getters.myMember_id,
+      careerPath: " ",
       careers: [],
       career_qualifications: [],
       qualification: {
-        qa_plan_career_id:  " ",
-        qualificationId:  " ",
-        planCareerId:  " ",
-        qualification_name:  " ",
-        level_id:  " ",
-        target_id:  " ",
+        qa_plan_career_id: " ",
+        qualificationId: " ",
+        planCareerId: " ",
+        qualification_name: " ",
+        level_id: " ",
+        target_id: " ",
         qualification_id: " ",
-        Plan_Career_id:" ",
+        Plan_Career_id: " ",
         // month: "มกราคม",
         // self_assessment: "Yes",
       },
-      Line:{
-        QaName:" ",
-        qualificationName:" ",
-        LevelName:" ",
+      Line: {
+        QaName: " ",
+        qualificationName: " ",
+        LevelName: " ",
         TargetName: " ",
-
       },
 
       isEdit: false,
-      status: 'Save/บันทึก',
-      show:{
-
-      }
-    }
+      status: "Save/บันทึก",
+      show: {},
+    };
   },
   methods: {
     resetForm() {
-      this.status = 'Save/บันทึก'
-      this.isEdit = false
-      console.log('รีเซ็ตฟรอม')
+      this.status = "Save/บันทึก";
+      this.isEdit = false;
+      console.log("รีเซ็ตฟรอม");
       // this.qualification.qualificationId = 0;
-      this.qualification.planCareerId = ''
-      this.qualification.qualification_name = ''
-      this.qualification.qualificationId = ''
-      this.qualification.level_id = ''
-      this.qualification.target_id = ''
+      this.qualification.planCareerId = "";
+      this.qualification.qualification_name = "";
+      this.qualification.qualificationId = "";
+      this.qualification.level_id = "";
+      this.qualification.target_id = "";
       // this.qualification.month = "";
       // this.qualification.self_assessment = "";
     },
     getAllUser() {
-      console.log(' แสดงข้อมูลทั้งหมด ')
-      var self = this
+      console.log(" แสดงข้อมูลทั้งหมด ");
+      var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
-          action: 'getall',
+          action: "getall",
         })
         .then(function (res) {
-          console.log('ข้อมูลแผนคุณสมบัติ', res.data)
-          self.getall = res.data
+          console.log("ข้อมูลแผนคุณสมบัติ", res.data);
+          self.getall = res.data;
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     getCareer() {
-      console.log(' ข้อมูลอาชีพ ')
-      var self = this
+      console.log(" ข้อมูลอาชีพ ");
+      var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
-          action: 'getEmpCareer',
+          action: "getEmpCareer",
           employee_id: this.employee_id,
         })
         .then(function (res) {
-          self.careers = res.data
-          console.log('careers:', self.careers)
+          self.careers = res.data;
+          console.log("careers:", self.careers);
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     getQualifications() {
-      console.log(' แสดงข้อมูลคุณสมบัติ ')
-      var self = this
+      console.log(" แสดงข้อมูลคุณสมบัติ ");
+      var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
-          action: 'getQualifiation',
+          action: "getQualifiation",
           // career_id: this.qualification.planCareerId,
         })
         .then(function (res) {
-          self.qualifications = res.data
-          console.log('qualification:', self.qualifications)
+          self.qualifications = res.data;
+          console.log("qualification:", self.qualifications);
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     getLevel() {
-      console.log(' แสดงข้อมูลระดับ ')
-      var self = this
+      console.log(" แสดงข้อมูลระดับ ");
+      var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
-          action: 'getLevel',
+          action: "getLevel",
         })
         .then(function (res) {
-          self.levels = res.data
-          console.log('level:', self.levels)
+          self.levels = res.data;
+          console.log("level:", self.levels);
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     getTarget() {
-      console.log(' ข้อมูลค่าเป้าหมาย ')
-      var self = this
+      console.log(" ข้อมูลค่าเป้าหมาย ");
+      var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
-          action: 'getTarget',
+          action: "getTarget",
         })
         .then(function (res) {
-          self.targets = res.data
-          console.log('target:', self.targets)
+          self.targets = res.data;
+          console.log("target:", self.targets);
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     submitForm() {
       if (!this.isEdit) {
-        console.log('บันทึกข้อมูล')
-        console.log('รหัสคุณสมบัติ', this.qa_plan_career_id)
-        console.log('แผนอาชีพ', this.qualification.planCareerId.Plan_Career_id)
-        console.log('คุณสมบัติ', this.qualification.qualificationId.qualificationId)
-        console.log('เป้าหมาย', this.qualification.target_id.target_id)
-        console.log('ระดับ', this.qualification.level_id.level_id)
+        console.log("บันทึกข้อมูล");
+        console.log("รหัสคุณสมบัติ", this.qa_plan_career_id);
+        console.log("แผนอาชีพ", this.qualification.planCareerId.Plan_Career_id);
+        console.log(
+          "คุณสมบัติ",
+          this.qualification.qualificationId.qualificationId
+        );
+        console.log("เป้าหมาย", this.qualification.target_id.target_id);
+        console.log("ระดับ", this.qualification.level_id.level_id);
         const newQualification = {
           plan_career_id: this.qualification.planCareerId.Plan_Career_id,
           qualification_id: this.qualification.qualificationId.qualificationId,
           target_id: this.qualification.target_id.target_id,
           level_id: this.qualification.level_id.level_id,
-        }
-        this.$emit('saveData', newQualification)
+        };
+        this.$emit("saveData", newQualification);
 
         axios
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
-            action: 'insert',
-            // plan_career_id: this.qualification.planCareerId.Plan_Career_id,
-            // qualification_id: this.qualification.qualificationId.qualificationId,
-            // target_id: this.qualification.target_id.target_id,
+            action: "insert",
+            plan_career_id: this.qualification.planCareerId.Plan_Career_id,
+            qualification_id:
+              this.qualification.qualificationId.qualificationId,
+            target_id: this.qualification.target_id.target_id,
             level_id: this.qualification.level_id.level_id,
           })
           .then((res) => {
-            console.log('insert:', res)
+            console.log("insert:", res);
             this.sendMessages();
             this.resetForm();
             this.getAllUser();
             // this.getUpdate();
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       } else {
-        console.log('qa_plan_career_id:', this.qualification.qa_plan_career_id)
-        console.log('plan_career_id:', this.qualification.planCareerId.Plan_Career_id)
-        console.log('qualificationId:', this.qualification.qualificationId.qualificationId)
-        console.log('target_id:', this.qualification.target_id.target_id)
-        console.log('level_id:', this.qualification.level_id.level_id)
+        console.log("qa_plan_career_id:", this.qualification.qa_plan_career_id);
+        console.log(
+          "plan_career_id:",
+          this.qualification.planCareerId.Plan_Career_id
+        );
+        console.log(
+          "qualificationId:",
+          this.qualification.qualificationId.qualificationId
+        );
+        console.log("target_id:", this.qualification.target_id.target_id);
+        console.log("level_id:", this.qualification.level_id.level_id);
 
         axios
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
-            action: 'update',
+            action: "update",
             qa_plan_career_id: this.qualification.qa_plan_career_id,
             plan_career_id: this.qualification.planCareerId.Plan_Career_id,
-            qualification_id: this.qualification.qualificationId.qualificationId,
+            qualification_id:
+              this.qualification.qualificationId.qualificationId,
             target_id: this.qualification.target_id.target_id,
             level_id: this.qualification.level_id.level_id,
 
@@ -438,55 +444,56 @@ export default {
             // result: this.qualification.self_assessment,
           })
           .then((response) => {
-            console.log(response)
-            this.resetForm()
-            this.getAllUser()
+            console.log(response);
+            this.resetForm();
+            this.getAllUser();
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       }
     },
     editUser(qa_plan_career_id) {
-      this.status = 'Update/อัพเดท'
-      this.isEdit = true
-      var self = this
-      console.log('qa_plan_career_id:', qa_plan_career_id)
+      this.status = "Update/อัพเดท";
+      this.isEdit = true;
+      var self = this;
+      console.log("qa_plan_career_id:", qa_plan_career_id);
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
-          action: 'edit',
+          action: "edit",
           qa_plan_career_id: qa_plan_career_id,
         })
         .then(function (response) {
-          console.log(response)
-          self.qualification.qa_plan_career_id = response.data.qa_plan_career_id
-          self.qualification.qualificationId = response.data.qualificationId
-          self.qualification.planCareerId = response.data.plan_career_id
-          self.qualification.target_id = response.data.target_id
-          self.qualification.level_id = response.data.level_id
-          self.qualifications_ = response.data
-          console.log('แก้ไขคุณสมบัติ:', response.data)
+          console.log(response);
+          self.qualification.qa_plan_career_id =
+            response.data.qa_plan_career_id;
+          self.qualification.qualificationId = response.data.qualificationId;
+          self.qualification.planCareerId = response.data.plan_career_id;
+          self.qualification.target_id = response.data.target_id;
+          self.qualification.level_id = response.data.level_id;
+          self.qualifications_ = response.data;
+          console.log("แก้ไขคุณสมบัติ:", response.data);
         })
         .catch(function (error) {
-          console.log(error)
-        })
+          console.log(error);
+        });
     },
     deleteUser(qa_plan_career_id) {
-      if (confirm('คุณต้องการลบรหัส ' + qa_plan_career_id + ' หรือไม่ ?')) {
-        var self = this
+      if (confirm("คุณต้องการลบรหัส " + qa_plan_career_id + " หรือไม่ ?")) {
+        var self = this;
         axios
           .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
-            action: 'delete',
+            action: "delete",
             qa_plan_career_id: qa_plan_career_id,
           })
           .then(function (response) {
-            console.log(response)
-            self.resetForm()
-            self.getAllUser()
+            console.log(response);
+            self.resetForm();
+            self.getAllUser();
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       }
     },
     sendMessages() {
@@ -667,35 +674,31 @@ export default {
           console.log("error", err);
         });
     },
-    onQaPlanCareerChange(val){
-      this.Line.QaName = val.career
-      console.log("QaName",val.career);
-
+    onQaPlanCareerChange(val) {
+      this.Line.QaName = val.career;
+      console.log("QaName", val.career);
     },
-    onQualificationChange(val){
-      this.Line.qualificationName = val.qualification_name
-      console.log("onqualificationName",val.qualification_name);
-
+    onQualificationChange(val) {
+      this.Line.qualificationName = val.qualification_name;
+      console.log("onqualificationName", val.qualification_name);
     },
-    onLevelChange(val){
-      this.Line.LevelName = val.level_description
-      console.log("onLevelName",val.level_description);
-
+    onLevelChange(val) {
+      this.Line.LevelName = val.level_description;
+      console.log("onLevelName", val.level_description);
     },
-    onTargetChange(val){
-      this.Line.TargetName = val.target_name
-      console.log("onTargetName",val.target_name);
-
-    }
+    onTargetChange(val) {
+      this.Line.TargetName = val.target_name;
+      console.log("onTargetName", val.target_name);
+    },
   },
   created() {
-    this.getAllUser()
-    this.getCareer()
-    this.getQualifications()
-    this.getLevel()
-    this.getTarget()
+    this.getAllUser();
+    this.getCareer();
+    this.getQualifications();
+    this.getLevel();
+    this.getTarget();
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
