@@ -472,16 +472,16 @@ export default {
         })
         .then(function (response) {
           console.log(response);
-          self.plan.planId = response.data.planId;
-          self.plan.Plan_Career_id = response.data.Plan_Career_id;
-          self.getQualification();
-          self.plan.qualification_name = response.data.qualification_name;
-          self.plan.qa_plan_career_id = response.data.qa_plan_career_id;
-          self.plan.doing = response.data.doing;
-          self.plan.leaning = response.data.leaning;
-          self.plan.plan_start_date = response.data.plan_start_date;
-          self.plan.plan_end_date = response.data.plan_end_date;
-          self.plans_ = response.data;
+          // self.plan.planId = response.data.planId;
+          // self.plan.Plan_Career_id = response.data.Plan_Career_id;
+          // self.getQualification();
+          // self.plan.qualification_name = response.data.qualification_name;
+          // self.plan.qa_plan_career_id = response.data.qa_plan_career_id;
+          // self.plan.doing = response.data.doing;
+          // self.plan.leaning = response.data.leaning;
+          // self.plan.plan_start_date = response.data.plan_start_date;
+          // self.plan.plan_end_date = response.data.plan_end_date;
+          // self.plans_ = response.data;
           console.log("แก้ไขคุณสมบัติ:", response.data);
         })
         .catch(function (error) {
