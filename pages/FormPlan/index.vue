@@ -38,7 +38,7 @@
                 <div>รหัสแผนอาชีพ:</div>
                 <v-select
                   :size="4"
-                  v-model="plan.Plan_Career_id"
+                  v-model="plan.planCareerId"
                   :required="true"
                   return-object
                   @change="(val) => getQualification(val)"
@@ -474,7 +474,7 @@ export default {
         .then(function (response) {
           console.log(response);
           self.plan.planId = response.data.planId
-          self.plan.plan_career_id = response.data.plan_career_id
+          self.plan.planCareerId = response.data.plan_career_id
           self.getQualification()
           self.plan.qualification_name = response.data.qualification_name
           self.plan.qa_plan_career_id = response.data.qa_plan_career_id
