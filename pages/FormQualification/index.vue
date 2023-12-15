@@ -470,7 +470,7 @@ export default {
           self.qualification.level_id = response.data.level_id;
           self.qualifications_ = response.data;
           console.log("แก้ไขคุณสมบัติ:", response.data);
-          console.log("planCareerId:", response.data.plan_career_id);
+          console.log("planCareerId:", self.qualification.planCareerId);
 
         })
         .catch(function (error) {
