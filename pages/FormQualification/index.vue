@@ -429,26 +429,26 @@ export default {
         console.log("target_id:", this.qualification.target_id);
         console.log("level_id:", this.qualification.level_id);
 
-        // axios
-        //   .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
-        //     action: "update",
-        //     qa_plan_career_id: this.qualification.qa_plan_career_id,
-        //     plan_career_id: this.qualification.planCareerId.Plan_Career_id,
-        //     qualification_id:this.qualification.qualificationId.qualificationId,
-        //     target_id: this.qualification.target_id.target_id,
-        //     level_id: this.qualification.level_id.level_id,
+        axios
+          .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
+            action: "update",
+            qa_plan_career_id: this.qualification.qa_plan_career_id,
+            plan_career_id: this.qualification.planCareerId.Plan_Career_id,
+            qualification_id:this.qualification.qualificationId.qualificationId,
+            target_id: this.qualification.target_id.target_id,
+            level_id: this.qualification.level_id.level_id,
 
-        //     // month: this.qualification.month,
-        //     // result: this.qualification.self_assessment,
-        //   })
-        //   .then((response) => {
-        //     console.log(response);
-        //     this.resetForm();
-        //     this.getAllUser();
-        //   })
-        //   .catch(function (error) {
-        //     console.log(error);
-        //   });
+            // month: this.qualification.month,
+            // result: this.qualification.self_assessment,
+          })
+          .then((response) => {
+            console.log(response);
+            this.resetForm();
+            this.getAllUser();
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
     },
     editUser(qa_plan_career_id) {
