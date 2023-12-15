@@ -29,6 +29,7 @@
                   required
                   disabled
                   class="form-control form-control-lg"
+                  item-value="planId"
                 >
                 </v-text-field>
               </v-col>
@@ -316,7 +317,7 @@ export default {
       // plan_career_id:"",
       // planId:	qualificationId	doing leaning
       plan: {
-        planId: "",
+        planId: " ",
         qualificationId: "",
         qa_plan_career_id: "",
         qualification_name: "",
