@@ -467,6 +467,7 @@ export default {
       this.status = "Update/อัพเดท";
       this.isEdit = true;
       var self = this;
+      console.log("PlanID:", planId);
       axios
         .post("https://icp2022.net/ICPScoreCard/api-plan.php", {
           action: "edit",
