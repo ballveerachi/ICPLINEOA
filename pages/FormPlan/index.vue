@@ -313,7 +313,7 @@ export default {
       planCareerId: "",
       modal_plan_start_date: false,
       modal_plan_end_date: false,
-
+      qa_plan_career_id: "",
       // plan_career_id:"",
       // planId:	qualificationId	doing leaning
       plan: {
@@ -411,8 +411,8 @@ export default {
       if (!this.isEdit) {
         console.log("บันทึก");
         console.log("รหัสแผน", this.plan.planId);
-        console.log("แผนอาชีพ", this.plan.qa_plan_career_id);
-        console.log("แผน",this.plan.doin);
+        console.log("แผนอาชีพ", this.qa_plan_career_id);
+        console.log("แผน",this.plan.doing);
         console.log("แผนที่ทำ", this.plan.leaning);
         console.log("เริ่ม", this.plan.plan_start_date);
         console.log("สิ้นสุด",  this.plan.plan_end_date);
@@ -485,8 +485,8 @@ export default {
           // self.plan.qa_plan_career_id = response.data.qa_plan_career_id;
           // self.plan.doing = response.data.doing;
           // self.plan.leaning = response.data.leaning;
-          // self.plan.plan_start_date = response.data.plan_start_date;
-          // self.plan.plan_end_date = response.data.plan_end_date;
+          self.plan.plan_start_date = response.data.plan_start_date;
+          self.plan.plan_end_date = response.data.plan_end_date;
           // self.plans_ = response.data;
           console.log("แก้ไขคุณสมบัติ:", response.data);
            console.log("planId:", self.plan.planId);
