@@ -437,7 +437,7 @@ export default {
             // qualification_id:this.qualification.qualificationId.qualificationId,
             // target_id: this.qualification.target_id.target_id,
             // level_id: this.qualification.level_id.level_id,
-            qa_plan_career_id: 164,
+            qa_plan_career_id: 165,
             plan_career_id: 249,
             qualification_id:2,
             target_id:2,
