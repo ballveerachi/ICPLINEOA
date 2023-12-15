@@ -487,7 +487,7 @@ export default {
           // self.plan.leaning = response.data.leaning;
           self.plan.plan_start_date = response.data.plan_start_date;
           self.plan.plan_end_date = response.data.plan_end_date;
-          // self.plans_ = response.data;
+          self.plans_ = response.data;
           console.log("แก้ไขคุณสมบัติ:", response.data);
            console.log("planId:", self.plan.planId);
         })
