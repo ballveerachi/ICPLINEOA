@@ -29,6 +29,8 @@
                   required
                   disabled
                   class="form-control form-control-lg"
+                  item-value="planId"
+
                 >
                 </v-text-field>
               </v-col>
