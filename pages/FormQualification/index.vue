@@ -420,14 +420,14 @@ export default {
         console.log("qa_plan_career_id:", this.qualification.qa_plan_career_id);
         console.log(
           "plan_career_id:",
-          this.qualification.planCareerId.Plan_Career_id
+          this.qualification.planCareerId
         );
         console.log(
           "qualificationId:",
-          this.qualification.qualificationId.qualificationId
+          this.qualification.qualificationId
         );
-        console.log("target_id:", this.qualification.target_id.target_id);
-        console.log("level_id:", this.qualification.level_id.level_id);
+        console.log("target_id:", this.qualification.target_id);
+        console.log("level_id:", this.qualification.level_id);
 
         // axios
         //   .post("https://icp2022.net/ICPScoreCard/api-qa-plan-career.php", {
