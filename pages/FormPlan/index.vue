@@ -472,7 +472,7 @@ export default {
         })
         .then(function (response) {
           console.log(response);
-          // self.plan.planId = response.data.planId;
+          self.plan.planId = response.data.planId;
           // self.plan.Plan_Career_id = response.data.Plan_Career_id;
           // self.getQualification();
           // self.plan.qualification_name = response.data.qualification_name;
