@@ -100,11 +100,11 @@ export default {
           title: "ประเมินตนเอง",
           to: "/FormSelfAssessment",
         },
-        {
-          icon: "mdi-chart-bar",
-          title: "กราฟ",
-          to: "/FormPivotTable",
-        },
+        // {
+        //   icon: "mdi-chart-bar",
+        //   title: "กราฟ",
+        //   to: "/FormPivotTable",
+        // },
       ],
       miniVariant: false,
       right: true,

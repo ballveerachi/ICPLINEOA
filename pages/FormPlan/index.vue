@@ -478,7 +478,7 @@ export default {
         })
         .then(function (response) {
           console.log("แก้ไขขขขข",response);
-          // self.plan.planId = response.data.planId;
+          self.plan.planId = response.data.planId;
           // self.plan.Plan_Career_id = response.data.Plan_Career_id;
           // // self.getQualification();
           // self.plan.qualification_name = response.data.qualification_name;
@@ -488,7 +488,7 @@ export default {
           self.plan.plan_start_date = response.data.plan_start_date;
           self.plan.plan_end_date = response.data.plan_end_date;
           self.plans_ = response.data;
-          console.log("แก้ไขคุณสมบัติ:", response.data);
+          console.log("แก้ไขคุณสมบัติ:",response.data);
            console.log("planId:", self.plan.planId);
         })
         .catch(function (error) {
