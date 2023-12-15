@@ -411,6 +411,12 @@ export default {
       if (!this.isEdit) {
         console.log("บันทึก");
         console.log("Form Plan Career:", this.plan.qa_plan_career_id);
+        console.log("รหัสแผน", this.plan.planId);
+        console.log("แผนอาชีพ", this.plan.qa_plan_career_id);
+        console.log("แผน",this.plan.doin);
+        console.log("แผนที่ทำ", this.plan.leaning);
+        console.log("เริ่ม", this.plan.plan_start_date);
+        console.log("สิ้นสุด",  this.plan.plan_end_date);
         const newPlan = {
           planId: this.plan.planId,
           qa_plan_career_id: this.plan.qa_plan_career_id,
@@ -432,7 +438,7 @@ export default {
             plan_end_date: this.plan.plan_end_date,
           })
           .then((res) => {
-            console.log("ข้อมูลที่บันทึก",res.data);
+            console.log("ข้อมูลที่บันทึก",data);
             console.log(res);
             this.sendMessages();
             this.resetForm();
