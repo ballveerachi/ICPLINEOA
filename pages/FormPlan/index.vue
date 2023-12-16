@@ -392,7 +392,7 @@ export default {
         });
     },
     getQualification(val) {
-      this.Line.career = val.career;
+
       // console.log("เลือก", val.career);
       // console.log("แผนอาชีพ", this.plan.Plan_Career_id);
       var self = this;
@@ -404,6 +404,7 @@ export default {
         .then(function (res) {
           console.log("ข้อมูลคุณสมบัติ", res.data);
            self.career_qualifications = res.data;
+           this.Line.career = val.career;
 
         })
         .catch(function (error) {
