@@ -29,7 +29,6 @@
                   required
                   disabled
                   class="form-control form-control-lg"
-                  item-value="planId"
                 >
                 </v-text-field>
               </v-col>
@@ -437,9 +436,8 @@ export default {
             plan_end_date: this.plan.plan_end_date,
           })
           .then((res) => {
-            console.log("ข้อมูลที่บันทึก",res.data);
+            console.log("ข้อมูลที่บันทึก",res);
             console.log(res);
-            this.sendMessages();
             this.resetForm();
             this.getAllUser();
           })
@@ -477,19 +475,20 @@ export default {
           planId: planId,
         })
         .then(function (response) {
-          console.log("แก้ไขขขขข",response);
-          self.plan.planId = response.data.planId;
-          // self.plan.Plan_Career_id = response.data.Plan_Career_id;
-          // // self.getQualification();
-          // self.plan.qualification_name = response.data.qualification_name;
-          // self.plan.qa_plan_career_id = response.data.qa_plan_career_id;
-          // self.plan.doing = response.data.doing;
-          // self.plan.leaning = response.data.leaning;
-          self.plan.plan_start_date = response.data.plan_start_date;
-          self.plan.plan_end_date = response.data.plan_end_date;
-          self.plans_ = response.data;
-          console.log("แก้ไขคุณสมบัติ:",response.data);
-           console.log("planId:", self.plan.planId);
+          console.log("แก้ไขข้อมูล",response)
+          self.plan.planId = response.data.planId
+          self.plan.Plan_Career_id = response.data.plan_career_id
+          self.getQualification(val)
+
+          self.plan.qualification_name = response.data.qualification_name
+          self.plan.qa_plan_career_id = response.data.qa_plan_career_id
+          self.plan.doing = response.data.doing
+          self.plan.leaning = response.data.leaning
+          self.plan.plan_start_date = response.data.plan_start_date
+          self.plan.plan_end_date = response.data.plan_end_date
+
+          self.plans_ = response.data
+          console.log('แก้ไขคุณสมบัติ:', response.data)
         })
         .catch(function (error) {
           console.log(error);
