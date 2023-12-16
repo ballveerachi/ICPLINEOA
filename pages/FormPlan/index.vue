@@ -403,7 +403,7 @@ export default {
         })
         .then(function (res) {
           console.log("ข้อมูลคุณสมบัติ", res.data);
-          //  self.career_qualifications = res.data;
+           self.career_qualifications = res.data;
 
         })
         .catch(function (error) {
