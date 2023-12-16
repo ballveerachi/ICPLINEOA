@@ -70,7 +70,7 @@
                 <div>รหัสคุณสมบัติ:</div>
                 <v-select
                   :size="4"
-                  v-model="qa_plan_career_id"
+                  v-model="plan.qa_plan_career_id"
                   :items="career_qualifications"
                   return-object
                   label="เลือก"
