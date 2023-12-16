@@ -308,6 +308,9 @@ export default {
       plans_: [],
       plan_qualification: [],
       qualificationIds: [],
+      qualifications: [],
+      qualification: [],
+      qualifications_: [],
       employee_id: this.$store.getters.myMember_id,
       planCareerId: "",
       modal_plan_start_date: false,
@@ -318,7 +321,7 @@ export default {
       plan: {
         planId: " ",
         qualificationId: "",
-        qa_plan_career_id: "",
+        qa_plan_career_id: " ",
         qualification_name: "",
         doing: "",
         leaning: "",
@@ -478,7 +481,7 @@ export default {
           console.log("แก้ไขข้อมูล",response)
           self.plan.planId = response.data.planId
           self.plan.Plan_Career_id = response.data.plan_career_id
-          self.getQualification(val)
+          self.getQualification()
 
           self.plan.qualification_name = response.data.qualification_name
           self.plan.qa_plan_career_id = response.data.qa_plan_career_id
