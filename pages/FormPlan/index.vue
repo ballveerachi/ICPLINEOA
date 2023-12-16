@@ -404,7 +404,7 @@ export default {
         .then(function (res) {
           console.log("ข้อมูลคุณสมบัติ", res.data);
            self.career_qualifications = res.data;
-           this.Line.career = val.career;
+          //  this.Line.career = val.career;
 
         })
         .catch(function (error) {
@@ -570,7 +570,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.Line.career,
+                            text: this.val.career,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
