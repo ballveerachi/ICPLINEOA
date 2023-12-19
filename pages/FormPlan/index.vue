@@ -339,7 +339,7 @@ export default {
           .substr(0, 10),
       },
       Line: {
-        career:" ",
+        career: " ",
         QaName: " ",
         qualificationName: " ",
       },
@@ -403,9 +403,7 @@ export default {
         })
         .then(function (res) {
           console.log("ข้อมูลคุณสมบัติ", res.data);
-           self.career_qualifications = res.data;
-
-
+          self.career_qualifications = res.data;
         })
         .catch(function (error) {
           console.log(error);
@@ -416,10 +414,10 @@ export default {
         console.log("บันทึก");
         console.log("รหัสแผน", this.plan.planId);
         console.log("แผนอาชีพ", this.plan.qa_plan_career_id.qa_plan_career_id);
-        console.log("แผน",this.plan.doing);
+        console.log("แผน", this.plan.doing);
         console.log("แผนที่ทำ", this.plan.leaning);
         console.log("เริ่ม", this.plan.plan_start_date);
-        console.log("สิ้นสุด",  this.plan.plan_end_date);
+        console.log("สิ้นสุด", this.plan.plan_end_date);
         const newPlan = {
           planId: this.plan.planId,
           qa_plan_career_id: this.plan.qa_plan_career_id.qa_plan_career_id,
@@ -441,7 +439,7 @@ export default {
             plan_end_date: this.plan.plan_end_date,
           })
           .then((res) => {
-            console.log("ข้อมูลที่บันทึก",res);
+            console.log("ข้อมูลที่บันทึก", res);
             console.log(res);
             this.resetForm();
             this.getAllUser();
@@ -480,19 +478,19 @@ export default {
           planId: planId,
         })
         .then(function (response) {
-          console.log("แก้ไขข้อมูล",response)
-          self.plan.planId = response.data.planId
-          self.plan.Plan_Career_id = response.data.plan_career_id
-          // self.getQualification()
-          self.plan.qualification_name = response.data.qualification_name
-          self.plan.qa_plan_career_id = response.data.qa_plan_career_id
-          self.plan.doing = response.data.doing
-          self.plan.leaning = response.data.leaning
-          self.plan.plan_start_date = response.data.plan_start_date
-          self.plan.plan_end_date = response.data.plan_end_date
+          console.log("แก้ไขข้อมูล", response);
+          self.plan.planId = response.data.planId;
+          self.plan.Plan_Career_id = response.data.plan_career_id;
+          self.getQualification();
+          self.plan.qualification_name = response.data.qualification_name;
+          self.plan.qa_plan_career_id = response.data.qa_plan_career_id;
+          self.plan.doing = response.data.doing;
+          self.plan.leaning = response.data.leaning;
+          self.plan.plan_start_date = response.data.plan_start_date;
+          self.plan.plan_end_date = response.data.plan_end_date;
 
-          self.plans_ = response.data
-          console.log('แก้ไขคุณสมบัติ:', response.data)
+          self.plans_ = response.data;
+          console.log("แก้ไขคุณสมบัติ:", response.data);
         })
         .catch(function (error) {
           console.log(error);

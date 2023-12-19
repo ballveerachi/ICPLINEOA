@@ -296,7 +296,7 @@ export default {
         qa_plan_career_id: "",
       },
       Line: {
-         career:" ",
+        career: " ",
         PerformName: " ",
         qualificationName: " ",
       },
@@ -347,7 +347,8 @@ export default {
           .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
             action: "insert",
             self_assessment_id: this.selfAssessment.self_assessment_id,
-            qa_plan_career_id: this.selfAssessment.qa_plan_career_id.qa_plan_career_id,
+            qa_plan_career_id:
+              this.selfAssessment.qa_plan_career_id.qa_plan_career_id,
             self_assessment_date: this.selfAssessment.self_assessment_date,
             perform_id: this.selfAssessment.perform_id.perform_id,
           })
@@ -366,7 +367,8 @@ export default {
             action: "update",
             self_assessment_id: this.selfAssessment.self_assessment_id,
             qa_plan_career_id: this.selfAssessment.qa_plan_career_id,
-            self_assessment_date: this.selfAssessment.self_assessment_date.self_assessment_date,
+            self_assessment_date:
+              this.selfAssessment.self_assessment_date.self_assessment_date,
             perform_id: this.selfAssessment.perform_id.perform_id,
           })
           .then((response) => {
@@ -413,7 +415,7 @@ export default {
     getQualification(val) {
       //this.Line.career =val.career;
       console.log("เลิอก", val.career);
-      // console.log("แผนอาชีพ", val.Plan_Career_id);
+      console.log("แผนอาชีพ", val.Plan_Career_id);
       // console.log("แผนอาชีพ", this.selfAssessment.Plan_Career_id.Plan_Career_id);
       var self = this;
       axios
@@ -444,7 +446,7 @@ export default {
           self.selfAssessment.self_assessment_id =
             response.data.self_assessment_id;
           self.selfAssessment.Plan_Career_id = response.data.plan_career_id;
-          // self.getQualification();
+          self.getQualification();
           self.selfAssessment.qa_plan_career_id =
             response.data.qa_plan_career_id;
           (self.selfAssessment.perform_id = response.data.perform_id),
@@ -656,7 +658,7 @@ export default {
       this.Line.PerformName = val.perform_name;
       console.log("onLevelName", val.perform_name);
     },
-     onQualificationChange(val) {
+    onQualificationChange(val) {
       this.Line.qualificationName = val.qualification_name;
       console.log("เลือก", this.Line.qualificationName);
     },
