@@ -570,7 +570,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: val.career,
+                            text: this.val.career,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
