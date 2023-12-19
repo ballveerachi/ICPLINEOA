@@ -444,7 +444,7 @@ export default {
           self.selfAssessment.self_assessment_id =
             response.data.self_assessment_id;
           self.selfAssessment.Plan_Career_id = response.data.plan_career_id;
-          self.getQualification();
+          // self.getQualification();
           self.selfAssessment.qa_plan_career_id =
             response.data.qa_plan_career_id;
           (self.selfAssessment.perform_id = response.data.perform_id),
