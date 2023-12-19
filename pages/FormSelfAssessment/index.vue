@@ -422,7 +422,7 @@ export default {
         .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
           action: "getCareer_Qualifiation",
 
-          Plan_Career_id: this.selfAssessment.Plan_Career_id.Plan_Career_id,
+          Plan_Career_id: this.selfAssessment.Plan_Career_id,
         })
         .then(function (res) {
           console.log("แก้ไขแผนอาชีพ", res.data);
