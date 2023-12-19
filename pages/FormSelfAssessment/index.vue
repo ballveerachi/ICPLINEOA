@@ -413,8 +413,8 @@ export default {
     getQualification(val) {
       //this.Line.career =val.career;
       console.log("เลิอก", val.career);
-      console.log("แผนอาชีพ", val.Plan_Career_id);
-      console.log("แผนอาชีพ", this.selfAssessment.Plan_Career_id.Plan_Career_id);
+      // console.log("แผนอาชีพ", val.Plan_Career_id);
+      // console.log("แผนอาชีพ", this.selfAssessment.Plan_Career_id.Plan_Career_id);
       var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
