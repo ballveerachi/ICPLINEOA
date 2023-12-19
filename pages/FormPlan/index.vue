@@ -392,8 +392,8 @@ export default {
         });
     },
     getQualification(val) {
-      //  this.Line.career = val.career;
-      console.log("เลือก", val.career);
+      // //  this.Line.career = val.career;
+      // console.log("เลือก", val.career);
       console.log("แผนอาชีพ", this.plan.Plan_Career_id);
       var self = this;
       axios
@@ -739,7 +739,7 @@ export default {
         });
     },
     onQualificationChange(val) {
-      // this.Line.qualificationName = val.qualification_name;
+      this.Line.qualificationName = val.qualification_name;
       console.log("เลือก", this.Line.qualificationName);
     },
   },
