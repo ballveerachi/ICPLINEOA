@@ -413,7 +413,7 @@ export default {
         });
     },
     getQualification(val) {
-      //this.Line.career =val.career;
+      this.Line.career =val.career;
       //console.log("เลือก", val.career);
       //console.log("แผนอาชีพ", val.Plan_Career_id);
       console.log("แผนอาชีพ", this.selfAssessment.Plan_Career_id.Plan_Career_id);
@@ -423,6 +423,26 @@ export default {
           action: "getCareer_Qualifiation",
 
           Plan_Career_id: this.selfAssessment.Plan_Career_id.Plan_Career_id,
+        })
+        .then(function (res) {
+          console.log("แก้ไขแผนอาชีพ", res.data);
+          self.career_qualifications = res.data;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    getQualification1(val) {
+      //this.Line.career =val.career;
+      //console.log("เลือก", val.career);
+      //console.log("แผนอาชีพ", val.Plan_Career_id);
+      console.log("แผนอาชีพ", this.selfAssessment.Plan_Career_id);
+      var self = this;
+      axios
+        .post("https://icp2022.net/ICPScoreCard/api-self-assessment.php", {
+          action: "getCareer_Qualifiation",
+
+          Plan_Career_id: this.selfAssessment.Plan_Career_id,
         })
         .then(function (res) {
           console.log("แก้ไขแผนอาชีพ", res.data);
@@ -446,7 +466,7 @@ export default {
           self.selfAssessment.self_assessment_id =
             response.data.self_assessment_id;
           self.selfAssessment.Plan_Career_id = response.data.plan_career_id;
-          self.getQualification();
+          self.getQualification1();
           self.selfAssessment.qa_plan_career_id =
             response.data.qa_plan_career_id;
           (self.selfAssessment.perform_id = response.data.perform_id),
