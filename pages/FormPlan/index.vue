@@ -458,6 +458,7 @@ export default {
           .then((res) => {
             console.log("ข้อมูลที่บันทึก", res);
             console.log(res);
+            this.sendMessages();
             this.resetForm();
             this.getAllUser();
           })
