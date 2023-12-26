@@ -410,7 +410,7 @@ export default {
         });
     },getQualification1(val) {
       //  this.Line.career = val.career;
-      // console.log("เลือก", val.career);
+      console.log("เลือก", val.career);
       console.log("แผนอาชีพ111", this.plan.Plan_Career_id);
       var self = this;
       axios
