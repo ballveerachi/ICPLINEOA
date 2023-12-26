@@ -392,7 +392,7 @@ export default {
         });
     },
     getQualification(val) {
-      //  this.Line.career = val.career;
+       this.Line.career = val.career;
       console.log("เลือกyyy", val.career);
       console.log("แผนอาชีพ111", this.plan.Plan_Career_id.Plan_Career_id);
       var self = this;
@@ -584,7 +584,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.val.career,
+                            text: this.Line.career,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
