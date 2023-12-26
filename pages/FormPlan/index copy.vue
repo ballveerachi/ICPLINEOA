@@ -408,23 +408,6 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
-    },getQualification1(val) {
-      //  this.Line.career = val.career;
-      // console.log("เลือก", val.career);
-      console.log("แผนอาชีพ111", this.plan.Plan_Career_id.Plan_Career_id);
-      var self = this;
-      axios
-        .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
-          action: "getCareer_Qualifiation",
-          Plan_Career_id: this.plan.Plan_Career_id.Plan_Career_id //แก้อันนี้
-        })
-        .then(function (res) {
-          console.log("ข้อมูลคุณสมบัติ", res.data);
-          self.career_qualifications = res.data;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
     },
     submitForm() {
       if (!this.isEdit) {
@@ -498,7 +481,7 @@ export default {
           console.log("แก้ไขข้อมูล", response);
           self.plan.planId = response.data.planId;
           self.plan.Plan_Career_id = response.data.plan_career_id;
-          self.getQualification1();
+          self.getQualification();
           self.plan.qualification_name = response.data.qualification_name;
           self.plan.qa_plan_career_id = response.data.qa_plan_career_id;
           self.plan.doing = response.data.doing;
