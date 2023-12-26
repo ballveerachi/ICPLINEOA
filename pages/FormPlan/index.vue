@@ -77,7 +77,7 @@
                   item-value="qa_plan_career_id"
                   item-text="qualification_name"
                   variant="outlined"
-                  @change="(val) => getQualification(val)"
+                  @change="(val) => onQualificationChange(val)"
                 >
                   <template v-slot:prepend-item>
                     <v-list-item>
