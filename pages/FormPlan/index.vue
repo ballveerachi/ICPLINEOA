@@ -394,12 +394,12 @@ export default {
     getQualification(val) {
       //  this.Line.career = val.career;
       console.log("เลือก", val.career);
-      console.log("แผนอาชีพ", this.plan.Plan_Career_id);
+      console.log("แผนอาชีพ", this.plan.Plan_Career_id.plan.Plan_Career_id);
       var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
           action: "getCareer_Qualifiation",
-          Plan_Career_id: this.plan.Plan_Career_id, //แก้อันนี้
+          Plan_Career_id: this.plan.Plan_Career_id.plan.Plan_Career_id, //แก้อันนี้
         })
         .then(function (res) {
           console.log("ข้อมูลคุณสมบัติ", res.data);
