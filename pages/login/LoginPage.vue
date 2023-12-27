@@ -91,6 +91,7 @@ export default {
           self.storeCommit(
             self.member.member_id,
             self.member.full_name,
+            console.log("เข้าสู่ระบบสำเร็จ")
           );
         })
         .catch(function (error) {
