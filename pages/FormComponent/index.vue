@@ -551,7 +551,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
+                      uri: "https://liff.line.me/2000700725-PRVZgqqz",
                     },
                     height: "sm",
                     style: "primary",
