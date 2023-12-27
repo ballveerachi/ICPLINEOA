@@ -4,7 +4,7 @@
       <v-toolbar-title>{{ pageTitle }}</v-toolbar-title>
     </v-app-bar>
 
-    <v-card v-show="visible"
+    <v-card
       class="mx-auto pa-12 pb-8"
       elevation="8"
       max-width="100%"
@@ -192,7 +192,6 @@ export default {
   name: "FormComponent",
   data() {
     return {
-      visible:true,
       pageTitle: "ข้อมูลส่วนตัว",
       message: "Form Component (แบบฟอร์มบันทึกข้อมูล)",
       employees: [],
@@ -551,7 +550,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://liff.line.me/2000700725-YNm3KNNg",
+                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
                     },
                     height: "sm",
                     style: "primary",
@@ -574,8 +573,7 @@ export default {
         ])
         .then(() => {
           console.log("message sent");
-          // liff.closeWindow();
-          this.visible = false;
+          liff.closeWindow();
         })
         .catch((err) => {
           console.log("error", err);
