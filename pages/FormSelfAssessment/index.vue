@@ -253,7 +253,7 @@ import axios from "axios";
 import liff from "@line/liff";
 export default {
   mounted() {
-    liff.init({ liffId: "2000700725-PRVZgqqz" });
+    liff.init({ liffId: "2000700725-Z5rVR88l" });
     liff.ready.then(() => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
