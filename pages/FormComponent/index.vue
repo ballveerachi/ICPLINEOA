@@ -198,8 +198,10 @@ export default {
       employees: [],
       employees_: [],
       employee: {
-        id: this.$store.getters.myMember_id,
-        name: this.$store.getters.myName,
+        // id: this.$store.getters.myMember_id,
+        // name: this.$store.getters.myName,
+        id:"5555",
+        name: "545454",
         study_faculty: "",
         university: "",
         disability_type: "",
