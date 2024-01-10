@@ -147,6 +147,7 @@ export default {
           this.userId = profile.userId;
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
+          this.checkMember(this.userId,this.userId)
         });
       } else {
         liff.login();
@@ -164,7 +165,8 @@ export default {
       //Plan_Career_id	Employee_id	Name_Plan_Career Description
       planCareer: {
         Plan_Career_id: "",
-        Employee_id: this.$store.getters.myMember_id,
+        // Employee_id: this.$store.getters.myMember_id,
+        Employee_id: " ",
         career_id: "",
         career: "",
       },
@@ -297,6 +299,32 @@ export default {
             console.log(error);
           });
       }
+    },
+    checkMember(user,pass) {
+      console.log(" ตรวจสอบข้อมูลสมาชิก ");
+      var username = user;
+
+      var password = pass;
+      console.log("username", username);
+      var self = this;
+      axios
+        .post("https://icp2022.net/ICPScoreCard/api-member.php", {
+          action: "checkMember",
+          user: username,
+          pass: password,
+        })
+        .then(function (res) {
+          console.log("data:", res);
+          var member_id = res.data.map((item) => item.member_id)[0];
+          var full_name = res.data.map((item) => item.full_name)[0];
+          console.log("member_id1:", member_id);
+          console.log("full_name2", full_name);
+          self.employee.id = member_id;
+          self.employee.name = full_name;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
     sendMessages() {
       liff
