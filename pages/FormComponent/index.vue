@@ -303,8 +303,10 @@ export default {
         axios
           .post("https://icp2022.net/ICPScoreCard/api.php", {
             action: "insert",
-            id: this.employee.id,
-            name: this.employee.name,
+            // id: this.employee.id,
+            // name: this.employee.name,
+            id: 121,
+            name: "วีรชัย แก้วขอด",
             study_faculty: this.employee.study_faculty,
             university: this.employee.university,
             disibility_type: this.employee.disability_type,
