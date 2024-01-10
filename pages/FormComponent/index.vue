@@ -200,8 +200,8 @@ export default {
       employee: {
         // id: this.$store.getters.myMember_id,
         // name: this.$store.getters.myName,
-        id:"5555",
-        name: "545454",
+        id:"",
+        name: "",
         study_faculty: "",
         university: "",
         disability_type: "",
@@ -402,6 +402,8 @@ export default {
           var full_name = res.data.map((item) => item.full_name)[0];
           console.log("member_id1:", member_id);
           console.log("full_name2", full_name);
+          this.employee.id = member_id;
+          this.employee.name = full_name;
         })
         .catch(function (error) {
           console.log(error);
