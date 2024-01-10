@@ -68,8 +68,10 @@
           rel="noopener noreferrer"
           target="_blank"
 
-        ><router-link :to="{ name: '/register/registrationpage' }">Sign up now <v-icon icon="mdi-chevron-right"></v-icon></router-link>
-
+        >
+        <router-link :to="{ name: '/register/registrationpage/' }"
+                  >สมัครใช้งาน</router-link
+                >
         </a>
       </v-card-text>
     </v-card>
