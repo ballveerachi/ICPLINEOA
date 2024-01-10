@@ -169,8 +169,8 @@ export default {
       axios
         .post("https://icp2022.net/ICPScoreCard/api-member.php", {
           action: "checkMember",
-          user: U8ebef02685c30710f279ac33fa594064,
-          pass: U8ebef02685c30710f279ac33fa594064,
+          user: "U8ebef02685c30710f279ac33fa594064",
+          pass: "U8ebef02685c30710f279ac33fa594064",
         })
         .then(function (res) {
           console.log("data:", res);
