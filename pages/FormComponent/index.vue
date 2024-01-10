@@ -402,8 +402,8 @@ export default {
           var full_name = res.data.map((item) => item.full_name)[0];
           console.log("member_id1:", member_id);
           console.log("full_name2", full_name);
-          this.employee.id = member_id;
-          this.employee.name = full_name;
+          self.employee.id = member_id;
+          self.employee.name = full_name;
         })
         .catch(function (error) {
           console.log(error);
