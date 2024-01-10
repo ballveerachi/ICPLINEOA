@@ -183,7 +183,7 @@ export default {
           this.userId = profile.userId;
           console.log("ข้อมูลจากLine112255", profile);
           console.log("LineID4545", this.userId);
-          this.checkMember(user,pass)
+          this.checkMember(this.userId,this.userId)
         });
       } else {
         liff.login();
