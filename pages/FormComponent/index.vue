@@ -183,6 +183,7 @@ export default {
           this.userId = profile.userId;
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
+          this.checkMember(user,pass)
         });
       } else {
         liff.login();
@@ -303,10 +304,10 @@ export default {
         axios
           .post("https://icp2022.net/ICPScoreCard/api.php", {
             action: "insert",
-            // id: this.employee.id,
-            // name: this.employee.name,
-            id: 121,
-            name: "วีรชัย แก้วขอด",
+            id: this.employee.id,
+            name: this.employee.name,
+            // id: 121,
+            // name: "วีรชัย แก้วขอด",
             study_faculty: this.employee.study_faculty,
             university: this.employee.university,
             disibility_type: this.employee.disability_type,
@@ -379,6 +380,30 @@ export default {
             console.log(error);
           });
       }
+    },
+    checkMember(user,pass) {
+      console.log(" ตรวจสอบข้อมูลสมาชิก ");
+      var username = user;
+
+      var password = pass;
+      console.log("username", username);
+      var self = this;
+      axios
+        .post("https://icp2022.net/ICPScoreCard/api-member.php", {
+          action: "checkMember",
+          user: username,
+          pass: password,
+        })
+        .then(function (res) {
+          console.log("data:", res);
+          var member_id = res.data.map((item) => item.member_id)[0];
+          var full_name = res.data.map((item) => item.full_name)[0];
+          console.log("member_id1:", member_id);
+          console.log("full_name2", full_name);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
     sendMessages() {
       liff
