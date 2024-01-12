@@ -18,20 +18,6 @@
           <v-container class="pt-0 pb-0">
             <v-row>
               <v-col cols="12" md="6">
-                <div>รหัสอาชีพ:</div>
-                <v-text-field
-                  type="text"
-                  name="plan-Career-id"
-                  v-model="planCareer.Plan_Career_id"
-                  placeholder="PC-ID/รหัสอาชีพ"
-                  prepend-inner-icon="mdi-account-key"
-                  variant="outlined"
-                  required
-                  disabled
-                  class="form-control form-control-lg"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6">
                 <div>รหัสสมาชิก:</div>
                 <v-text-field
                   type="text"
@@ -39,6 +25,34 @@
                   v-model="planCareer.Employee_id"
                   placeholder="Id/รหัส"
                   prepend-inner-icon="mdi-key"
+                  variant="outlined"
+                  required
+                  disabled
+                  class="form-control form-control-lg"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <div>ชื่อ-สกุล:</div>
+                <v-text-field
+                  type="text"
+                  name="Employee-id"
+                  v-model="planCareer.name"
+                  placeholder="Id/รหัส"
+                  prepend-inner-icon="mdi-key"
+                  variant="outlined"
+                  required
+                  disabled
+                  class="form-control form-control-lg"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <div>รหัสอาชีพ:</div>
+                <v-text-field
+                  type="text"
+                  name="plan-Career-id"
+                  v-model="planCareer.Plan_Career_id"
+                  placeholder="PC-ID/รหัสอาชีพ"
+                  prepend-inner-icon="mdi-account-key"
                   variant="outlined"
                   required
                   disabled
@@ -147,6 +161,7 @@ export default {
           this.userId = profile.userId;
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
+          this.checkMember(this.userId,this.userId);
         });
       } else {
         liff.login();
@@ -163,6 +178,8 @@ export default {
       careers: [],
       //Plan_Career_id	Employee_id	Name_Plan_Career Description
       planCareer: {
+        id:"",
+        name: "",
         Plan_Career_id: "",
         Employee_id: this.$store.getters.myMember_id,
         career_id: "",
@@ -297,6 +314,32 @@ export default {
             console.log(error);
           });
       }
+    },
+    checkMember(user,pass) {
+      console.log(" ตรวจสอบข้อมูลสมาชิก ");
+      var username = user;
+
+      var password = pass;
+      console.log("username", username);
+      var self = this;
+      axios
+        .post("https://icp2022.net/ICPScoreCard/api-member.php", {
+          action: "checkMember",
+          user: username,
+          pass: password,
+        })
+        .then(function (res) {
+          console.log("data:", res);
+          var member_id = res.data.map((item) => item.member_id)[0];
+          var full_name = res.data.map((item) => item.full_name)[0];
+          console.log("member_id1:", member_id);
+          console.log("full_name2", full_name);
+          // self.employee.id = member_id;
+          self.planCareer.name = full_name;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
     sendMessages() {
       liff
