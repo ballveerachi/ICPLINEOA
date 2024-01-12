@@ -287,8 +287,8 @@ export default {
       levels: [],
       qualifications: [],
       qualifications_: [],
-      // employee_id: this.$store.getters.myMember_id,
-      employee_id:" ",
+      employee_id: this.$store.getters.myMember_id,
+      // employee_id:" ",
       careerPath: " ",
       careers: [],
       career_qualifications: [],
@@ -356,8 +356,8 @@ export default {
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
           action: "getEmpCareer",
-          // employee_id: this.employee_id,
-          employee_id: this.member.id,
+          employee_id: this.employee_id,
+          // employee_id: this.member.id,
         })
         .then(function (res) {
           self.careers = res.data;
