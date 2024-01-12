@@ -318,6 +318,10 @@ export default {
       qa_plan_career_id: "",
       // plan_career_id:"",
       // planId:	qualificationId	doing leaning
+      member:{
+        id:" ",
+        name:" ",
+      },
       plan: {
         planId: " ",
         qualificationId: "",
@@ -381,7 +385,8 @@ export default {
       axios
         .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
           action: "getEmpCareer",
-          employee_id: this.employee_id,
+          // employee_id: this.employee_id,
+          employee_id: this.member.id,
         })
         .then(function (res) {
           self.careers = res.data;
