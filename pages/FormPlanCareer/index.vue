@@ -163,7 +163,7 @@
 </template>
 <script>
 import axios from "axios";
-
+import liff from "@line/liff";
 export default {
   mounted() {
     liff.init({ liffId: "2000700725-9k3ANzzp" });
