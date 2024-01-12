@@ -32,6 +32,20 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
+                <div>รหัสสมาชิก:</div>
+                <v-text-field
+                  type="text"
+                  name="Employee-id"
+                  v-model="planCareer.id"
+                  placeholder="Id/รหัส"
+                  prepend-inner-icon="mdi-key"
+                  variant="outlined"
+                  required
+                  disabled
+                  class="form-control form-control-lg"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
                 <div>ชื่อ-สกุล:</div>
                 <v-text-field
                   type="text"
@@ -334,7 +348,7 @@ export default {
           var full_name = res.data.map((item) => item.full_name)[0];
           console.log("member_id1:", member_id);
           console.log("full_name2", full_name);
-          // self.employee.id = member_id;
+          self.planCareer.id = member_id;
           self.planCareer.name = full_name;
         })
         .catch(function (error) {
