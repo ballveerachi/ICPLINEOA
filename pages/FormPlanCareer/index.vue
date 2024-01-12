@@ -35,7 +35,6 @@
                 <div>รหัสสมาชิก:</div>
                 <v-text-field
                   type="text"
-                  name="Employee-id"
                   v-model="planCareer.id"
                   placeholder="Id/รหัส"
                   prepend-inner-icon="mdi-key"
@@ -49,7 +48,6 @@
                 <div>ชื่อ-สกุล:</div>
                 <v-text-field
                   type="text"
-                  name="Employee-id"
                   v-model="planCareer.name"
                   placeholder="Id/รหัส"
                   prepend-inner-icon="mdi-key"
@@ -173,8 +171,8 @@ export default {
       if (liff.isLoggedIn()) {
         liff.getProfile().then((profile) => {
           this.userId = profile.userId;
-          console.log("ข้อมูลจากLine", profile);
-          console.log("LineID", this.userId);
+          console.log("ข้อมูลจากLine112255", profile);
+          console.log("LineID4545", this.userId);
           this.checkMember(this.userId,this.userId);
         });
       } else {
@@ -192,8 +190,8 @@ export default {
       careers: [],
       //Plan_Career_id	Employee_id	Name_Plan_Career Description
       planCareer: {
-        id:"",
-        name: "",
+        id:"ewtwt",
+        name: "ewtewt",
         Plan_Career_id: "",
         Employee_id: this.$store.getters.myMember_id,
         career_id: "",
