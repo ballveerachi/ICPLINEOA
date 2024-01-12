@@ -190,8 +190,8 @@ export default {
       careers: [],
       //Plan_Career_id	Employee_id	Name_Plan_Career Description
       planCareer: {
-        id:"ewtwt",
-        name: "ewtewt",
+        id:"",
+        name: "",
         Plan_Career_id: "",
         Employee_id: this.$store.getters.myMember_id,
         career_id: "",
@@ -330,7 +330,6 @@ export default {
     checkMember(user,pass) {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
       var username = user;
-
       var password = pass;
       console.log("username", username);
       var self = this;
