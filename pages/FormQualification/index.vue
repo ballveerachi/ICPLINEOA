@@ -357,7 +357,7 @@ export default {
         .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
           action: "getEmpCareer",
           // employee_id: this.employee_id,
-          employee_id: self.member.id,
+          employee_id: 121,
         })
         .then(function (res) {
           self.careers = res.data;
