@@ -431,7 +431,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.planCareer.Employee_id,
+                            text: this.planCareer.id,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
