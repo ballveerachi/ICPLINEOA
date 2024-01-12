@@ -22,7 +22,7 @@
                 <div>รหัสสมาชิก:</div>
                 <v-text-field
                   type="text"
-                  v-model="qualification.id"
+                  v-model="member.id"
                   placeholder="Id/รหัส"
                   prepend-inner-icon="mdi-key"
                   variant="outlined"
@@ -35,7 +35,7 @@
                 <div>ชื่อ-สกุล:</div>
                 <v-text-field
                   type="text"
-                  v-model="qualification.name"
+                  v-model="member.name"
                   placeholder="Id/รหัส"
                   prepend-inner-icon="mdi-key"
                   variant="outlined"
@@ -268,6 +268,7 @@ export default {
           this.userId = profile.userId;
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
+          this.checkMember(this.userId,this.userId);
         });
       } else {
         liff.login();
@@ -290,9 +291,12 @@ export default {
       careerPath: " ",
       careers: [],
       career_qualifications: [],
-      qualification: {
+      member:{
         id:" ",
         name:" ",
+      },
+      qualification: {
+
         qa_plan_career_id: " ",
         qualificationId: " ",
         planCareerId: " ",
@@ -545,8 +549,8 @@ export default {
           var full_name = res.data.map((item) => item.full_name)[0];
           console.log("member_id1:", member_id);
           console.log("full_name2", full_name);
-          self.qualification.id = member_id;
-          self.qualification.name = full_name;
+          self.member.id = member_id;
+          self.member.name = full_name;
         })
         .catch(function (error) {
           console.log(error);
