@@ -355,7 +355,8 @@ export default {
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
           action: "getEmpCareer",
-          employee_id: this.employee_id,
+          // employee_id: this.employee_id,
+          employee_id: this.member_id,
         })
         .then(function (res) {
           self.careers = res.data;
@@ -550,7 +551,7 @@ export default {
           console.log("member_id1:", member_id);
           console.log("full_name2", full_name);
           self.member.id = member_id;
-          self.member.name = full_name;
+          self.member.id.name = full_name;
         })
         .catch(function (error) {
           console.log(error);
