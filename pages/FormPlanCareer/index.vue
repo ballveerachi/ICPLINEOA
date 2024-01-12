@@ -247,6 +247,7 @@ export default {
         console.log("Employee_id", this.planCareer.Employee_id);
         console.log("career_id", this.planCareer.career_id.career_id);
         const newPlanCareer = {
+          // Employee_id: this.planCareer.Employee_id,
           Employee_id: this.planCareer.Employee_id,
           career_id: this.planCareer.career_id.career_id,
 
@@ -256,7 +257,8 @@ export default {
         axios
           .post("https://icp2022.net/ICPScoreCard/api-plan-career.php", {
             action: "insert",
-            Employee_id: this.planCareer.Employee_id,
+            // Employee_id: this.planCareer.Employee_id,
+            Employee_id: 121,
             career_id: this.planCareer.career_id.career_id,
 
           })
