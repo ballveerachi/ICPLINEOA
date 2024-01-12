@@ -258,7 +258,7 @@ export default {
           .post("https://icp2022.net/ICPScoreCard/api-plan-career.php", {
             action: "insert",
             // Employee_id: this.planCareer.Employee_id,
-            Employee_id: 121,
+            Employee_id: this.planCareer.id,
             career_id: this.planCareer.career_id.career_id,
 
           })

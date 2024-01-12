@@ -486,7 +486,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: "วีรชัย แก้วขอด",
+                            text: this.employee.name,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
