@@ -17,6 +17,32 @@
         >
           <v-container class="pt-0 pb-0">
             <v-row>
+              <v-col cols="12" md="6">
+                <div>รหัสสมาชิก:</div>
+                <v-text-field
+                  type="text"
+                  v-model="member.id"
+                  placeholder="Id/รหัส"
+                  prepend-inner-icon="mdi-key"
+                  variant="outlined"
+                  required
+                  disabled
+                  class="form-control form-control-lg"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <div>ชื่อ-สกุล:</div>
+                <v-text-field
+                  type="text"
+                  v-model="member.name"
+                  placeholder="Id/รหัส"
+                  prepend-inner-icon="mdi-key"
+                  variant="outlined"
+                  required
+                  disabled
+                  class="form-control form-control-lg"
+                ></v-text-field>
+              </v-col>
               <!-- Plan_Career_id -->
               <v-col cols="12" md="6">
                 <div for="career_plan-id">รหัสแผนเรียน/ทำ:</div>
@@ -290,6 +316,7 @@ export default {
           this.userId = profile.userId;
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
+          this.checkMember(this.userId,this.userId);
         });
       } else {
         liff.login();
@@ -311,7 +338,12 @@ export default {
       qualifications: [],
       qualification: [],
       qualifications_: [],
-      employee_id: this.$store.getters.myMember_id,
+      member:{
+        id:" ",
+        name:" ",
+      },
+      employee_id: 121,
+      // employee_id: this.$store.getters.myMember_id,
       planCareerId: "",
       modal_plan_start_date: false,
       modal_plan_end_date: false,
@@ -554,8 +586,8 @@ export default {
           var full_name = res.data.map((item) => item.full_name)[0];
           console.log("member_id1:", member_id);
           console.log("full_name2", full_name);
-          self.planCareer.id = member_id;
-          self.planCareer.name = full_name;
+          self.member.id = member_id;
+          self.member.name = full_name;
         })
         .catch(function (error) {
           console.log(error);
