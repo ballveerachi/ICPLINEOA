@@ -287,8 +287,8 @@ export default {
       levels: [],
       qualifications: [],
       qualifications_: [],
-      employee_id: this.$store.getters.myMember_id,
-      // employee_id:" ",
+      // employee_id: this.$store.getters.myMember_id,
+      employee_id:" ",
       careerPath: " ",
       careers: [],
       career_qualifications: [],
@@ -553,6 +553,7 @@ export default {
           console.log("full_name2", full_name);
           self.member.id = member_id;
           self.member.name = full_name;
+          self.employee_id = member_id;
         })
         .catch(function (error) {
           console.log(error);
