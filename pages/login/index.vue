@@ -76,7 +76,7 @@
               > -->
               <div class="text-right mt-2">
                 ยังไม่มีบัญชีใช่ไหม
-                <router-link to="/register/InEmail"
+                <router-link to="/InEmail"
                   >สมัครใช้งาน</router-link
                 >
               </div>
