@@ -173,7 +173,7 @@ export default {
           this.userId = profile.userId;
           console.log("ข้อมูลจากLine112255", profile);
           console.log("LineID4545", this.userId);
-          this.checkMember(this.userId,this.userId);
+          this.checkMember(this.userId, this.userId);
         });
       } else {
         liff.login();
@@ -190,14 +190,14 @@ export default {
       careers: [],
       //Plan_Career_id	Employee_id	Name_Plan_Career Description
       planCareer: {
-        id:"",
+        id: "",
         name: "",
         Plan_Career_id: "",
         Employee_id: this.$store.getters.myMember_id,
         career_id: "",
         career: "",
       },
-      LineCareer : "",
+      LineCareer: "",
 
       isEdit: false,
       status: "Save/บันทึก",
@@ -250,7 +250,6 @@ export default {
           // Employee_id: this.planCareer.Employee_id,
           Employee_id: this.planCareer.Employee_id,
           career_id: this.planCareer.career_id.career_id,
-
         };
         this.$emit("saveData", newPlanCareer);
 
@@ -260,7 +259,6 @@ export default {
             // Employee_id: this.planCareer.Employee_id,
             Employee_id: this.planCareer.id,
             career_id: this.planCareer.career_id.career_id,
-
           })
           .then((res) => {
             console.log(res);
@@ -329,7 +327,7 @@ export default {
           });
       }
     },
-    checkMember(user,pass) {
+    checkMember(user, pass) {
       console.log(" ตรวจสอบข้อมูลสมาชิก ");
       var username = user;
       var password = pass;
@@ -397,9 +395,33 @@ export default {
                         type: "box",
                         layout: "baseline",
                         contents: [
+                          // {
+                          //   type: "text",
+                          //   text: "ID",
+                          //   size: "sm",
+                          //   color: "#000000FF",
+                          //   margin: "sm",
+                          //   contents: [],
+                          // },
+                          // {
+                          //   type: "text",
+                          //   text: this.employee.id,
+                          //   weight: "regular",
+                          //   size: "sm",
+                          //   color: "#000000FF",
+                          //   align: "end",
+                          //   contents: [],
+                          // },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
                           {
-                            type: "ชื่อ-นามสกุล",
-                            text: "ID",
+                            type: "text",
+                            text: "ชื่อผู้ใช้",
+                            weight: "regular",
                             size: "sm",
                             color: "#000000FF",
                             margin: "sm",
@@ -407,8 +429,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text:this.planCareer.name,
-                            weight: "regular",
+                            text: this.planCareer.name,
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
@@ -422,7 +443,7 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "รหัสอาชีพ",
+                            text: "แผนอาชีพที่เลือก",
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -431,30 +452,7 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.planCareer.id,
-                            size: "sm",
-                            color: "#000000FF",
-                            align: "end",
-                            contents: [],
-                          },
-                        ],
-                      },
-                      {
-                        type: "box",
-                        layout: "baseline",
-                        contents: [
-                          {
-                            type: "text",
-                            text: "แผนอาชีพ",
-                            weight: "regular",
-                            size: "sm",
-                            color: "#000000FF",
-                            margin: "sm",
-                            contents: [],
-                          },
-                          {
-                            type: "text",
-                            text:this.LineCareer,
+                            text: this.LineCareer,
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -463,7 +461,6 @@ export default {
                           },
                         ],
                       },
-
                     ],
                   },
                 ],
@@ -481,22 +478,22 @@ export default {
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormQualification",
+                      uri: "https://liff.line.me/2000700725-9k3ANzzp",
                     },
                     height: "sm",
                     style: "primary",
                   },
-                  {
-                    type: "button",
-                    action: {
-                      type: "uri",
-                      label: "Back",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormComponent",
-                    },
-                    color: "#CFC9CAFF",
-                    height: "sm",
-                    style: "primary",
-                  },
+                  // {
+                  //   type: "button",
+                  //   action: {
+                  //     type: "uri",
+                  //     label: "Back",
+                  //     uri: "https://elegant-buttercream-fd2e73.netlify.app/",
+                  //   },
+                  //   color: "#CFC9CAFF",
+                  //   height: "sm",
+                  //   style: "primary",
+                  // },
                 ],
               },
             },
@@ -510,10 +507,10 @@ export default {
           console.log("error", err);
         });
     },
-    onPlanCareerChange(val){
-      this.LineCareer =val.career
-      console.log("onPlanCeerName",this.LineCareer);
-    }
+    onPlanCareerChange(val) {
+      this.LineCareer = val.career;
+      console.log("onPlanCeerName", this.LineCareer);
+    },
   },
   created() {
     this.getAllUser();
