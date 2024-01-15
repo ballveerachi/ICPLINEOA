@@ -92,20 +92,42 @@
           </v-col>
         </v-row>
       </v-container>
+      <v-card class="mx-auto table" max-width="800px" cols="12" md="6">
+            <v-card text="..." variant="tonal">แก้ไขข้อมูล</v-card>
+            <v-row>
+              <v-col>Id</v-col>
+              <v-col>Full-Name</v-col>
+              <v-col>E-mail</v-col>
+              <v-col>Password</v-col>
+              <v-col>Status</v-col>
+            </v-row>
+            <v-row
+              v-for="row in members"
+              :key="row.member_id"
+              cols="12"
+              md="6"
+            >
+              <v-col>{{ row.member_id }}</v-col>
+              <v-col>{{ row.full_name }}</v-col>
+              <v-col>{{ row.email }}</v-col>
+              <v-col>{{ row.password }}</v-col>
+              <v-col>{{ row.status }}</v-col>
+
+              <v-col
+                ><v-btn @click="editUser(row.member_id)"
+                  ><v-icon small class="mr-2"> mdi-pencil </v-icon></v-btn
+                >
+                <v-btn @click="deleteUser(row.member_id)"
+                  ><v-icon small class="mr-2"> mdi-delete </v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
     </v-card>
   </div>
 </template>
 
 
-
-
-
-        </v-row
-        ></v-container
-      >
-    </v-card>
-  </div>
-</template>
 
 <script>
 import axios from "axios";
