@@ -59,9 +59,9 @@
       >
 
       <v-card-text class="text-center">
-        <a class="text-right mt-2">
-          <router-link :to="{ name: 'register/RegistrationPage' }">สมัครใช้งาน</router-link>
-        </a>
+        <router-link :to="{ name: 'register/RegistrationPage' }"
+          >สมัครใช้งาน</router-link
+        >
       </v-card-text>
     </v-card>
   </div>
