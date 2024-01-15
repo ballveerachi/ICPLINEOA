@@ -423,7 +423,7 @@ export default {
                         contents: [
                           {
                             type: "text",
-                            text: "รหัสอาชีพ",
+                            text: "IDผู้ใช้",
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
@@ -432,7 +432,8 @@ export default {
                           },
                           {
                             type: "text",
-                            text: this.planCareer.id,
+                            // text: this.planCareer.id,
+                            text: "485",
                             size: "sm",
                             color: "#000000FF",
                             align: "end",
