@@ -1,104 +1,98 @@
 <template>
-<div>
-  <div class="vue-tempalte">
-    <form @submit.prevent="submitForm" method="post">
-      <h3>Sign Up/ลงทะเบียนเข้าสู่ระบบ</h3>
-      <div class="form-group">
-        <input
-          type="text"
-          name="member_id"
-          v-model="member.member_id"
-          placeholder="Id/รหัส"
-          class="form-control form-control-lg"
-        />
-      </div>
-      <div class="form-group">
-        <input
-          type="text"
-          name="full_name"
-          v-model="member.full_name"
-          placeholder="Full Name/ชื่อ-นามสกุล"
-          class="form-control form-control-lg"
-        />
-      </div>
+  <div>
+    <v-app-bar color="primary" dense flat dark>
+      <v-toolbar-title>Register</v-toolbar-title>
+    </v-app-bar>
+    <v-card
+      class="mx-auto pa-12 pb-8"
+      elevation="8"
+      max-width="448"
+      rounded="lg"
+    >
+      <v-container class="pt-0 pb-0">
+        <v-row>
+          <v-col cols="12">
+            <div class="mt-8 text-primary text-title text-center">
+              Sign Up/ลงทะเบียน
+            </div>
+          </v-col>
+          <v-col cols="12">
+            <div class="text-center">
+              <img src="~/assets/profile.jpg" alt="" width="155" />
+            </div>
+          </v-col>
+          <v-col cols="12" class="text-center pt-2 pb-0"> display name </v-col>
+          <v-col cols="12">
+            <v-col>
+              <!-- member_id -->
+              <div>Account</div>
+              <v-text-field
+                type="text"
+                variant="solo-filled"
+                v-model="member.member_id"
+                dense
+                label="ID/รหัส"
+              ></v-text-field>
+              <!--  -->
+              <!-- full_name -->
+              <v-text-field
+                type="text"
+                variant="solo-filled"
+                v-model="member.full_name"
+                dense
+                label="full_name/ชื่อ-นามสกุล"
+              ></v-text-field>
+              <!--  -->
+              <!-- E-mail -->
+              <v-text-field
+                type="text"
+                v-model="member.email"
+                dense
+                label="อีเมลล์/ชื่อผู้ใช้"
+              ></v-text-field>
+              <!--  -->
+              <!-- Passwword -->
+              <v-text-field
+                type="text"
+                v-model="member.password"
+                dense
+                label="Password/รหัสผ่าน"
+              ></v-text-field>
+              <!--  -->
+              <!-- status -->
+              <v-text-field
+                type="text"
+                v-model="member.status"
+                dense
+                label="Status/สถานะ"
+              ></v-text-field>
 
-      <div class="form-group">
-        <input
-          type="text"
-          name="email"
-          v-model="member.email"
-          placeholder="E-mail/ชื่อผู้ใช้"
-          class="form-control form-control-lg"
-        />
-      </div>
-
-      <div class="form-group">
-        <input
-          type="password"
-          name="password"
-          v-model="member.password"
-          placeholder="Password/รหัสผ่าน"
-          class="form-control form-control-lg"
-        />
-      </div>
-
-      <div class="form-group">
-        <input
-          type="text"
-          name="status"
-          v-model="member.status"
-          placeholder="Status/สถานะ"
-          class="form-control form-control-lg"
-        />
-      </div>
-      <div>
-        <div class="topbutton">
-            <v-btn
-              class="buttonForm"
-              depressed
-              type="submit"
-              color="#28a745"
-              value="Save/บันทึก"
-              >Sign Up / ลงทะเบียน</v-btn
-            >
-    </div>
-      </div>
-      <p class="forgot-password text-right">
-        Already registered
-        <router-link :to="{ name: 'LoginPage' }">Sign in/เข้าสู่ระบบ?</router-link>
-      </p>
-    </form>
-  </div>
-  <div class="py-2">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Full Name</th>
-          <th scope="col">E-mail</th>
-          <th scope="col">Password</th>
-          <th scope="col">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="row in members" :key="row.index">
-          <td>{{ row.member_id }}</td>
-          <td>{{ row.full_name }}</td>
-          <td>{{ row.email }}</td>
-          <td>{{ row.password }}</td>
-          <td>{{ row.status }}</td>
-          <td>
-            <v-btn depressed color="#3366FF" @click="editUser(row.member_id)">Edit</v-btn>
-          </td>
-          <td>
-             <v-btn depressed color="#FF3333" @click="deleteUser(row.member_id)">Delete</v-btn>
-
-          </td>
-        </tr>
-        <tr></tr>
-      </tbody>
-    </table>
-  </div>
+              <v-btn
+                rounded
+                type="submit"
+                color="#28a745"
+                dark
+                class="w-100 mt-10 my-btn"
+                @click="next"
+                >Sing Up</v-btn
+              >
+              <v-card-text class="text-center">
+                <a
+                  class="text-blue text-decoration-none"
+                  href="#"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <router-link :to="{ name: 'done' }"
+                    >Login now <v-icon icon="mdi-chevron-right"></v-icon
+                  ></router-link>
+                </a>
+              </v-card-text>
+            </v-col>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-card>
   </div>
 </template>
 
