@@ -7,6 +7,7 @@
         <input
           type="text"
           name="member_id"
+          required
           v-model="member.member_id"
           placeholder="Id/รหัส"
           class="form-control form-control-lg"
@@ -211,7 +212,7 @@ export default {
       this.status = "บันทึก";
       this.isEdit = false;
       console.log("ยกเลิกการบันทึกข้อมูล");
-      this.member.member_id = 0;
+      this.member.member_id = "";
       this.member.full_name = "";
       this.member.email = "";
       this.member.password = "";
