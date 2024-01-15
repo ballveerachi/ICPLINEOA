@@ -707,7 +707,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlan",
+                      uri: "https://liff.line.me/2000700725-E6Wv833Q",
                     },
                     height: "sm",
                     style: "primary",
@@ -717,7 +717,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Back",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlanCareer",
+                      uri: "https://liff.line.me/2000700725-9k3ANzzp",
                     },
                     color: "#CFC9CAFF",
                     height: "sm",

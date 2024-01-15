@@ -788,7 +788,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormSelfAssessment",
+                      uri: "https://liff.line.me/2000700725-Z5rVR88l",
                     },
                     height: "sm",
                     style: "primary",
@@ -798,7 +798,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Back",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlan",
+                      uri: "https://liff.line.me/2000700725-Mxyp2AAD",
                     },
                     color: "#CFC9CAFF",
                     height: "sm",

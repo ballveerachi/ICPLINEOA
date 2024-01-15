@@ -712,7 +712,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Back",
-                      uri: "https://elegant-buttercream-fd2e73.netlify.app/FormPlan",
+                      uri: "https://liff.line.me/2000700725-E6Wv833Q",
                     },
                     color: "#CFC9CAFF",
                     height: "sm",
