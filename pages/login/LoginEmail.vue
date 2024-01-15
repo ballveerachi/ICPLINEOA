@@ -69,7 +69,7 @@
           target="_blank"
 
         >
-        <router-link :to="{ name: '/register/registrationpage/' }"
+        <router-link :to="{ name: '/register/InEmail' }"
                   >สมัครใช้งาน</router-link
                 >
         </a>
