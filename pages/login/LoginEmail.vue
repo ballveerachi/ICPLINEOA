@@ -32,7 +32,6 @@
         variant="outlined"
       ></v-text-field>
 
-
       <v-text-field
         type="password"
         v-model="input.password"
@@ -41,8 +40,6 @@
         prepend-inner-icon="mdi-lock-outline"
         variant="outlined"
       ></v-text-field>
-
-
 
       <v-btn
         rounded
@@ -62,16 +59,8 @@
       >
 
       <v-card-text class="text-center">
-        <a
-          class="text-blue text-decoration-none"
-          href="#"
-          rel="noopener noreferrer"
-          target="_blank"
-
-        >
-        <router-link :to="{ name: '/register' }"
-                  >สมัครใช้งาน</router-link
-                >
+        <a class="text-right mt-2">
+          <router-link :to="{ name: 'register' }">สมัครใช้งาน</router-link>
         </a>
       </v-card-text>
     </v-card>
@@ -79,7 +68,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   name: "LoginPage",
@@ -104,7 +93,7 @@ export default {
         console.log("A username and password must be present");
       }
     },
-    cancle(){
+    cancle() {
       this.$router.push("/login");
       console.log(" ยกเลิก ");
     },
@@ -118,19 +107,16 @@ export default {
           pass: this.input.password,
         })
         .then(function (res) {
-          console.log("data:",res)
+          console.log("data:", res);
           self.member.member_id = res.data.map((item) => item.member_id)[0];
           self.member.full_name = res.data.map((item) => item.full_name)[0];
-          self.storeCommit(
-            self.member.member_id,
-            self.member.full_name,
-          );
+          self.storeCommit(self.member.member_id, self.member.full_name);
         })
         .catch(function (error) {
           console.log(error);
         });
     },
-    storeCommit(member_id, full_name,) {
+    storeCommit(member_id, full_name) {
       console.log("login:", member_id);
       console.log("login:", full_name);
       if (member_id != 0 && full_name != "") {
