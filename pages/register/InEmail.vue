@@ -27,20 +27,22 @@
               <!-- member_id -->
               <div>Account</div>
               <v-text-field
-                required
                 type="text"
                 variant="solo-filled"
                 v-model="member.member_id"
                 dense
                 label="ID/รหัส"
+                disabled
               ></v-text-field>
               <!--  -->
               <!-- full_name -->
               <v-text-field
+
                 type="text"
                 variant="solo-filled"
                 v-model="member.full_name"
                 dense
+                required
                 label="full_name/ชื่อ-นามสกุล"
               ></v-text-field>
               <!--  -->
@@ -49,6 +51,7 @@
                 type="text"
                 v-model="member.email"
                 dense
+                required
                 label="อีเมลล์/ชื่อผู้ใช้"
               ></v-text-field>
               <!--  -->
@@ -57,6 +60,7 @@
                 type="text"
                 v-model="member.password"
                 dense
+                required
                 label="Password/รหัสผ่าน"
               ></v-text-field>
               <!--  -->
