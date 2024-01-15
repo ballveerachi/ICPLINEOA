@@ -1,5 +1,16 @@
 <template>
- <h1>123</h1>
+  <div>
+    <v-app-bar color="primary" dense flat dark>
+      <v-toolbar-title>Register</v-toolbar-title>
+    </v-app-bar>
+    <v-card
+      class="mx-auto pa-12 pb-8"
+      elevation="8"
+      max-width="448"
+      rounded="lg"
+    >
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -14,7 +25,7 @@ export default {
         full_name: "",
         email: "",
         password: "",
-        status:"",
+        status: "",
       },
     };
   },
@@ -68,9 +79,9 @@ export default {
           });
       }
     },
-    cancle(){
+    cancle() {
       this.$router.replace({ name: "index" });
-      },
+    },
     getAllUser() {
       console.log(" แสดงข้อมูลทั้งหมด ");
       var self = this;
@@ -101,7 +112,7 @@ export default {
           self.member.full_name = response.data.full_name;
           self.member.email = response.data.email;
           self.member.password = response.data.password;
-          self.member.status= response.data.status;
+          self.member.status = response.data.status;
         })
         .catch(function (error) {
           console.log(error);
@@ -136,9 +147,9 @@ export default {
       }
     },
   },
-  created(){
+  created() {
     this.getAllUser();
-  }
+  },
 };
 </script>
 <style scoped>
