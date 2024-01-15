@@ -407,7 +407,8 @@ export default {
                           },
                           {
                             type: "text",
-                            text:this.planCareer.name,
+                            // text:this.planCareer.name,
+                            text:"66666",
                             weight: "regular",
                             size: "sm",
                             color: "#000000FF",
