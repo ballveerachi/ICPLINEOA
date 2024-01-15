@@ -88,7 +88,7 @@
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <router-link :to="{ name: 'done' }"
+                  <router-link to="/login/LoginEmail"
                     >Login now <v-icon icon="mdi-chevron-right"></v-icon
                   ></router-link>
                 </a>

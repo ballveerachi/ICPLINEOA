@@ -59,13 +59,14 @@
       >
 
       <v-card-text class="text-center">
-        <router-link :to="{ name: 'InEmail' }"
+        <!-- <router-link :to="{ name: 'InEmail' }"
+          >สมัครใช้งาน</router-link
+        > -->
+        <router-link to="/register/InEmail"
           >สมัครใช้งาน</router-link
         >
       </v-card-text>
-       <router-link to="/register/InEmail"
-          >สมัครใช้งาน</router-link
-        >
+
 
     </v-card>
   </div>
