@@ -9,6 +9,15 @@
       max-width="448"
       rounded="lg"
     >
+      <v-container class="pt-0 pb-0">
+        <v-row>
+          <v-col cols="12">
+            <div class="mt-8 text-primary text-title text-center">
+              Sign Up/ลงทะเบียน
+            </div>
+          </v-col></v-row
+        ></v-container
+      >
     </v-card>
   </div>
 </template>
