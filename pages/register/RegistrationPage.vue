@@ -15,7 +15,18 @@
             <div class="mt-8 text-primary text-title text-center">
               Sign Up/ลงทะเบียน
             </div>
-          </v-col></v-row
+          </v-col>
+          <v-col cols="12">
+            <div class="text-center">
+              <img src="~/assets/profile.jpg" alt="" width="155" />
+            </div>
+          </v-col>
+
+
+
+
+
+        </v-row
         ></v-container
       >
     </v-card>
