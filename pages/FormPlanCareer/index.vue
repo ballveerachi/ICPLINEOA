@@ -478,7 +478,7 @@ export default {
                     action: {
                       type: "uri",
                       label: "Next",
-                      uri: "https://liff.line.me/2000700725-9k3ANzzp",
+                      uri: "https://liff.line.me/2000700725-Mxyp2AAD",
                     },
                     height: "sm",
                     style: "primary",
