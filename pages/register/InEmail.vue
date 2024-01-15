@@ -32,12 +32,12 @@
                 v-model="member.member_id"
                 dense
                 label="ID/รหัส"
+                required
                 disabled
               ></v-text-field>
               <!--  -->
               <!-- full_name -->
               <v-text-field
-
                 type="text"
                 variant="solo-filled"
                 v-model="member.full_name"
