@@ -18,9 +18,83 @@
           </v-col>
           <v-col cols="12">
             <div class="text-center">
-              <img src="~/assets/profile.jpg" alt="" width="155" />
+              <img src="~/assets/user.png" alt="" width="155" />
             </div>
           </v-col>
+          <v-col cols="12" class="text-center pt-2 pb-0"> display name </v-col>
+          <v-col cols="12">
+            <v-col>
+              <!-- member_id -->
+              <div>Account</div>
+              <v-text-field
+                type="text"
+                variant="solo-filled"
+                v-model="member.member_id"
+                dense
+                label="ID/รหัส"
+              ></v-text-field>
+              <!--  -->
+              <!-- full_name -->
+              <v-text-field
+                type="text"
+                variant="solo-filled"
+                v-model="member.full_name"
+                dense
+                label="full_name/ชื่อ-นามสกุล"
+              ></v-text-field>
+              <!--  -->
+              <!-- E-mail -->
+              <v-text-field
+                type="text"
+                v-model="member.email"
+                dense
+                label="อีเมลล์/ชื่อผู้ใช้"
+              ></v-text-field>
+              <!--  -->
+              <!-- Passwword -->
+              <v-text-field
+                type="text"
+                v-model="member.password"
+                dense
+                label="Password/รหัสผ่าน"
+              ></v-text-field>
+              <!--  -->
+              <!-- status -->
+              <v-text-field
+                type="text"
+                v-model="member.status"
+                dense
+                label="Status/สถานะ"
+              ></v-text-field>
+
+              <v-btn
+                rounded
+                type="submit"
+                color="#28a745"
+                dark
+                class="w-100 mt-10 my-btn"
+                @click="next"
+                >Sing Up</v-btn
+              >
+              <v-card-text class="text-center">
+                <a
+                  class="text-blue text-decoration-none"
+                  href="#"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <router-link :to="{ name: 'done' }"
+                    >Login now <v-icon icon="mdi-chevron-right"></v-icon
+                  ></router-link>
+                </a>
+              </v-card-text>
+            </v-col>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-card>
+  </div>
+</template>
 
 
 
