@@ -592,6 +592,29 @@ export default {
                     layout: "vertical",
                     spacing: "sm",
                     contents: [
+                    {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "ชื่อผู้ใช้",
+                            weight: "regular",
+                            size: "sm",
+                            color: "#000000FF",
+                            margin: "sm",
+                            contents: [],
+                          },
+                          {
+                            type: "text",
+                            text: this.member.name,
+                            size: "sm",
+                            color: "#000000FF",
+                            align: "end",
+                            contents: [],
+                          },
+                        ],
+                      },
                       {
                         type: "box",
                         layout: "baseline",
