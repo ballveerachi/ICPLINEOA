@@ -63,6 +63,10 @@
           >สมัครใช้งาน</router-link
         >
       </v-card-text>
+       <router-link to="/register/InEmail"
+          >สมัครใช้งาน</router-link
+        >
+
     </v-card>
   </div>
 </template>
