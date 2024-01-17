@@ -288,7 +288,7 @@ export default {
       qualifications: [],
       qualifications_: [],
       // employee_id: this.$store.getters.myMember_id,
-      employee_id:" ",
+      employee_id:this.member_id,
       careerPath: " ",
       careers: [],
       career_qualifications: [],
