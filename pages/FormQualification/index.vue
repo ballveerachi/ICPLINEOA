@@ -351,7 +351,7 @@ export default {
         });
     },
     getCareer() {
-      console.log(" ข้อมูลอาชีพ ");
+      console.log(" ข้อมูลอาชีพ ",this.employee_id);
       var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
