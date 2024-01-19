@@ -342,7 +342,7 @@ export default {
         id:" ",
         name:" ",
       },
-      employee_id: 121,
+      employee_id: "",
       // employee_id: this.$store.getters.myMember_id,
       planCareerId: "",
       modal_plan_start_date: false,
@@ -411,13 +411,13 @@ export default {
           console.log(error);
         });
     },
-    getCareer() {
-      console.log(" ข้อมูลอาชีพ ");
+    getCareer(em_id) {
+      console.log(" ข้อมูลอาชีพ ",em_id);
       var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-career-qualification.php", {
           action: "getEmpCareer",
-          employee_id: this.employee_id,
+          employee_id: em_id,
           // employee_id: this.member.id,
         })
         .then(function (res) {
@@ -588,6 +588,8 @@ export default {
           console.log("full_name2", full_name);
           self.member.id = member_id;
           self.member.name = full_name;
+          self.employee_id= member_id;
+          self.getCareer(member_id);
         })
         .catch(function (error) {
           console.log(error);
@@ -847,7 +849,7 @@ export default {
   },
   created() {
     this.getAllUser();
-    this.getCareer();
+    // this.getCareer();
   },
 };
 </script>
