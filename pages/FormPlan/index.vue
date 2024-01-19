@@ -326,7 +326,7 @@ export default {
   name: "FormPlan",
   data() {
     return {
-      pageTitle: "รายงานประเมินตัวเอง",
+      pageTitle: "แผนเรียน/ทำ",
       message: "Form Plan Career",
       careers: [],
       qa_plan_career: [],
