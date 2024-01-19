@@ -535,7 +535,7 @@ export default {
       }
     },
     checkMember(user,pass) {
-      console.log(" ตรวจสอบข้อมูลสมาชิก ");
+      console.log(" ตรวจสอบข้อมูลสมาชิกก ");
       var username = user;
       var password = pass;
       console.log("username", username);
