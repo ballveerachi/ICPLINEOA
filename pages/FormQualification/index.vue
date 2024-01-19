@@ -269,7 +269,7 @@ export default {
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
           this.checkMember(this.userId,this.userId);
-          this.getCareer();
+
         });
       } else {
         liff.login();
@@ -351,8 +351,8 @@ export default {
           console.log(error);
         });
     },
-    getCareer() {
-      console.log(" ข้อมูลอาชีพ ",this.employee_id);
+    getCareer(em_id) {
+      console.log(" ข้อมูลอาชีพ ",em_id);
       var self = this;
       axios
         .post("https://icp2022.net/ICPScoreCard/api-qualification.php", {
@@ -555,6 +555,8 @@ export default {
           self.member.id = member_id;
           self.member.name = full_name;
           self.employee_id= member_id;
+          self.getCareer(member_id);
+          console.log("memberID",)
         })
         .catch(function (error) {
           console.log(error);
