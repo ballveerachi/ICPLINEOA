@@ -269,6 +269,7 @@ export default {
           console.log("ข้อมูลจากLine", profile);
           console.log("LineID", this.userId);
           this.checkMember(this.userId,this.userId);
+          this.getCareer();
         });
       } else {
         liff.login();
@@ -779,7 +780,7 @@ export default {
   },
   created() {
     this.getAllUser();
-    this.getCareer();
+    // this.getCareer();
     this.getQualifications();
     this.getLevel();
     this.getTarget();
