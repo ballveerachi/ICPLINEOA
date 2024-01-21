@@ -78,7 +78,7 @@ export default {
         {
           icon: "mdi-account-box",
           title: "ข้อมูลส่วนตัว",
-          to: "/FormComponent",
+          to: "www.google.com",
         },
         {
           icon: "mdi-account-check",
